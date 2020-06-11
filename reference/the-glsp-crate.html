@@ -1,0 +1,412 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The glsp Crate - GameLisp Reference Manual</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="overview.html">Overview</a></li><li class="chapter-item expanded affix "><a href="introduction-for-rust-programmers.html">Introduction for Rust Programmers</a></li><li class="chapter-item expanded affix "><a href="introduction-for-lisp-programmers.html">Introduction for Lisp Programmers</a></li><li class="chapter-item expanded "><a href="the-language.html"><strong aria-hidden="true">1.</strong> The Language</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="syntax-and-types.html"><strong aria-hidden="true">1.1.</strong> Syntax and Types</a></li><li class="chapter-item expanded "><a href="evaluation.html"><strong aria-hidden="true">1.2.</strong> Evaluation</a></li><li class="chapter-item expanded "><a href="macros.html"><strong aria-hidden="true">1.3.</strong> Macros</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="built-in-macros.html"><strong aria-hidden="true">1.3.1.</strong> Built-in Macros</a></li></ol></li><li class="chapter-item expanded "><a href="numbers.html"><strong aria-hidden="true">1.4.</strong> Numbers</a></li><li class="chapter-item expanded "><a href="arrays.html"><strong aria-hidden="true">1.5.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="strings-and-text.html"><strong aria-hidden="true">1.6.</strong> Strings and Text</a></li><li class="chapter-item expanded "><a href="tables.html"><strong aria-hidden="true">1.7.</strong> Tables</a></li><li class="chapter-item expanded "><a href="iterators.html"><strong aria-hidden="true">1.8.</strong> Iterators</a></li><li class="chapter-item expanded "><a href="coroutines.html"><strong aria-hidden="true">1.9.</strong> Coroutines</a></li><li class="chapter-item expanded "><a href="patterns.html"><strong aria-hidden="true">1.10.</strong> Patterns</a></li><li class="chapter-item expanded "><a href="object-oriented-programming.html"><strong aria-hidden="true">1.11.</strong> Object-Oriented Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="state-machines.html"><strong aria-hidden="true">1.11.1.</strong> State Machines</a></li><li class="chapter-item expanded "><a href="code-reuse.html"><strong aria-hidden="true">1.11.2.</strong> Code Reuse</a></li><li class="chapter-item expanded "><a href="structs.html"><strong aria-hidden="true">1.11.3.</strong> Structs</a></li></ol></li><li class="chapter-item expanded "><a href="errors.html"><strong aria-hidden="true">1.12.</strong> Errors</a></li><li class="chapter-item expanded "><a href="miscellaneous.html"><strong aria-hidden="true">1.13.</strong> Miscellaneous</a></li></ol></li><li class="chapter-item expanded "><a href="the-rust-api.html"><strong aria-hidden="true">2.</strong> The Rust API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="the-glsp-crate.html" class="active"><strong aria-hidden="true">2.1.</strong> The glsp Crate</a></li><li class="chapter-item expanded "><a href="collection-types.html"><strong aria-hidden="true">2.2.</strong> Collection Types</a></li><li class="chapter-item expanded "><a href="rust-functions.html"><strong aria-hidden="true">2.3.</strong> Rust Functions</a></li><li class="chapter-item expanded "><a href="rust-data.html"><strong aria-hidden="true">2.4.</strong> Rust Data</a></li><li class="chapter-item expanded "><a href="libraries.html"><strong aria-hidden="true">2.5.</strong> Libraries</a></li><li class="chapter-item expanded "><a href="garbage-collection.html"><strong aria-hidden="true">2.6.</strong> Garbage Collection</a></li><li class="chapter-item expanded "><a href="procedural-macros.html"><strong aria-hidden="true">2.7.</strong> Procedural Macros</a></li><li class="chapter-item expanded "><a href="compilation.html"><strong aria-hidden="true">2.8.</strong> Compilation</a></li><li class="chapter-item expanded "><a href="feature-flags.html"><strong aria-hidden="true">2.9.</strong> Feature Flags</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="performance-figures.html">Appendix A: Performance Figures</a></li><li class="chapter-item expanded affix "><a href="naming-conventions.html">Appendix B: Naming Conventions</a></li><li class="chapter-item expanded affix "><a href="implementation-limits.html">Appendix C: Implementation Limits</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                    </div>
+
+                    <h1 class="menu-title">GameLisp Reference Manual</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#the-glsp-crate" id="the-glsp-crate">The <code>glsp</code> Crate</a></h1>
+<p>Let's take another look at the skeleton project from the <a href="overview.html">Overview</a> chapter:</p>
+<pre><pre class="playpen"><code class="language-rust">use glsp::prelude::*;
+
+fn main() {
+	let runtime = Runtime::new();
+	runtime.run(|| {
+		glsp::load(&quot;main.glsp&quot;)?;
+		Ok(())
+	});
+}
+</code></pre></pre>
+<p>The main player here is the <a href="https://docs.rs/glsp/*/glsp/struct.Runtime.html"><code>Runtime</code> type</a>. 
+It owns all of the data required to run a single GameLisp instance: a garbage‑collected heap, 
+a symbol registry and a call stack, among other things. When the <code>Runtime</code> is dropped, all of that 
+data is automatically freed.</p>
+<p>There can be many simultaneous <code>Runtimes</code> in a program, and a <code>Runtime</code> can be created
+on any thread, but <code>Runtimes</code> (and handles to the data inside them) can never be moved from one 
+thread to another. Although GameLisp can be gracefully integrated into a multithreaded program, 
+each individual GameLisp runtime is entirely single-threaded.</p>
+<h2><a class="header" href="#the-active-runtime" id="the-active-runtime">The Active Runtime</a></h2>
+<p>Unusually for a Rust library, the <code>glsp</code> crate uses <a href="https://doc.rust-lang.org/std/macro.thread_local.html"><code>thread_local!</code> variables</a> internally. 
+This means that there's no need to pass around a context object (aka &quot;God object&quot;), which would
+make the crate much less convenient to use.</p>
+<p>Each thread has a private <code>thread_local!</code> variable which refers to its active <code>Runtime</code>. The 
+<code>rt.run(...)</code> method sets <code>rt</code> to be the active <code>Runtime</code>, executes an arbitrary closure, and then 
+restores the <code>Runtime</code> which was previously active, if any.</p>
+<p>The closure's captures, arguments and return value must all implement the <a href="https://docs.rs/glsp/*/glsp/trait.GSend.html"><code>GSend</code></a> <a href="https://doc.rust-lang.org/unstable-book/language-features/optin-builtin-traits.html">auto trait</a>. 
+Because most of the types in the <code>glsp</code> crate <code>impl !GSend</code>, it's very difficult for any data 
+from a <code>Runtime</code> to be smuggled into a scope where that <code>Runtime</code> is no longer active. (Rest 
+assured that if this does happen, the library has dynamic checks which still guarantee 
+memory‑safety.)</p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>//error: Sym does not implement GSend
+let sym: Sym = runtime.run(|| {
+	let sym = glsp::sym(&quot;hello&quot;)?;
+	Ok(sym)
+}).unwrap();
+
+//no problem: LenWrapper automatically implements GSend
+struct LenWrapper(usize);
+let len: LenWrapper = runtime.run(|| {
+	let sym = glsp::sym(&quot;hello&quot;)?;
+	let len = sym.name().len();
+	Ok(LenWrapper(len))
+}).unwrap();
+<span class="boring">}
+</span></code></pre></pre>
+<p>The <code>glsp</code> crate contains a large number of free functions, like <a href="https://docs.rs/glsp/*/glsp/fn.sym.html"><code>glsp::sym</code></a>, which 
+manipulate the active <code>Runtime</code> in some way. If called when there is no <code>Runtime</code> active, they
+panic.</p>
+<p>Most of those functions closely imitate an equivalent function which is built in to GameLisp.
+For example, <a href="https://docs.rs/glsp/*/glsp/fn.sym.html"><code>glsp::sym</code></a> is equivalent to the <a href="../std/sym"><code>sym</code> function</a>, and <a href="https://docs.rs/glsp/*/glsp/fn.load.html"><code>glsp::load</code></a> 
+is equivalent to <a href="../std/load"><code>load</code></a>.</p>
+<h2><a class="header" href="#types" id="types">Types</a></h2>
+<p>To introduce a few of the crate's most important types:</p>
+<ul>
+<li>
+<p><a href="https://docs.rs/glsp/*/glsp/enum.Val.html"><code>Val</code></a> is the enum which represents a GameLisp value. Each variant corresponds to 
+one of the sixteen <a href="syntax-and-types.html#type-summary">primitive types</a>.</p>
+</li>
+<li>
+<p><a href="https://docs.rs/glsp/*/glsp/struct.Sym.html"><code>Sym</code></a> represents a GameLisp symbol. It's a small <code>Copy</code> type which just wraps a
+<code>u32</code> identifier.</p>
+</li>
+<li>
+<p><a href="https://docs.rs/glsp/*/glsp/struct.Root.html"><code>Root</code></a> is a smart pointer which refers to something stored on the garbage-collected 
+heap. It points to a struct which represents one of GameLisp's primitive types, such as 
+<a href="https://docs.rs/glsp/*/glsp/struct.Arr.html"><code>Root&lt;Arr&gt;</code></a> for an array or <a href="https://docs.rs/glsp/*/glsp/struct.Coro.html"><code>Root&lt;Coro&gt;</code></a> for a coroutine.</p>
+</li>
+<li>
+<p><a href="https://docs.rs/glsp/*/glsp/struct.GFn.html"><code>GFn</code></a> is the name for GameLisp's <code>fn</code> primitive type, to avoid confusion with Rust's
+<code>Fn</code> trait. Similarly, the GameLisp type <code>iter</code> is represented by the Rust type <a href="https://docs.rs/glsp/*/glsp/struct.GIter.html"><code>GIter</code></a>.</p>
+</li>
+</ul>
+<h2><a class="header" href="#generic-conversions" id="generic-conversions">Generic Conversions</a></h2>
+<p>Functions and methods in the <code>glsp</code> crate tend to be highly generic, to keep manual type 
+conversions to a minimum.</p>
+<p>For example, this is the signature of the <a href="https://docs.rs/glsp/*/glsp/fn.global.html"><code>glsp::global</code></a> function, which is designed
+to imitate GameLisp's <code>(global)</code> function:</p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>pub fn global&lt;S, T&gt;(s: S) -&gt; GResult&lt;T&gt; where
+    S: ToSym,
+    T: FromVal, 
+<span class="boring">}
+</span></code></pre></pre>
+<p>The <a href="https://docs.rs/glsp/*/glsp/trait.ToSym.html"><code>ToSym</code></a> trait converts something to a symbol, and the <a href="https://docs.rs/glsp/*/glsp/trait.FromVal.html"><code>FromVal</code></a> trait is implemented by 
+anything which can be fallibly converted from a <a href="https://docs.rs/glsp/*/glsp/enum.Val.html"><code>Val</code></a>. In practice, this means that the function 
+can be called like this...</p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>let frames: u32 = glsp::global(&quot;frames&quot;)?;
+<span class="boring">}
+</span></code></pre></pre>
+<p>...rather than needing a mess of explicit type conversions:</p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>let frames = u32::from_val(&amp;glsp::global(glsp::sym(&quot;frames&quot;)?)?)?;
+<span class="boring">}
+</span></code></pre></pre>
+<p>The only downside is that with so many generic types, Rust's type inference will sometimes get 
+confused. Rust doesn't yet allow you to <a href="https://github.com/rust-lang/rfcs/pull/2522">put type annotations wherever you please</a>, so under
+those circumstances, you'll usually need to introduce a temporary local variable with an
+explicit type.</p>
+<p>In particular, for functions like <a href="https://docs.rs/glsp/*/glsp/fn.call.html"><code>glsp::call</code></a> which have a generic return value, the type of
+the return value must be specified explicitly, even when it's discarded.</p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>//an error
+glsp::call(&amp;my_gfn, &amp;(1, 2, 3))?;
+
+//correct
+let _: Val = glsp::call(&amp;my_gfn, &amp;(1, 2, 3))?;
+<span class="boring">}
+</span></code></pre></pre>
+<h2><a class="header" href="#comprehensive-coverage" id="comprehensive-coverage">Comprehensive Coverage</a></h2>
+<p>The <code>glsp</code> crate aims to be comprehensive: if it's possible to achieve something in GameLisp code,
+it should also be possible to achieve it in Rust. It's usually possible for any GameLisp code to be
+translated into (much uglier) Rust code line-by-line.</p>
+<pre><code>(for plant in plants
+  (when (&lt; [plant 'height] 100)
+    (.grow plant 10)))
+</code></pre>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>let plants: Root&lt;Arr&gt; = glsp::global(&quot;plants&quot;)?;
+for val in plants.iter() {
+	let plant = Root::&lt;Obj&gt;::from_val(&amp;val)?;
+    let height: i32 = plant.get(&quot;height&quot;)?;
+    if height &lt; 100 {
+        let _: Val = plant.call(&quot;grow&quot;, &amp;(10,))?;
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<h2><a class="header" href="#the-prelude" id="the-prelude">The Prelude</a></h2>
+<p>Importing the <a href="https://docs.rs/glsp/*/glsp/prelude/index.html"><code>glsp::prelude::*</code></a> module will pull in all of the most commonly-used names 
+from the <code>glsp</code> crate, except for the free functions: <code>glsp::bind_global()</code> doesn't become 
+<code>bind_global()</code>. </p>
+<p>I can't overstate how much more convenient this is, compared to manually adding and removing 
+dozens of imports to every file. If name collisions occur, they can be disambiguated via renaming:</p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>use glsp::prelude::*;
+use num::Num as NumTrait;
+use error_chain::bail as ec_bail;
+<span class="boring">}
+</span></code></pre></pre>
+<p>If glob imports aren't to your taste, naturally there's nothing stopping you from importing
+names individually instead.</p>
+<h2><a class="header" href="#sandboxing" id="sandboxing">Sandboxing</a></h2>
+<p><a href="https://docs.rs/glsp/*/glsp/struct.Runtime.html#method.new"><code>Runtime::new()</code></a> creates a default <code>Runtime</code>. It's also possible to use the 
+<a href="https://docs.rs/glsp/*/glsp/struct.RuntimeBuilder.html"><code>RuntimeBuilder</code> struct</a> to configure a <code>Runtime</code> before creating it.</p>
+<p>Currently, the only configuration setting is <a href="https://docs.rs/glsp/*/glsp/struct.RuntimeBuilder.html#method.sandboxed"><code>sandboxed</code></a>, which defaults to <code>false</code>. A sandboxed
+<code>Runtime</code> does not provide any of the built-in GameLisp functions which access the filesystem - 
+namely <a href="../std/load"><code>load</code></a>, <a href="../std/include"><code>include</code></a> and <a href="../std/require"><code>require</code></a>. 
+Untrusted GameLisp code can get up to all sorts of mischief even without filesystem access, so 
+you should still proceed with great caution when running it.</p>
+<h2><a class="header" href="#output-streams" id="output-streams">Output Streams</a></h2>
+<p>By default, <a href="../std/prn"><code>prn</code></a> will print its output to <a href="https://doc.rust-lang.org/std/io/struct.Stdout.html"><code>std::io::Stdout</code></a>, and 
+<a href="../std/eprn"><code>eprn</code></a> will print its output to <a href="https://doc.rust-lang.org/std/io/struct.Stderr.html"><code>std::io::Stderr</code></a>.</p>
+<p>It's possible to replace those streams with an arbitrary <a href="https://doc.rust-lang.org/std/io/trait.Write.html"><code>std::io::Write</code></a> type using the 
+functions <a href="https://docs.rs/glsp/*/glsp/fn.set_pr_writer.html"><code>glsp::set_pr_writer</code></a> and <a href="https://docs.rs/glsp/*/glsp/fn.set_epr_writer.html"><code>glsp::set_epr_writer</code></a>. For example, to 
+discard both streams:</p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>use std::io::sink;
+
+glsp::set_pr_writer(Box::new(sink()));
+glsp::set_epr_writer(Box::new(sink()));
+<span class="boring">}
+</span></code></pre></pre>
+<p>Or to send output to a log file and also to the standard output streams:</p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>use std::io::{self, stdout, stderr, Write};
+
+struct Tee&lt;A: Write, B: Write&gt;(A, B);
+
+impl&lt;A: Write, B: Write&gt; Write for Tee&lt;A, B&gt; {
+	fn write(&amp;mut self, buf: &amp;[u8]) -&gt; io::Result&lt;usize&gt; {
+		self.0.write_all(buf).and_then(|_| self.1.write_all(buf))?;
+		Ok(buf.len())
+	}
+
+	fn flush(&amp;mut self) -&gt; io::Result&lt;()&gt; {
+		self.0.flush().and_then(|_| self.1.flush())
+	}
+}
+
+//defining a cloneable file handle is left as an exercise for the reader
+let log_file = SharedFile::new(&quot;log.txt&quot;);
+glsp::set_pr_writer(Box::new(Tee(log_file.clone(), stdout())));
+glsp::set_epr_writer(Box::new(Tee(log_file.clone(), stderr())));
+<span class="boring">}
+</span></code></pre></pre>
+<p>Unless you <a href="https://github.com/rust-lang/rust/issues/31343">manually override them</a>, the Rust 
+macros <code>print!()</code>, <code>println!()</code>, <code>eprint!()</code> and <code>eprintln!()</code> will still print to the standard
+output and standard error streams. As an alternative, you can use the macros <a href="https://docs.rs/glsp/*/glsp/macro.pr.html"><code>pr!()</code></a>, <a href="https://docs.rs/glsp/*/glsp/macro.prn.html"><code>prn!()</code></a>,
+<a href="https://docs.rs/glsp/*/glsp/macro.epr.html"><code>epr!()</code></a> and <a href="https://docs.rs/glsp/*/glsp/macro.eprn.html"><code>eprn!()</code></a> to print to the active <code>Runtime</code>'s <code>pr_writer</code> and <code>epr_writer</code>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="the-rust-api.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="collection-types.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="the-rust-api.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="collection-types.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="glsp-highlight.js"></script>
+        
+
+        
+
+    </body>
+</html>

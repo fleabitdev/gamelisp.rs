@@ -1,0 +1,38 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>fn - GameLisp Standard Library</title><link rel="stylesheet" href="../style.css" type="text/css"><link rel="icon" href="../favicon-16.png" sizes="16x16" type="image/x-icon"><link rel="icon" href="../favicon-24.png" sizes="24x24" type="image/x-icon"><link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/x-icon"><link rel="icon" href="../favicon-48.png" sizes="48x48" type="image/x-icon"><meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1"><script defer src="search.js" type="text/javascript"></script><script defer src="preload.js" type="text/javascript"></script></head><body id="api-page"><input id="checkbox-hack" type="checkbox"><nav class="layout-sidebar horz-center"><a class="logo-anchor" href="../"><div class="logo"><picture><source srcset="../logo-dark.png" media="(prefers-color-scheme: dark)"><img src="../logo-light.png" alt="GameLisp"></picture></div></a><div class="panel search-field"><input id="api-search-field" type="search" placeholder="Search..."></div><div class="panel" id="api-list"><a id="api-list-header" href="." class="panel-header">Standard Library</a><div class="link-list" id="api-link-list"><a class="current" href="special-forms"><div class="list-level0"><span>Special Forms</span></div></a><a class="" href="quote"><div class="list-level1"><code>quote</code></div></a><a class="" href="do"><div class="list-level1"><code>do</code></div></a><a class="" href="block"><div class="list-level1"><code>block</code></div></a><a class="" href="restart-block"><div class="list-level1"><code>restart-block</code></div></a><a class="" href="finish-block"><div class="list-level1"><code>finish-block</code></div></a><a class="" href="if"><div class="list-level1"><code>if</code></div></a><a class="" href="let"><div class="list-level1"><code>let</code></div></a><a class="current" href="fn"><div class="list-level1"><code>fn</code></div></a><a class="" href="return"><div class="list-level1"><code>return</code></div></a><a class="" href="yield"><div class="list-level1"><code>yield</code></div></a><a class="" href="macro-no-op"><div class="list-level1"><code>macro-no-op</code></div></a><a class="" href="defer"><div class="list-level1"><code>defer</code></div></a><a class="" href="defer-yield"><div class="list-level1"><code>defer-yield</code></div></a><a class="" href="splice"><div class="list-level1"><code>splice</code></div></a><a class="" href="let-macro"><div class="list-level1"><code>let-macro</code></div></a><a class="" href="meth-name"><div class="list-level1"><code>meth-name</code></div></a><a class="" href="splay"><div class="list-level1"><code>splay</code></div></a><a class="" href="set"><div class="list-level1"><code>=</code></div></a><a class="" href="abbreviations"><div class="list-level0"><span>Abbreviations</span></div></a><a class="" href="macros"><div class="list-level0"><span>Macros</span></div></a><a class="" href="types"><div class="list-level0"><span>Types</span></div></a><a class="" href="evaluation"><div class="list-level0"><span>Evaluation</span></div></a><a class="" href="numbers"><div class="list-level0"><span>Numbers</span></div></a><a class="" href="collections"><div class="list-level0"><span>Collections</span></div></a><a class="" href="strings-and-text"><div class="list-level0"><span>Strings and Text</span></div></a><a class="" href="iterators"><div class="list-level0"><span>Iterators</span></div></a><a class="" href="objects-and-classes"><div class="list-level0"><span>Objects and Classes</span></div></a><a class="" href="miscellaneous"><div class="list-level0"><span>Miscellaneous</span></div></a><hr></hr><a href="alphabetic-index"><div class="list-level0">Alphabetic Index</div></a></div></div></nav><main class="layout-content panel"><div class="pre-scroller"><div class="pre-padding"><pre id="api-spec">(<span class="emphasised">fn</span> <span class="subtle">params</span> <span class="subtle">..body</span>)
+  <span class="subtle">params: an <a href="../reference/arrays.html">arr</a></span>
+  <span class="subtle">body: zero or more forms</span>
+  <span class="subtle">returns a <a href="../reference/evaluation.html#functions">fn</a></span></pre><span></span><div class="api-kind special-kind" title="Special Form"><div class="api-kind-text">S</div></div><div class="api-kind mac-kind" title="Macro"><div class="api-kind-text">M</div></div></div></div><div class="text-box" id="api-desc"><p>Defines a function.</p>
+<p>When a <code>fn</code> form is evaluated, it allocates and returns a new closure (a value which 
+belongs to the primitive type <code>fn</code>). Just like a Rust closure, this closure may capture 
+any local variables which are in scope. Each local variable may be simultaneously captured 
+by multiple closures.</p>
+<div class="pre-scroller"><div class="pre-padding"><pre><code>(let counter (do
+  (let n 0)
+  (fn ()
+    (inc! n)
+    n)))
+
+(prn (counter)) <span class="subtle">; prints 1</span>
+(prn (counter)) <span class="subtle">; prints 2</span>
+(prn n) <span class="subtle">; an error: n is not in scope</span>
+</code></pre></div></div>
+<p>If the same <code>fn</code> form is evaluated multiple times (for example, in a loop), it will 
+allocate a new closure each time.</p>
+<p><code>params</code> must be a valid <a href="../reference/patterns.html#arrays">array pattern</a>. When the
+function is called, all of its arguments are matched against <code>params</code>, and then its <code>body</code>
+forms are evaluated as an <a href="do">&quot;implicit do&quot;</a>. It's an error if the call's arguments do not
+match <code>params</code> - for example, because too few or too many arguments were provided.</p>
+<div class="pre-scroller"><div class="pre-padding"><pre><code>(let f (fn (a b c) (prn a b c)))
+(f 1 2) <span class="subtle">; error: expected 3 or more arguments</span>
+</code></pre></div></div>
+<p>The <a href="return"><code>return</code></a> or <a href="yield"><code>yield</code></a> special forms can be used to return early
+from the function call. Otherwise, the result of the function call is the evaluation
+result of the <code>body</code> forms.</p>
+<p>A <code>fn</code> form may specify one or more flags, listed immediately before <code>params</code>:</p>
+<ul>
+<li><code>&amp;name name</code> specifies the function's <a href="fn-name">name</a>, for debugging purposes.</li>
+<li><code>&amp;arg-limits min max</code> specifies a minimum and maximum argument count. When <code>&amp;arg-limits</code>
+is present, the <code>params</code> pattern must only contain a single rest param, <code>(..rest)</code>.
+<code>min</code> must be an integer; <code>max</code> may be an integer or <code>#n</code>.</li>
+</ul>
+</div></main><div id="api-nav" class="layout-nav prev-next-nav"><div class="prev-nav"><a href="let"><div class="button left-button" id="api-nav-prev"><span id="api-nav-prev-arrow">←</span><code class="ellipsis-text" id="api-nav-prev-text">let</code></div></a></div><a id="api-nav-parent-link" href="special-forms"><div class="button" id="api-nav-parent"><span id="api-nav-parent-arrow">⭡</span></div></a><label class="button" id="api-nav-hamburger" for="checkbox-hack"><span id="api-nav-hamburger-icon">☰</span><span id="api-nav-cancel-icon">X</span></label><div class="next-nav"><a href="return"><div class="button right-button" id="api-nav-next"><code class="ellipsis-text" id="api-nav-next-text">return</code><span id="api-nav-next-arrow">→</span></div></a></div></div></body></html>

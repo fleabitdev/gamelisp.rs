@@ -1,0 +1,253 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Overview - GameLisp Reference Manual</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="overview.html">Overview</a></li><li class="chapter-item expanded affix "><a href="introduction-for-rust-programmers.html">Introduction for Rust Programmers</a></li><li class="chapter-item expanded affix "><a href="introduction-for-lisp-programmers.html">Introduction for Lisp Programmers</a></li><li class="chapter-item expanded "><a href="the-language.html"><strong aria-hidden="true">1.</strong> The Language</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="syntax-and-types.html"><strong aria-hidden="true">1.1.</strong> Syntax and Types</a></li><li class="chapter-item expanded "><a href="evaluation.html"><strong aria-hidden="true">1.2.</strong> Evaluation</a></li><li class="chapter-item expanded "><a href="macros.html"><strong aria-hidden="true">1.3.</strong> Macros</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="built-in-macros.html"><strong aria-hidden="true">1.3.1.</strong> Built-in Macros</a></li></ol></li><li class="chapter-item expanded "><a href="numbers.html"><strong aria-hidden="true">1.4.</strong> Numbers</a></li><li class="chapter-item expanded "><a href="arrays.html"><strong aria-hidden="true">1.5.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="strings-and-text.html"><strong aria-hidden="true">1.6.</strong> Strings and Text</a></li><li class="chapter-item expanded "><a href="tables.html"><strong aria-hidden="true">1.7.</strong> Tables</a></li><li class="chapter-item expanded "><a href="iterators.html"><strong aria-hidden="true">1.8.</strong> Iterators</a></li><li class="chapter-item expanded "><a href="coroutines.html"><strong aria-hidden="true">1.9.</strong> Coroutines</a></li><li class="chapter-item expanded "><a href="patterns.html"><strong aria-hidden="true">1.10.</strong> Patterns</a></li><li class="chapter-item expanded "><a href="object-oriented-programming.html"><strong aria-hidden="true">1.11.</strong> Object-Oriented Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="state-machines.html"><strong aria-hidden="true">1.11.1.</strong> State Machines</a></li><li class="chapter-item expanded "><a href="code-reuse.html"><strong aria-hidden="true">1.11.2.</strong> Code Reuse</a></li><li class="chapter-item expanded "><a href="structs.html"><strong aria-hidden="true">1.11.3.</strong> Structs</a></li></ol></li><li class="chapter-item expanded "><a href="errors.html"><strong aria-hidden="true">1.12.</strong> Errors</a></li><li class="chapter-item expanded "><a href="miscellaneous.html"><strong aria-hidden="true">1.13.</strong> Miscellaneous</a></li></ol></li><li class="chapter-item expanded "><a href="the-rust-api.html"><strong aria-hidden="true">2.</strong> The Rust API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="the-glsp-crate.html"><strong aria-hidden="true">2.1.</strong> The glsp Crate</a></li><li class="chapter-item expanded "><a href="collection-types.html"><strong aria-hidden="true">2.2.</strong> Collection Types</a></li><li class="chapter-item expanded "><a href="rust-functions.html"><strong aria-hidden="true">2.3.</strong> Rust Functions</a></li><li class="chapter-item expanded "><a href="rust-data.html"><strong aria-hidden="true">2.4.</strong> Rust Data</a></li><li class="chapter-item expanded "><a href="libraries.html"><strong aria-hidden="true">2.5.</strong> Libraries</a></li><li class="chapter-item expanded "><a href="garbage-collection.html"><strong aria-hidden="true">2.6.</strong> Garbage Collection</a></li><li class="chapter-item expanded "><a href="procedural-macros.html"><strong aria-hidden="true">2.7.</strong> Procedural Macros</a></li><li class="chapter-item expanded "><a href="compilation.html"><strong aria-hidden="true">2.8.</strong> Compilation</a></li><li class="chapter-item expanded "><a href="feature-flags.html"><strong aria-hidden="true">2.9.</strong> Feature Flags</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="performance-figures.html">Appendix A: Performance Figures</a></li><li class="chapter-item expanded affix "><a href="naming-conventions.html">Appendix B: Naming Conventions</a></li><li class="chapter-item expanded affix "><a href="implementation-limits.html">Appendix C: Implementation Limits</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                    </div>
+
+                    <h1 class="menu-title">GameLisp Reference Manual</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#overview" id="overview">Overview</a></h1>
+<p><a href="..">GameLisp</a>'s documentation is split into three parts:</p>
+<ul>
+<li>
+<p>The Reference Manual, which you're currently reading, is a rough overview of the language. 
+It's written in an accessible style, so it doubles as a tutorial when read from beginning to end.</p>
+</li>
+<li>
+<p>The <a href="../std/">standard library documentation</a> describes all of the special forms, functions and 
+macros which are built into the language itself. It covers most of the same material as 
+<a href="the-language.html">Section 1</a> of the Reference Manual, but it's more formal, comprehensive 
+and precise.</p>
+</li>
+<li>
+<p>The <a href="https://docs.rs/glsp/"><code>glsp</code> crate documentation</a> describes how to embed GameLisp
+into a Rust program. <a href="the-rust-api.html">Section 2</a> of the Reference Manual will walk you 
+through the basics.</p>
+</li>
+</ul>
+<h2><a class="header" href="#getting-started" id="getting-started">Getting Started</a></h2>
+<p>If you haven't already, take a look at the 
+<a href="introduction-for-rust-programmers.html">Introduction for Rust Programmers</a> 
+and/or the 
+<a href="introduction-for-lisp-programmers.html">Introduction for Lisp Programmers</a>.</p>
+<p>You can get a feel for the language by examining the source code for a few small games on 
+the <a href="../playground/">interactive playground</a>.</p>
+<p>To start setting up a GameLisp project of your own, check that you're running the latest version
+of nightly Rust, and then add this line to your <code>Cargo.toml</code>:</p>
+<pre><code>[dependencies]
+glsp = &quot;0.1&quot;
+</code></pre>
+<p>The following boilerplate code will load and run a single GameLisp source file named <code>main.glsp</code> in
+the working directory, printing a stack trace if any errors occur. (The working directory is 
+usually the same directory which contains your project's <code>Cargo.toml</code> file.)</p>
+<pre><pre class="playpen"><code class="language-rust">use glsp::prelude::*;
+
+fn main() {
+	let runtime = Runtime::new();
+	runtime.run(|| {
+		glsp::load(&quot;main.glsp&quot;)?;
+		Ok(())
+	});
+}
+</code></pre></pre>
+<p>Once that's up and running, I'd recommend working your way through the Reference Manual from start
+to finish. It's not too long - it can be completed in three hours or so. As you progress, you can 
+use your skeleton project to experiment with the language, the standard library, and the Rust API.</p>
+<p>If you use Sublime Text, a basic syntax-highlighting scheme for GameLisp can be downloaded from the
+<a href="https://github.com/fleabitdev/glsp/tree/master/syntax-highlighting/sublime-text-3/">GitHub repository</a>.</p>
+<p>If you've never worked with Lisp before, you might find some parts of GameLisp difficult to 
+understand. If you're struggling, consider looking through some beginner-level material for another 
+Lisp dialect, such as the excellent <a href="http://www.gigamonkeys.com/book/">Practical Common Lisp</a> by 
+Peter Seibel.</p>
+<h2><a class="header" href="#-stability-warning-" id="-stability-warning-">⚠️ Stability Warning ⚠️</a></h2>
+<p>Because GameLisp is brand new (SemVer 0.1), it currently provides <strong>no stability guarantees</strong>.
+The language, standard library and Rust API can and will change without notice. It's also immature
+enough that you're likely to come across the occasional bug - if so, a <a href="https://github.com/fleabitdev/glsp/issues/">bug report</a>
+would be appreciated.</p>
+<p>GameLisp can still be used for serious game projects (I'm using it for <a href="../tcof/">one</a> myself!), 
+but you'll need to be prepared to refactor your codebase from time to time.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+                            <a rel="next" href="introduction-for-rust-programmers.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+                    <a rel="next" href="introduction-for-rust-programmers.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="glsp-highlight.js"></script>
+        
+
+        
+
+    </body>
+</html>

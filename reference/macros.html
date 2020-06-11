@@ -1,0 +1,539 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Macros - GameLisp Reference Manual</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="overview.html">Overview</a></li><li class="chapter-item expanded affix "><a href="introduction-for-rust-programmers.html">Introduction for Rust Programmers</a></li><li class="chapter-item expanded affix "><a href="introduction-for-lisp-programmers.html">Introduction for Lisp Programmers</a></li><li class="chapter-item expanded "><a href="the-language.html"><strong aria-hidden="true">1.</strong> The Language</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="syntax-and-types.html"><strong aria-hidden="true">1.1.</strong> Syntax and Types</a></li><li class="chapter-item expanded "><a href="evaluation.html"><strong aria-hidden="true">1.2.</strong> Evaluation</a></li><li class="chapter-item expanded "><a href="macros.html" class="active"><strong aria-hidden="true">1.3.</strong> Macros</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="built-in-macros.html"><strong aria-hidden="true">1.3.1.</strong> Built-in Macros</a></li></ol></li><li class="chapter-item expanded "><a href="numbers.html"><strong aria-hidden="true">1.4.</strong> Numbers</a></li><li class="chapter-item expanded "><a href="arrays.html"><strong aria-hidden="true">1.5.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="strings-and-text.html"><strong aria-hidden="true">1.6.</strong> Strings and Text</a></li><li class="chapter-item expanded "><a href="tables.html"><strong aria-hidden="true">1.7.</strong> Tables</a></li><li class="chapter-item expanded "><a href="iterators.html"><strong aria-hidden="true">1.8.</strong> Iterators</a></li><li class="chapter-item expanded "><a href="coroutines.html"><strong aria-hidden="true">1.9.</strong> Coroutines</a></li><li class="chapter-item expanded "><a href="patterns.html"><strong aria-hidden="true">1.10.</strong> Patterns</a></li><li class="chapter-item expanded "><a href="object-oriented-programming.html"><strong aria-hidden="true">1.11.</strong> Object-Oriented Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="state-machines.html"><strong aria-hidden="true">1.11.1.</strong> State Machines</a></li><li class="chapter-item expanded "><a href="code-reuse.html"><strong aria-hidden="true">1.11.2.</strong> Code Reuse</a></li><li class="chapter-item expanded "><a href="structs.html"><strong aria-hidden="true">1.11.3.</strong> Structs</a></li></ol></li><li class="chapter-item expanded "><a href="errors.html"><strong aria-hidden="true">1.12.</strong> Errors</a></li><li class="chapter-item expanded "><a href="miscellaneous.html"><strong aria-hidden="true">1.13.</strong> Miscellaneous</a></li></ol></li><li class="chapter-item expanded "><a href="the-rust-api.html"><strong aria-hidden="true">2.</strong> The Rust API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="the-glsp-crate.html"><strong aria-hidden="true">2.1.</strong> The glsp Crate</a></li><li class="chapter-item expanded "><a href="collection-types.html"><strong aria-hidden="true">2.2.</strong> Collection Types</a></li><li class="chapter-item expanded "><a href="rust-functions.html"><strong aria-hidden="true">2.3.</strong> Rust Functions</a></li><li class="chapter-item expanded "><a href="rust-data.html"><strong aria-hidden="true">2.4.</strong> Rust Data</a></li><li class="chapter-item expanded "><a href="libraries.html"><strong aria-hidden="true">2.5.</strong> Libraries</a></li><li class="chapter-item expanded "><a href="garbage-collection.html"><strong aria-hidden="true">2.6.</strong> Garbage Collection</a></li><li class="chapter-item expanded "><a href="procedural-macros.html"><strong aria-hidden="true">2.7.</strong> Procedural Macros</a></li><li class="chapter-item expanded "><a href="compilation.html"><strong aria-hidden="true">2.8.</strong> Compilation</a></li><li class="chapter-item expanded "><a href="feature-flags.html"><strong aria-hidden="true">2.9.</strong> Feature Flags</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="performance-figures.html">Appendix A: Performance Figures</a></li><li class="chapter-item expanded affix "><a href="naming-conventions.html">Appendix B: Naming Conventions</a></li><li class="chapter-item expanded affix "><a href="implementation-limits.html">Appendix C: Implementation Limits</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                    </div>
+
+                    <h1 class="menu-title">GameLisp Reference Manual</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#macros" id="macros">Macros</a></h1>
+<p>We've now described <a href="syntax-and-types.html">how GameLisp's parser converts text into data</a>, and 
+<a href="evaluation.html">how GameLisp's evaluator executes data as code</a>.</p>
+<p>To complete the picture, there's one more step that we need to discuss. Just before evaluating any
+code, GameLisp's expander performs transformations on the code tree.</p>
+<p>It's easy to hook in your own functions to customize the behaviour of the expander. These 
+functions, which transform GameLisp data/code into different GameLisp data/code, are known as 
+macros.</p>
+<h2><a class="header" href="#the-expansion-algorithm" id="the-expansion-algorithm">The Expansion Algorithm</a></h2>
+<p>This is the basic algorithm which GameLisp uses to expand a form in place:</p>
+<ol>
+<li>
+<p>If the form is not an array, or if it's an empty array, then no expansion is performed.</p>
+</li>
+<li>
+<p>Expand the array's first element in place.</p>
+</li>
+<li>
+<p>If the array's first element is now a symbol, and that symbol is currently bound to a macro 
+function, then invoke that macro function, passing in all of the array's elements as arguments. 
+<strong>Replace the array with the result of the macro invocation</strong>, then restart from step 1.</p>
+</li>
+<li>
+<p>If the array doesn't start with <a href="../std/quote"><code>quote</code></a>, expand each of its arguments in place, 
+from left to right (starting with the array's second element, then moving on to its third 
+element, and so on.)</p>
+</li>
+</ol>
+<p>In simple terms, this algorithm traverses the entire source tree, looking for arrays which
+resemble function calls. When the array's &quot;callee&quot; is a symbol which is bound to a macro,
+that macro is called like a function, and then the entire array is replaced with the result of 
+the call.</p>
+<pre><code>; if the symbol `name` is bound to a macro, the expander will 
+; invoke ((macro 'name) a b c), and then replace the (name a b c) 
+; form with the result of that call.
+(name a b c)
+</code></pre>
+<p>The <code>(splice)</code> macro is a special case: it's replaced by each of its argument forms, inserted 
+next to one another in-place.</p>
+<pre><code>(some-function (splice a) b (splice c d) (splice) e)
+
+; after macro-expansion...
+(some-function a b c d e)
+</code></pre>
+<h2><a class="header" href="#binding-macros" id="binding-macros">Binding Macros</a></h2>
+<p>A macro is just a normal GameLisp function, of type <code>fn</code> or <code>rfn</code>. It takes zero or more
+forms as its input, and produces one form as its output.</p>
+<p>Like variables, macros can be bound globally or locally. To manipulate a symbol's global macro
+binding, use the builtin functions <a href="../std/bind-macro-mut"><code>bind-macro!</code></a>, 
+<a href="../std/del-macro-mut"><code>del-macro!</code></a>, <a href="../std/macro"><code>macro</code></a> and <a href="../std/set-macro"><code>macro=</code></a>.</p>
+<p>To introduce a local macro binding, you can use the <a href="../std/let-macro"><code>let-macro</code> special form</a> 
+wherever you would use <code>let</code>.</p>
+<pre><code>; these two forms are similar, but the first form binds its
+; fn to a local variable, and the second form binds its fn
+; to a local macro.
+
+(let add (fn (a b)
+  (+ a b)))
+
+(let-macro add (a b)
+  (+ a b))
+</code></pre>
+<h2><a class="header" href="#example-when-and-unless" id="example-when-and-unless">Example: <code>when</code> and <code>unless</code></a></h2>
+<p>Recall the syntax for the <code>if</code> special form: <code>(if condition then else)</code>.</p>
+<p>This syntax is easy to understand when working with very small forms which fit onto a single line,
+but when working with complicated multi-line forms, it's not always ideal.</p>
+<pre><code>; at a glance, you might mistakenly think that this form will 
+; print both lines when i is less than 100
+(if (&lt; i 100)
+  (prn &quot;first line&quot;)
+  (prn &quot;second line&quot;))
+
+; the do and #n forms here add a lot of visual noise
+(if drawing-suppressed?
+  #n
+  (do
+    (draw-rect x y w h)
+    (draw-circle center-x center-y radius)))
+</code></pre>
+<p>This is exactly the type of problem which can be solved using macros: we have a small bit
+of awkward, repetitive or confusing syntax, and we'd like to make it more clear.</p>
+<p>The <code>when</code> macro is shorthand for &quot;if the condition is true, evaluate a <code>do</code> form; otherwise,
+evaluate <code>#n</code>&quot;.</p>
+<pre><code>(bind-macro! 'when (fn (condition-form ..do-forms)
+  `(if ~condition-form
+    (do
+      ~..do-forms)
+    #n)))
+
+(when (&lt; i 100)
+  (prn &quot;first line&quot;)
+  (prn &quot;second line&quot;))
+</code></pre>
+<p>The <code>unless</code> macro is similar, but it evaluates the <code>do</code> form when its condition is false.</p>
+<pre><code>(bind-macro! 'unless (fn (condition-form ..do-forms)
+  `(if ~condition-form
+    #n
+    (do
+      ~..do-forms))))
+
+(unless drawing-suppressed?
+  (draw-rect x y w h)
+  (draw-circle center-x center-y radius))
+</code></pre>
+<h2><a class="header" href="#quasi-quotation" id="quasi-quotation">Quasi-quotation</a></h2>
+<p>Our <code>when</code> and <code>unless</code> macro definitions introduced several <a href="syntax-and-types.html#abbreviations">unfamiliar pieces of 
+syntax</a>: </p>
+<ul>
+<li><code>`x</code> is an abbreviation for <a href="../std/backquote"><code>(backquote x)</code></a></li>
+<li><code>~x</code> is an abbreviation for <a href="../std/unquote"><code>(unquote x)</code></a></li>
+<li><code>~..x</code> is an abbreviation for <a href="../std/splay"><code>(unquote (splay x))</code></a></li>
+</ul>
+<p>Recall that the <a href="../std/quote"><code>quote</code> special form</a>, abbreviated <code>'</code>, suppresses evaluation. 
+If you want to produce a tree of nested arrays, then rather than constructing them 
+element-by-element, it's much simpler to just write them down as text and <code>quote</code> them so that 
+they're returned verbatim.</p>
+<pre><code>; these two forms produce equivalent results
+
+'((one eins) (two zwei) (three drei))
+
+(arr (arr 'one 'eins) (arr 'two 'zwei) (arr 'three 'drei))
+</code></pre>
+<p><code>backquote</code> is like <code>quote</code>, but more powerful. </p>
+<p>Firstly, <code>backquote</code> always allocates an entirely new, mutable array (whereas <code>quote</code> returns a 
+shared, immutable array - this is usually more efficient, but it's not always what you want). It's
+like a shorthand for the <a href="../std/arr"><code>(arr ...)</code> constructor</a>.</p>
+<p>Secondly, <code>backquote</code> allows evaluated forms and quoted forms to be mixed with one another.
+This is called &quot;quasi-quotation&quot;, because only part of the form is quoted. If you want some forms
+within a backquote to be evaluated while building the array, prefix them with <code>~</code>. All other forms 
+will be quoted.</p>
+<pre><code>(let one-de 'eins)
+(let two-de (fn () 'zwei))
+
+; the following three forms all produce equivalent results
+
+'((one eins) (two zwei) (three drei))
+
+`((one ~one-de) (two ~(two-de)) (three ~(sym &quot;drei&quot;)))
+
+(arr (arr 'one one-de) (arr 'two (two-de)) (arr 'three (sym &quot;drei&quot;)))
+</code></pre>
+<p>We briefly mentioned in the previous chapter that prefixing one of <code>arr</code>'s arguments with <code>..</code>
+will cause the full contents of that argument to be &quot;splayed&quot; into the resulting arr. This is
+particularly useful when working with <code>backquote</code> and <code>unquote</code>, as we demonstrated with
+<code>when</code> and <code>unless</code> <a href="#example-when-and-unless">above</a>.</p>
+<h2><a class="header" href="#macro-no-op" id="macro-no-op"><code>macro-no-op</code></a></h2>
+<p>Within a macro, you can call the built-in function <code>(macro-no-op)</code>. This immediately cancels
+execution of the macro, and it suppresses step 3 in the <a href="#the-expansion-algorithm">algorithm</a>. 
+The current form is left as it is, and the algorithm proceeds to step 4, expanding the form's 
+children as normal.</p>
+<p>This enables the same name to be simultaneously bound both to a macro, and to a function or special
+form. Without <code>(macro-no-op)</code>, it would be impossible for a macro to expand to a function call
+which shares the same name, because it would trigger an endless loop: <code>(the-fn a b)</code> would expand 
+to <code>(the-fn a b)</code> which would expand to <code>(the-fn a b)</code>... but <code>(macro-no-op)</code> breaks that cycle.</p>
+<p>We've previously mentioned that the <code>let</code> special form can accept an arbitrary number of
+arguments: with three or more arguments, it behaves like multiple consecutive calls to <code>let</code>.
+This is actually achieved using a macro which is globally bound to the <code>let</code> symbol:</p>
+<pre><code>; this form...
+(let a b, c d)
+
+; ...expands to this one:
+(splice
+  (let a b)
+  (let c d))
+
+; the `splice` macro can expand into multiple forms, so it becomes:
+(let a b)
+(let c d)
+
+; each of those (let) forms also invokes the (let) macro, but when that
+; macro is invoked with two or fewer arguments, it just calls (macro-no-op)
+</code></pre>
+<p>More generally, macros and variables occupy entirely different namespaces. A particular symbol
+can be bound to a global variable, a macro, both, or neither. A local variable binding will not
+shadow a local or global macro, and <code>let-macro</code> will not shadow a local or global variable.</p>
+<h2><a class="header" href="#order-of-expansion" id="order-of-expansion">Order of Expansion</a></h2>
+<p>There's a small problem with our expansion algorithm: if global macros are defined dynamically 
+during evaluation, and if code is expanded before being evaluated, how is it that a global macro 
+defined early in a source file can be used to expand code later on in that same source file?</p>
+<pre><code>(bind-macro! 'fizz (fn ()
+  `(prn &quot;fizz&quot;)))
+
+; why can we use the 'fizz macro to expand this form?
+(fizz)
+</code></pre>
+<p>It wouldn't be possible for us to interleave expansion with evaluation, because that would be
+much too slow: we would need to re-expand every form every single time that it's evaluated. 
+This would force GameLisp to be an <a href="https://en.wikipedia.org/wiki/Interpreter_(computing)#Abstract_syntax_tree_interpreters">AST-walking interpreter</a>, making it many times slower 
+than it is today. It's essential that we have a separate expansion step before evaluation.</p>
+<p>We could set up the expander so that it's capable of detecting <code>bind-macro!</code> calls and evaluating
+them during expansion, but that would mean that <code>bind-macro!</code> is no longer truly dynamic. Patterns
+like this would stop working:</p>
+<pre><code>(unless file-access-disabled?
+  (bind-macro! 'write-file (fn (file content)
+    `(stream-to-file ~file ~content))))
+</code></pre>
+<p>The solution is a simple compromise. When working their way through the forms in a GameLisp
+source file, the expander and evaluator &quot;take turns&quot;. The first form is expanded; then the first 
+form is evaluated; then the second form is expanded; then the second form is evaluated... and so 
+on.</p>
+<p>This means that a global macro binding can be used later on in the same source file, but it can't 
+be used later on in the same toplevel form. If you want to define a macro to be used locally,
+you should use <code>let-macro</code> instead.</p>
+<pre><code>(do
+  (bind-macro! 'fizz (fn ()
+    `(prn &quot;fizz&quot;)))
+
+  (fizz)) ; this doesn't work...
+
+(fizz) ; ...but this does
+
+(do
+  (let-macro fizz ()
+    `(prn &quot;fizz&quot;))
+
+  (fizz)) ; ...and this does
+</code></pre>
+<h2><a class="header" href="#toplevel-scopes" id="toplevel-scopes">Toplevel Scopes</a></h2>
+<p>Although evaluation and expansion do only process one toplevel form at a time, that's not the
+whole story. If each toplevel form were completely separate from the next, it would be impossible
+to use forms like <code>let</code> or <code>let-macro</code> at the toplevel.</p>
+<p>We say that under some circumstances, a group of forms is processed in a &quot;toplevel scope&quot;. For
+example, when loading a GameLisp source file, the toplevel scope continues until the end of 
+that file. This means that a toplevel <code>let</code> form works exactly as you would expect.</p>
+<h3><a class="header" href="#evaluation-apis" id="evaluation-apis">Evaluation APIs</a></h3>
+<p>The function for running a GameLisp source file is called <a href="../std/load"><code>load</code></a>. It opens a source 
+file, reads it into a string, parses that string into a series of forms, and expands and evaluates 
+each form in the same toplevel scope.</p>
+<p>GameLisp projects are likely to end up with a modular, branching tree of files: the source file 
+<code>main.glsp</code> calls <code>(load &quot;engine.glsp&quot;)</code>, which calls <code>(load &quot;engine-drawing.glsp&quot;)</code>, and so on. 
+In order to prevent the same source file from accidentally being loaded twice, we provide the 
+function <a href="../std/require"><code>require</code></a>. If the current GameLisp runtime has already received a 
+<code>require</code> call for the specified file, it silently does nothing. Otherwise, <code>require</code> is exactly 
+the same as <code>load</code>.</p>
+<p><a href="../std/eval"><code>eval</code></a> and <a href="../std/eval-multi"><code>eval-multi</code></a> are like <code>load</code>, but they receive 
+their forms as arguments rather than parsing them from a string. <code>eval-multi</code> accepts an array of
+forms, expanding and evaluating those forms one after the other, all in the same toplevel scope. 
+<code>eval</code> is the same, but its argument is a single form rather than an array of forms.</p>
+<h2><a class="header" href="#hygiene" id="hygiene">Hygiene</a></h2>
+<p>If you've worked with Rust's <code>macro_rules!</code> macros, you'll know that they're <a href="https://en.wikipedia.org/wiki/Hygienic_macro">hygienic</a>: it's not 
+possible for a macro to name a local variable from outside its own lexical scope, unless that 
+name was passed in as one of the macro's arguments.</p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>macro_rules! unhygienic_macro {
+	() =&gt; (println!(&quot;{}&quot;, local_name));
+};
+
+fn scope() {
+	let local_name = 42;
+
+	macro_rules! hygienic_macro {
+		() =&gt; (println!(&quot;{}&quot;, local_name));
+	};
+
+	hygienic_macro!(); //prints 42
+	unhygienic_macro!(); //error: cannot find value `local_name` in this scope
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>This is good for program correctness, but it can also be inconvenient. Because GameLisp values 
+convenience very highly, GameLisp's macros are unhygienic.</p>
+<p>The main risks when working with unhygienic macros are that you may unintentionally refer 
+to a local variable when you mean to refer to a global one, or you may &quot;leak&quot; a local variable 
+which is supposed to be private to the macro's implementation.</p>
+<pre><code>; this macro checks that adding 1 to 2 produces 3 before executing a
+; block of code. defensive programming!
+(bind-macro! 'with-add-assertion (fn (..body)
+  `(do
+    (let tmp 1)
+    (unless (== (+ tmp 2) 3) 
+      (bail &quot;addition is broken!&quot;))
+    ~..body)))
+
+; prints 1 rather than 5: addition is broken, but we don't detect it 
+; because `bail` is also broken!
+(do
+  (let + -)
+  (let bail (fn (ignored) #n))
+  (with-add-assertion
+  	(let x 3)
+    (prn (+ x 2))))
+
+; the macro shadows `tmp`, printing 1 rather than the expected 7
+(let tmp 7)
+(with-add-assertion
+  (prn tmp)) 
+</code></pre>
+<p>You can solve the first problem by explicitly accessing the global rather than local version
+of a name. (However, this should rarely be necessary - it's unusual for a global name to be
+shadowed by a local one, and when it does happen, it's something that the overrider probably
+wants to affect <em>all</em> nested code, including code generated by macros.)</p>
+<pre><code>(bind-macro! 'with-add-assertion (fn (..body)
+  `(do
+    (let tmp 1)
+    (unless (== (+ tmp 2) 3) 
+      ((global 'bail) &quot;addition is broken!&quot;))
+    ~..body)))
+</code></pre>
+<p>The second problem is more insidious and important: macros often need to define temporary 
+variables, and needing to come up with a unique name for each of them would be painful. This
+is how the C preprocessor ended up with silly names like <code>__FILE__</code> and <code>__STDC_VERSION__</code>.</p>
+<p>We solve this problem using <a href="../std/gensym"><code>gensym</code></a>, a built-in function which returns a unique 
+symbol. If you use a fresh <code>gensym</code> for each local binding generated by a macro, you don't need 
+to worry about accidentally shadowing the user's own variables:</p>
+<pre><code>(bind-macro! 'with-add-assertion (fn (..body)
+  (let temp-sym (gensym))
+
+  `(do
+    (let ~tmp-sym 1)
+    (unless (== (+ ~tmp-sym 2) 3) 
+      (bail &quot;addition is broken!&quot;))
+    ~..body)))
+</code></pre>
+<p>This is such a common pattern that we have special syntax for it: when <code>backquote</code> detects
+a quoted symbol which ends with <code>#</code>, it replaces each occurence of that symbol with the result
+of a <code>(gensym)</code>.</p>
+<pre><code>(prn `(foo# foo# bar#)) ; prints #&lt;gs:foo:0&gt; #&lt;gs:foo:0&gt; #&lt;gs:bar:1&gt; 
+
+(bind-macro! 'with-add-assertion (fn (..body)
+  `(do
+    (let tmp# 1)
+    (unless (== (+ tmp# 2) 3) 
+      (bail &quot;addition is broken!&quot;))
+    ~..body)))
+</code></pre>
+<h2><a class="header" href="#manual-expansion" id="manual-expansion">Manual Expansion</a></h2>
+<p>You'll sometimes want to expand a form without immediately evaluating it. For example, when 
+writing a macro, you might want to perform some processing on the expanded version of its
+arguments, rather than the unexpanded version.</p>
+<p>The built-in function <a href="../std/expand"><code>expand</code></a> takes a single value as its argument, recursively 
+expands it according to the <a href="#the-expansion-algorithm">usual algorithm</a>, and then returns the 
+expanded result.</p>
+<p>On the other hand, <a href="../std/expand-1"><code>expand-1</code></a> gives you finer control over the expansion 
+process by performing a single &quot;step&quot; of the expansion algorithm at a time. It also allows you 
+to override the expansion function, and to detect when <a href="../std/macro-no-op"><code>macro-no-op</code></a>
+is called.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="evaluation.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="built-in-macros.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="evaluation.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="built-in-macros.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="glsp-highlight.js"></script>
+        
+
+        
+
+    </body>
+</html>

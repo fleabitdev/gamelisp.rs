@@ -1,0 +1,359 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Collection Types - GameLisp Reference Manual</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="overview.html">Overview</a></li><li class="chapter-item expanded affix "><a href="introduction-for-rust-programmers.html">Introduction for Rust Programmers</a></li><li class="chapter-item expanded affix "><a href="introduction-for-lisp-programmers.html">Introduction for Lisp Programmers</a></li><li class="chapter-item expanded "><a href="the-language.html"><strong aria-hidden="true">1.</strong> The Language</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="syntax-and-types.html"><strong aria-hidden="true">1.1.</strong> Syntax and Types</a></li><li class="chapter-item expanded "><a href="evaluation.html"><strong aria-hidden="true">1.2.</strong> Evaluation</a></li><li class="chapter-item expanded "><a href="macros.html"><strong aria-hidden="true">1.3.</strong> Macros</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="built-in-macros.html"><strong aria-hidden="true">1.3.1.</strong> Built-in Macros</a></li></ol></li><li class="chapter-item expanded "><a href="numbers.html"><strong aria-hidden="true">1.4.</strong> Numbers</a></li><li class="chapter-item expanded "><a href="arrays.html"><strong aria-hidden="true">1.5.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="strings-and-text.html"><strong aria-hidden="true">1.6.</strong> Strings and Text</a></li><li class="chapter-item expanded "><a href="tables.html"><strong aria-hidden="true">1.7.</strong> Tables</a></li><li class="chapter-item expanded "><a href="iterators.html"><strong aria-hidden="true">1.8.</strong> Iterators</a></li><li class="chapter-item expanded "><a href="coroutines.html"><strong aria-hidden="true">1.9.</strong> Coroutines</a></li><li class="chapter-item expanded "><a href="patterns.html"><strong aria-hidden="true">1.10.</strong> Patterns</a></li><li class="chapter-item expanded "><a href="object-oriented-programming.html"><strong aria-hidden="true">1.11.</strong> Object-Oriented Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="state-machines.html"><strong aria-hidden="true">1.11.1.</strong> State Machines</a></li><li class="chapter-item expanded "><a href="code-reuse.html"><strong aria-hidden="true">1.11.2.</strong> Code Reuse</a></li><li class="chapter-item expanded "><a href="structs.html"><strong aria-hidden="true">1.11.3.</strong> Structs</a></li></ol></li><li class="chapter-item expanded "><a href="errors.html"><strong aria-hidden="true">1.12.</strong> Errors</a></li><li class="chapter-item expanded "><a href="miscellaneous.html"><strong aria-hidden="true">1.13.</strong> Miscellaneous</a></li></ol></li><li class="chapter-item expanded "><a href="the-rust-api.html"><strong aria-hidden="true">2.</strong> The Rust API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="the-glsp-crate.html"><strong aria-hidden="true">2.1.</strong> The glsp Crate</a></li><li class="chapter-item expanded "><a href="collection-types.html" class="active"><strong aria-hidden="true">2.2.</strong> Collection Types</a></li><li class="chapter-item expanded "><a href="rust-functions.html"><strong aria-hidden="true">2.3.</strong> Rust Functions</a></li><li class="chapter-item expanded "><a href="rust-data.html"><strong aria-hidden="true">2.4.</strong> Rust Data</a></li><li class="chapter-item expanded "><a href="libraries.html"><strong aria-hidden="true">2.5.</strong> Libraries</a></li><li class="chapter-item expanded "><a href="garbage-collection.html"><strong aria-hidden="true">2.6.</strong> Garbage Collection</a></li><li class="chapter-item expanded "><a href="procedural-macros.html"><strong aria-hidden="true">2.7.</strong> Procedural Macros</a></li><li class="chapter-item expanded "><a href="compilation.html"><strong aria-hidden="true">2.8.</strong> Compilation</a></li><li class="chapter-item expanded "><a href="feature-flags.html"><strong aria-hidden="true">2.9.</strong> Feature Flags</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="performance-figures.html">Appendix A: Performance Figures</a></li><li class="chapter-item expanded affix "><a href="naming-conventions.html">Appendix B: Naming Conventions</a></li><li class="chapter-item expanded affix "><a href="implementation-limits.html">Appendix C: Implementation Limits</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                    </div>
+
+                    <h1 class="menu-title">GameLisp Reference Manual</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#collection-types" id="collection-types">Collection Types</a></h1>
+<p>The collection types are <a href="https://docs.rs/glsp/*/glsp/struct.Arr.html"><code>Arr</code></a> for arrays, <a href="https://docs.rs/glsp/*/glsp/struct.Str.html"><code>Str</code></a> for strings, and <a href="https://docs.rs/glsp/*/glsp/struct.Tab.html"><code>Tab</code></a> for tables. Their 
+API has a few quirks to bear in mind.</p>
+<h2><a class="header" href="#error-handling" id="error-handling">Error-Handling</a></h2>
+<p>We try to keep panics to an absolute minimum. Because there are a lot of things which can
+potentially go wrong when interacting with a collection (out-of-bounds errors, failed type
+conversions, mutating a borrowed collection), almost every collection method returns a
+<a href="https://docs.rs/glsp/*/glsp/enum.GResult.html"><code>GResult</code></a>. You'll need to make generous use of the <code>?</code> operator.</p>
+<h2><a class="header" href="#interior-mutability" id="interior-mutability">Interior Mutability</a></h2>
+<p>All of the collection types are both aliasable and mutable - in Rust, this requires <a href="https://doc.rust-lang.org/reference/interior-mutability.html">interior 
+mutability</a>. There are two ways 
+this could potentially have worked:</p>
+<ul>
+<li>
+<p>Allow the Rust programmer to explicitly lock the interior of the type, as though working with
+a <a href="https://doc.rust-lang.org/stable/std/cell/struct.RefCell.html"><code>RefCell</code></a>, and then mutate it freely - perhaps even directly accessing the internal storage.</p>
+</li>
+<li>
+<p>Build the API around &quot;atomic&quot; method calls which lock the type, do something to it, and then 
+unlock it before returning.</p>
+</li>
+</ul>
+<p>GameLisp previously chose the first solution, but it ended up cluttering the Rust code with
+too many calls to <code>borrow()</code> and <code>borrow_mut()</code>, so we switched to the second option. The
+second option also causes fewer lifetime problems in practice, since <code>borrow()</code> handles tend to be 
+scoped for a longer lifetime than necessary.</p>
+<p>The only methods which aren't completely atomic are those which <a href="#iteration">create a Rust iterator</a> 
+over a collection. If a collection is mutated while being iterated in Rust, an error will occur.</p>
+<p>Because we don't allow the caller to create direct references into a collection's storage, none of
+our collections can be indexed using Rust's <code>[]</code> syntax. You'll need to use the <code>get()</code> and
+<code>set()</code> methods instead.</p>
+<h2><a class="header" href="#construction" id="construction">Construction</a></h2>
+<p>There is no way to place an <code>Arr</code>, <code>Str</code> or <code>Tab</code> directly on the Rust stack. Instead, they're
+always accessed indirectly via a <code>Root</code> smart pointer: <code>Root&lt;Arr&gt;</code>, <code>Root&lt;Str&gt;</code>, <code>Root&lt;Tab&gt;</code>.</p>
+<p>New collections can be allocated using global functions in the <code>glsp</code> namespace, such as
+<a href="https://docs.rs/glsp/*/glsp/fn.arr.html"><code>glsp::arr</code></a>, <a href="https://docs.rs/glsp/*/glsp/fn.str_from_iter.html"><code>glsp::str_from_iter</code></a>, and <a href="https://docs.rs/glsp/*/glsp/fn.tab_with_capacity.html"><code>glsp::tab_with_capacity</code></a>.</p>
+<p>Alternatively, we provide convenience macros for constructing each type of collection, in the
+same spirit as Rust's <a href="https://doc.rust-lang.org/stable/std/macro.vec.html"><code>vec![]</code> macro</a>.</p>
+<p><a href="https://docs.rs/glsp/*/glsp/macro.arr.html"><code>arr!</code></a> constructs a new array, returning it as a <code>Root&lt;Arr&gt;</code>:</p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>arr![];
+arr![elem; n]; //elem, repeated n times
+arr![100i32, 20u8, &quot;hello&quot;, arr![]]; //types are converted using the ToVal trait
+arr![a, ..src, b]; //splays the contents of src using the Splay trait
+<span class="boring">}
+</span></code></pre></pre>
+<p><a href="https://docs.rs/glsp/*/glsp/macro.str.html"><code>str!</code></a> has the same syntax as Rust's <a href="https://doc.rust-lang.org/std/fmt/"><code>format!</code></a> macro, but it returns a <code>Root&lt;Str&gt;</code>
+rather than a <code>String</code>:</p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>str!(&quot;&quot;);
+str!(&quot;hello, str&quot;);
+str!(&quot;{}, {}&quot;, &quot;hello&quot;, glsp::sym(&quot;str&quot;)?);
+<span class="boring">}
+</span></code></pre></pre>
+<p><a href="https://docs.rs/glsp/*/glsp/macro.tab.html"><code>tab!</code></a> constructs a new table from a number of key-value pairs. Optionally, it can
+clone another table and then insert each of the key-value pairs into it, similar to Rust's
+<a href="https://doc.rust-lang.org/reference/expressions/struct-expr.html#functional-update-syntax">struct update syntax</a>:</p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>let empty_tab = tab! { };
+
+let base_tab = tab! {
+	(glsp::sym(&quot;a&quot;)?, 1),
+	(glsp::sym(&quot;b&quot;)?, 2)
+};
+
+let extended_tab = tab! {
+	(glsp::sym(&quot;b&quot;)?, 20),
+	(glsp::sym(&quot;c&quot;)?, 30),
+	..base_tab
+};
+
+assert!(extended_tab.len() == 3);
+<span class="boring">}
+</span></code></pre></pre>
+<p>Conversion to a <a href="https://docs.rs/glsp/*/glsp/enum.Val.html"><code>Val</code></a> is fallible: the <a href="https://docs.rs/glsp/*/glsp/macro.arr.html"><code>arr!</code></a> and <a href="https://docs.rs/glsp/*/glsp/macro.tab.html"><code>tab!</code></a> macros will panic if you pass them 
+something which can't be represented as a <a href="https://docs.rs/glsp/*/glsp/enum.Val.html"><code>Val</code></a>, like <code>std::u32::MAX</code>. In the unlikely event
+that you need to catch this type of error, the <a href="https://docs.rs/glsp/*/glsp/macro.try_arr.html"><code>try_arr!</code></a> and <a href="https://docs.rs/glsp/*/glsp/macro.try_tab.html"><code>try_tab!</code></a> macros are 
+identical to their counterparts, except that they return a <a href="https://docs.rs/glsp/*/glsp/type.GResult.html"><code>GResult&lt;Root&lt;_&gt;&gt;</code></a>.</p>
+<h2><a class="header" href="#deques" id="deques">Deques</a></h2>
+<p>Within GameLisp, arrays and strings both support the <code>deque</code> interface, so that it's possible to
+write a function which is generic over both types. The same is true for their Rust API.</p>
+<p>The relevant traits are <a href="https://docs.rs/glsp/*/glsp/trait.DequeOps.html"><code>DequeOps</code></a>, <a href="https://docs.rs/glsp/*/glsp/trait.DequeAccess.html"><code>DequeAccess</code></a> and <a href="https://docs.rs/glsp/*/glsp/trait.DequeAccessRange.html"><code>DequeAccessRange</code></a>. You'll need to 
+make sure those traits are in scope (perhaps by importing the 
+<a href="the-glsp-crate.html#the-prelude">prelude</a>) when working with arrays or strings.</p>
+<p>The <a href="https://docs.rs/glsp/*/glsp/trait.DequeAccess.html"><code>DequeAccess</code></a> and <a href="https://docs.rs/glsp/*/glsp/trait.DequeAccessRange.html"><code>DequeAccessRange</code></a> implementations are generic over 
+all of Rust's built-in integer types, so there's no need to convert indexes to <code>usize</code>. Negative 
+indexes count backwards from the end of the deque.</p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>let n: f32 = arr.get(30_u8)?;
+arr.set(-1, n * 2.0)?;
+<span class="boring">}
+</span></code></pre></pre>
+<h3><a class="header" href="#type-erasure" id="type-erasure">Type Erasure</a></h3>
+<p>If you need to define a variable, field or non-generic function argument which can be either a
+<code>Root&lt;Arr&gt;</code> or a <code>Root&lt;Str&gt;</code>, you can use the <a href="https://docs.rs/glsp/*/glsp/enum.Deque.html"><code>Deque</code></a> enum. It implements the <a href="https://docs.rs/glsp/*/glsp/trait.DequeOps.html"><code>DequeOps</code></a>,
+<a href="https://docs.rs/glsp/*/glsp/trait.DequeAccess.html"><code>DequeAccess</code></a> and <a href="https://docs.rs/glsp/*/glsp/trait.DequeAccessRange.html"><code>DequeAccessRange</code></a> traits, so you don't need to unwrap it in order to 
+manipulate its contents.</p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>fn push_one_pop_one(deq: Deque, to_push: Val) -&gt; GResult&lt;Val&gt; {
+	deq.push(to_push)?;
+	deq.pop_start()?;
+
+	Ok(())
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>There are similar enums for GameLisp's other <a href="syntax-and-types.html#abstract-types">abstract types</a>:</p>
+<ul>
+<li>
+<p><a href="https://docs.rs/glsp/*/glsp/enum.Num.html"><code>Num</code></a> stores an <code>i32</code> or <code>f32</code>. It supports all of Rust's arithmetic operators, and
+also a subset of Rust's standard API for integer types, like the <a href="https://doc.rust-lang.org/std/primitive.i32.html#method.div_euclid"><code>div_euclid()</code></a> method.</p>
+</li>
+<li>
+<p><a href="https://docs.rs/glsp/*/glsp/enum.Callable.html"><code>Callable</code></a> stores those primitive types which can receive a GameLisp function call.</p>
+</li>
+<li>
+<p><a href="https://docs.rs/glsp/*/glsp/enum.Expander.html"><code>Expander</code></a> stores those primitive types which can be used as a macro expander.</p>
+</li>
+<li>
+<p><a href="https://docs.rs/glsp/*/glsp/enum.Iterable.html"><code>Iterable</code></a> stores those primitive types which can be used to construct a <a href="https://docs.rs/glsp/*/glsp/struct.GIter.html"><code>GIter</code></a>.</p>
+</li>
+</ul>
+<h2><a class="header" href="#iteration" id="iteration">Iteration</a></h2>
+<p>Collections provide three separate iteration methods. </p>
+<p><code>iter()</code> is an infallible iterator which returns the collection's natural type: <code>Val</code> for <code>Arr</code>, 
+<code>char</code> for <code>Str</code> and <code>(Val, Val)</code> for <code>Tab</code>.</p>
+<p><code>iter_to&lt;T&gt;()</code> performs type conversion from its natural type to <code>T</code>. Because type conversion is
+fallible, the iterator's <code>Item</code> type is <a href="https://docs.rs/glsp/*/glsp/type.GResult.html"><code>GResult&lt;T&gt;</code></a>, so each item will need to be individually
+unwrapped.</p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>let mut counter = 0u32;
+for n in arr.iter_to::&lt;u32&gt;() {
+	counter += n?;
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p><code>giter()</code> allocates and returns a new GameLisp iterator, <code>Root&lt;GIter&gt;</code>, over the collection.</p>
+<p>Due to some limitations in Rust's type system, it's not possible to call iteration methods on a
+<code>Tab</code> directly. Instead, you'll need to use the <a href="https://docs.rs/glsp/*/glsp/struct.Tab.html#method.entries"><code>entries()</code></a> adapter method: for example,
+<a href="https://docs.rs/glsp/*/glsp/struct.TabEntries.html#method.iter"><code>tab.entries().iter()</code></a> or <a href="https://docs.rs/glsp/*/glsp/struct.TabEntries.html#method.keys_to"><code>tab.entries().keys_to::&lt;u32&gt;()</code></a>.</p>
+<h2><a class="header" href="#cloning" id="cloning">Cloning</a></h2>
+<p>The <code>clone()</code> method name has already been claimed by Rust. If you call <code>clone()</code> for a 
+<code>Root&lt;Arr&gt;</code>, it will create a new <code>Root</code> which refers to the same array, rather than cloning the 
+array itself.</p>
+<p>When you need to clone the <em>contents</em> of a collection, the correct methods are <code>shallow_clone()</code> 
+and <code>deep_clone()</code>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="the-glsp-crate.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="rust-functions.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="the-glsp-crate.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="rust-functions.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="glsp-highlight.js"></script>
+        
+
+        
+
+    </body>
+</html>

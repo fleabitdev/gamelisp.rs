@@ -1,0 +1,405 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Evaluation - GameLisp Reference Manual</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="overview.html">Overview</a></li><li class="chapter-item expanded affix "><a href="introduction-for-rust-programmers.html">Introduction for Rust Programmers</a></li><li class="chapter-item expanded affix "><a href="introduction-for-lisp-programmers.html">Introduction for Lisp Programmers</a></li><li class="chapter-item expanded "><a href="the-language.html"><strong aria-hidden="true">1.</strong> The Language</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="syntax-and-types.html"><strong aria-hidden="true">1.1.</strong> Syntax and Types</a></li><li class="chapter-item expanded "><a href="evaluation.html" class="active"><strong aria-hidden="true">1.2.</strong> Evaluation</a></li><li class="chapter-item expanded "><a href="macros.html"><strong aria-hidden="true">1.3.</strong> Macros</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="built-in-macros.html"><strong aria-hidden="true">1.3.1.</strong> Built-in Macros</a></li></ol></li><li class="chapter-item expanded "><a href="numbers.html"><strong aria-hidden="true">1.4.</strong> Numbers</a></li><li class="chapter-item expanded "><a href="arrays.html"><strong aria-hidden="true">1.5.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="strings-and-text.html"><strong aria-hidden="true">1.6.</strong> Strings and Text</a></li><li class="chapter-item expanded "><a href="tables.html"><strong aria-hidden="true">1.7.</strong> Tables</a></li><li class="chapter-item expanded "><a href="iterators.html"><strong aria-hidden="true">1.8.</strong> Iterators</a></li><li class="chapter-item expanded "><a href="coroutines.html"><strong aria-hidden="true">1.9.</strong> Coroutines</a></li><li class="chapter-item expanded "><a href="patterns.html"><strong aria-hidden="true">1.10.</strong> Patterns</a></li><li class="chapter-item expanded "><a href="object-oriented-programming.html"><strong aria-hidden="true">1.11.</strong> Object-Oriented Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="state-machines.html"><strong aria-hidden="true">1.11.1.</strong> State Machines</a></li><li class="chapter-item expanded "><a href="code-reuse.html"><strong aria-hidden="true">1.11.2.</strong> Code Reuse</a></li><li class="chapter-item expanded "><a href="structs.html"><strong aria-hidden="true">1.11.3.</strong> Structs</a></li></ol></li><li class="chapter-item expanded "><a href="errors.html"><strong aria-hidden="true">1.12.</strong> Errors</a></li><li class="chapter-item expanded "><a href="miscellaneous.html"><strong aria-hidden="true">1.13.</strong> Miscellaneous</a></li></ol></li><li class="chapter-item expanded "><a href="the-rust-api.html"><strong aria-hidden="true">2.</strong> The Rust API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="the-glsp-crate.html"><strong aria-hidden="true">2.1.</strong> The glsp Crate</a></li><li class="chapter-item expanded "><a href="collection-types.html"><strong aria-hidden="true">2.2.</strong> Collection Types</a></li><li class="chapter-item expanded "><a href="rust-functions.html"><strong aria-hidden="true">2.3.</strong> Rust Functions</a></li><li class="chapter-item expanded "><a href="rust-data.html"><strong aria-hidden="true">2.4.</strong> Rust Data</a></li><li class="chapter-item expanded "><a href="libraries.html"><strong aria-hidden="true">2.5.</strong> Libraries</a></li><li class="chapter-item expanded "><a href="garbage-collection.html"><strong aria-hidden="true">2.6.</strong> Garbage Collection</a></li><li class="chapter-item expanded "><a href="procedural-macros.html"><strong aria-hidden="true">2.7.</strong> Procedural Macros</a></li><li class="chapter-item expanded "><a href="compilation.html"><strong aria-hidden="true">2.8.</strong> Compilation</a></li><li class="chapter-item expanded "><a href="feature-flags.html"><strong aria-hidden="true">2.9.</strong> Feature Flags</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="performance-figures.html">Appendix A: Performance Figures</a></li><li class="chapter-item expanded affix "><a href="naming-conventions.html">Appendix B: Naming Conventions</a></li><li class="chapter-item expanded affix "><a href="implementation-limits.html">Appendix C: Implementation Limits</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                    </div>
+
+                    <h1 class="menu-title">GameLisp Reference Manual</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#evaluation" id="evaluation">Evaluation</a></h1>
+<p>In the <a href="syntax-and-types.html">previous chapter</a>, we introduced the fact that GameLisp code is
+made out of a tree of simple values. Those values are sometimes parsed directly from a text file, 
+but they can also be generated dynamically.</p>
+<p>Unlike Rust, GameLisp code does not need to be compiled into a binary before it can be run.
+You just pass your code to GameLisp, and it's executed straight away.</p>
+<p>This chapter will describe precisely what happens when GameLisp is asked to run a particular 
+value as a piece of code.</p>
+<h2><a class="header" href="#basic-evaluation" id="basic-evaluation">Basic Evaluation</a></h2>
+<p>&quot;Evaluating&quot; a value means executing it as a piece of code. When we're talking about evaluation,
+we tend to say &quot;form&quot; rather than &quot;value&quot;, but they're just two different names for the same 
+thing. When a form is evaluated, it either returns another value or triggers an error.</p>
+<p>Values of type <code>nil</code>, <code>bool</code>, <code>int</code>, <code>flo</code>, <code>char</code>, <code>str</code> or <code>tab</code> are self-evaluating. If you 
+evaluate a form of one of these types, no code is executed; the &quot;evaluation&quot; simply returns the 
+form itself.</p>
+<p>Symbols evaluate to the current value of the variable which they name. Local variable bindings 
+take precedence over global bindings. If there are no local or global bindings for the symbol
+which is being evaluated, it's an error.</p>
+<p>Arrays are a little more complicated:</p>
+<ul>
+<li>
+<p>Empty arrays are self-evaluating.</p>
+</li>
+<li>
+<p>When the array's first element is a symbol which names a <a href="#special-forms">special form</a>, such 
+as <code>quote</code>, <code>if</code> or <code>do</code>, then that form's special evaluation rules are applied.</p>
+</li>
+<li>
+<p>Otherwise, the array is evaluated as a function call. All of its elements are evaluated in 
+order, from left to right. The result of evaluating the leftmost form becomes the
+&quot;callee&quot;, the function which is being called. The results of evaluating all of the other 
+forms (if any) are passed to the call as its arguments. The function call's return value
+becomes the result of the evaluation.</p>
+</li>
+</ul>
+<p>Attempting to evaluate a form of any 
+<a href="syntax-and-types.html#representable-types">non-representable type</a> is an error.</p>
+<p>A callee is usually a <a href="#functions">function</a>. Functions can be defined either in GameLisp or 
+in Rust. GameLisp comes with a <a href="../std/">very large number of built-in functions</a> in its
+standard library.</p>
+<p>For now, the main built-in functions you need to know are:</p>
+<ul>
+<li>
+<p><a href="../std/prn-fn"><code>prn</code></a> takes any number of arguments and prints their text representation to 
+stdout, separated by spaces and followed by a newline. <a href="../std/pr"><code>pr</code></a> does the same thing 
+without the newline. Both functions return <code>#n</code>.</p>
+</li>
+<li>
+<p><a href="../std/int-p"><code>int?</code></a>, <a href="../std/tab-p"><code>tab?</code></a> and <a href="../std/types">similar functions</a> accept a 
+single argument. They return <code>#t</code> if the argument belongs to the specified type, or <code>#f</code> 
+otherwise.</p>
+</li>
+<li>
+<p><a href="../std/lt"><code>&lt;</code></a>, <a href="../std/num-eq"><code>==</code></a>, <a href="../std/gte"><code>&gt;=</code></a> and so on perform numeric 
+comparisons. <a href="../std/add"><code>+</code></a>, <a href="../std/sub"><code>-</code></a>, <a href="../std/rem"><code>%</code></a> and so on perform basic
+arithmetic on numbers. It's an error to pass a non-number argument to any of these functions.</p>
+<ul>
+<li>Note that GameLisp's arithmetic and comparisons use prefix notation rather than the
+more familiar <a href="https://en.wikipedia.org/wiki/Infix_notation">infix notation</a>. Rather than writing <code>1 + 2 + 3</code>, write <code>(+ 1 2 3)</code>; and
+rather than writing <code>i &lt; len</code>, write <code>(&lt; i len)</code>.</li>
+</ul>
+</li>
+<li>
+<p><a href="../std/arr"><code>arr</code></a> constructs a new array which contains all of its arguments. For example, 
+<code>(arr)</code> will return a new empty array, and <code>(arr 1 2 3)</code> will return a new array which contains
+those three numbers.</p>
+<ul>
+<li>You can &quot;splay&quot; the contents of one array into another with the abbreviation <code>..</code>; for
+example, <code>(arr 10 ..src)</code> will create a new array which contains the integer <code>10</code>,
+followed by all of the elements from the array <code>src</code>.</li>
+</ul>
+</li>
+</ul>
+<p>A few examples of nested function calls:</p>
+<pre><code>(prn (&gt; (+ 1 1 1) 2)) ; prints #t
+(prn (pr &quot;a &quot;) (pr &quot;b &quot;)) ; prints a b #n #n
+(prn (nil? #n) (int? 10) (bool? (int? &quot;hello&quot;))) ; prints #t #t #t
+(prn (nil? 1 2)) ; error: too many arguments
+</code></pre>
+<h2><a class="header" href="#special-forms" id="special-forms">Special Forms</a></h2>
+<p>&quot;Special forms&quot; are those which don't follow the basic evaluation rules described above. Because 
+GameLisp's macro facilities are so powerful, it has a relatively small number of special forms,
+compared to languages like Rust.</p>
+<p><a href="../std/do"><code>do</code></a> has the same effect as a block <code>{ }</code> in Rust. <code>(do a b c)</code> evaluates <code>a</code>, then
+evaluates <code>b</code>, then finally evaluates <code>c</code>, returning its value. <code>(do)</code>, with no arguments, 
+evaluates to <code>#n</code>.</p>
+<p>Many other forms establish an &quot;implicit <code>do</code>&quot;. They contain zero or more child forms which are
+evaluated one after the other, and they return the result of evaluating their last child form.</p>
+<p><a href="../std/quote"><code>quote</code></a> suppresses evaluation: <code>(quote a)</code> returns the value of <code>a</code> without 
+evaluating it. Remember that <code>quote</code> is usually <a href="syntax-and-types.html#abbreviations">abbreviated</a> 
+as <code>'</code>, so we would write <code>(quote val)</code> as <code>'val</code>. Quote is most often used either to stop a 
+symbol from being evaluated as a variable, or to stop an array from being evaluated as a function
+call:</p>
+<pre><code>; without the quotes, this would be evaluated as printing the values of 
+; variables named &quot;hello&quot; and &quot;world&quot;. with the quotes, it prints two
+; symbols instead.
+(prn 'hello 'world)
+
+; without the quote, this would be evaluated as a call to the function 
+; named &quot;alice&quot;, passing in the values of the variables &quot;betty&quot; 
+; and &quot;carlo&quot; as arguments, and then printing the call's return value. 
+; with the quote, it prints a literal array instead.
+(prn '(alice betty carlo))
+</code></pre>
+<p><a href="../std/if"><code>if</code></a> performs conditional evaluation. It must always receive three forms: a 
+&quot;condition&quot; form, a &quot;then&quot; form, and an &quot;else&quot; form. First, the &quot;condition&quot; form is evaluated. 
+If its result is <a href="syntax-and-types.html#bool">truthy</a>, the &quot;then&quot; form is evaluated and returned; 
+otherwise, the &quot;else&quot; form is evaluated and returned. </p>
+<pre><code>; prints 5, but doesn't print 4
+(prn (if (&gt; 2 1) 
+  5 
+  (prn 4)))
+</code></pre>
+<h2><a class="header" href="#local-variables" id="local-variables">Local Variables</a></h2>
+<p>GameLisp's local variables are lexically scoped and always mutable. They can be declared either
+at the toplevel of a source file, or within an <a href="#special-forms">implicit <code>do</code></a>.</p>
+<p>Just like Rust, you declare a new local variable by using the <a href="../std/let"><code>let</code> special form</a>.
+Its first argument should be a symbol, and its optional second argument is a form which will be
+evaluated to initialize the variable. When the second argument is absent, the variable's initial 
+value will be <code>#n</code>.</p>
+<pre><code>(let a 20)
+(let b (* 20 a))
+(prn b) ; prints 400
+</code></pre>
+<p>When <code>let</code> has three or more arguments, it's equivalent to multiple consecutive <code>let</code> forms
+with one or two arguments each. We could rewrite the above as:</p>
+<pre><code>(let a 20, b (* 20 a))
+(prn b) ; prints 400
+</code></pre>
+<p><code>let</code>'s first argument can be an arbitrary pattern rather than a symbol, but we'll discuss that 
+in a <a href="patterns.html">later chapter</a>.</p>
+<h2><a class="header" href="#global-variables" id="global-variables">Global Variables</a></h2>
+<p>When evaluating a symbol which isn't bound to a local variable, it's assumed to refer to a
+global variable instead. The symbol <code>a-name</code> will evaluate to the current value of the
+global variable binding for the symbol <code>a-name</code>, or it will trigger an error if there's no 
+such binding.</p>
+<p>GameLisp's global variables use <a href="https://en.wikipedia.org/wiki/Late_binding#Late_binding_in_Lisp">late binding</a>. This means that every time a global variable
+is accessed or mutated, that variable's binding is looked up at the last possible moment. If
+you're trying to access a global variable which doesn't exist, you won't find out when the code 
+is loaded - the error is delayed until you actually try to access it. On the other hand, 
+late binding means that there's no need to declare your variables in advance, so you won't
+have to struggle with order-of-declaration problems or circular dependencies.</p>
+<p>Global bindings can be dynamically created, destroyed, accessed or mutated by calling the built-in 
+functions <a href="../std/bind-global-mut"><code>bind-global!</code></a>, <a href="../std/del-global-mut"><code>del-global!</code></a>, 
+<a href="../std/global"><code>global</code></a> and <a href="../std/set-global"><code>global=</code></a>.</p>
+<p>Built-in function calls like <code>(prn 'hello)</code> make use of global variables. When the GameLisp runtime
+starts up, the symbol <code>prn</code> is bound to a global variable. The initial value of that global
+variable is set to a Rust function which prints its arguments.</p>
+<p>A local variable &quot;shadows&quot; a global variable which is bound to the same name:</p>
+<pre><code>(prn 'hello) ; prints hello
+(let prn 10)
+(prn 'world) ; error: callee is an int
+</code></pre>
+<p>Late binding enables some useful tricks. For example, if you're creating a 2D game and you find it
+inconvenient to look up your sprites in a hash table, you could arrange for them to be
+automatically bound to global variables instead:</p>
+<pre><code>(draw spr:zombie-head (- x 10) (- y 10))
+(draw spr:zombie-body (- x 10) y)
+</code></pre>
+<h2><a class="header" href="#functions" id="functions">Functions</a></h2>
+<p>Functions in GameLisp are like closures in Rust, in that they can be stored as the value of a 
+variable. Functions defined in GameLisp have the type <code>fn</code>, while functions defined in Rust
+have the type <code>rfn</code>.</p>
+<p>The <code>fn</code> special form defines a new function, which can then be called just like one of the
+built-in functions:</p>
+<pre><code>(let triple (fn (n)
+  (let doubled (+ n n))
+  (+ n doubled)))
+
+(prn (triple 70)) ; prints 210
+</code></pre>
+<p>The body of a function establishes an &quot;implicit <code>do</code>&quot;, like the <code>do</code> special form. Each of
+its body forms are evaluated one after the other, and the value of the final form is returned as 
+the result of the function call. You can return early using the <a href="../std/return"><code>return</code> special 
+form</a>.</p>
+<p>By default, a function only accepts a fixed number of arguments:</p>
+<pre><code>(prn (triple)) ; error: too few arguments
+(prn (triple 1 2)) ; error: too many arguments
+</code></pre>
+<p>However, a fn's parameter list is a <a href="patterns.html#functions">pattern</a>. Among other things, this
+allows you to describe an optional parameter with the special syntax <code>(? name default-val)</code>, or
+capture zero or more arguments with the special syntax <code>..name</code>.</p>
+<pre><code>(let sum-and-triple (fn (..nums)
+  (* 3 (+ ..nums))))
+
+(prn (sum-and-triple 10 20 30)) ; prints 180
+
+(let print-multi (fn (item (? times 1))
+  (forn (_ times)
+    (pr item &quot; &quot;))
+  (prn)))
+
+(print-multi 'badgers) ; prints badgers 
+(print-multi 'badgers 3) ; prints badgers badgers badgers 
+</code></pre>
+<p>Functions capture the <a href="https://en.wikipedia.org/wiki/Scope_(computer_science)#Lexical_scoping">lexical environment</a> at their definition site. This means that you don't
+need to worry about local variables going out of scope:</p>
+<pre><code>(let f (do
+  (let captured 10)
+  (fn ()
+    captured)))
+
+(prn (f)) ; prints 10, even though `captured` is out-of-scope
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="syntax-and-types.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="macros.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="syntax-and-types.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="macros.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="glsp-highlight.js"></script>
+        
+
+        
+
+    </body>
+</html>

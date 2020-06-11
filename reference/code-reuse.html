@@ -1,0 +1,487 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Code Reuse - GameLisp Reference Manual</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="overview.html">Overview</a></li><li class="chapter-item expanded affix "><a href="introduction-for-rust-programmers.html">Introduction for Rust Programmers</a></li><li class="chapter-item expanded affix "><a href="introduction-for-lisp-programmers.html">Introduction for Lisp Programmers</a></li><li class="chapter-item expanded "><a href="the-language.html"><strong aria-hidden="true">1.</strong> The Language</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="syntax-and-types.html"><strong aria-hidden="true">1.1.</strong> Syntax and Types</a></li><li class="chapter-item expanded "><a href="evaluation.html"><strong aria-hidden="true">1.2.</strong> Evaluation</a></li><li class="chapter-item expanded "><a href="macros.html"><strong aria-hidden="true">1.3.</strong> Macros</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="built-in-macros.html"><strong aria-hidden="true">1.3.1.</strong> Built-in Macros</a></li></ol></li><li class="chapter-item expanded "><a href="numbers.html"><strong aria-hidden="true">1.4.</strong> Numbers</a></li><li class="chapter-item expanded "><a href="arrays.html"><strong aria-hidden="true">1.5.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="strings-and-text.html"><strong aria-hidden="true">1.6.</strong> Strings and Text</a></li><li class="chapter-item expanded "><a href="tables.html"><strong aria-hidden="true">1.7.</strong> Tables</a></li><li class="chapter-item expanded "><a href="iterators.html"><strong aria-hidden="true">1.8.</strong> Iterators</a></li><li class="chapter-item expanded "><a href="coroutines.html"><strong aria-hidden="true">1.9.</strong> Coroutines</a></li><li class="chapter-item expanded "><a href="patterns.html"><strong aria-hidden="true">1.10.</strong> Patterns</a></li><li class="chapter-item expanded "><a href="object-oriented-programming.html"><strong aria-hidden="true">1.11.</strong> Object-Oriented Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="state-machines.html"><strong aria-hidden="true">1.11.1.</strong> State Machines</a></li><li class="chapter-item expanded "><a href="code-reuse.html" class="active"><strong aria-hidden="true">1.11.2.</strong> Code Reuse</a></li><li class="chapter-item expanded "><a href="structs.html"><strong aria-hidden="true">1.11.3.</strong> Structs</a></li></ol></li><li class="chapter-item expanded "><a href="errors.html"><strong aria-hidden="true">1.12.</strong> Errors</a></li><li class="chapter-item expanded "><a href="miscellaneous.html"><strong aria-hidden="true">1.13.</strong> Miscellaneous</a></li></ol></li><li class="chapter-item expanded "><a href="the-rust-api.html"><strong aria-hidden="true">2.</strong> The Rust API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="the-glsp-crate.html"><strong aria-hidden="true">2.1.</strong> The glsp Crate</a></li><li class="chapter-item expanded "><a href="collection-types.html"><strong aria-hidden="true">2.2.</strong> Collection Types</a></li><li class="chapter-item expanded "><a href="rust-functions.html"><strong aria-hidden="true">2.3.</strong> Rust Functions</a></li><li class="chapter-item expanded "><a href="rust-data.html"><strong aria-hidden="true">2.4.</strong> Rust Data</a></li><li class="chapter-item expanded "><a href="libraries.html"><strong aria-hidden="true">2.5.</strong> Libraries</a></li><li class="chapter-item expanded "><a href="garbage-collection.html"><strong aria-hidden="true">2.6.</strong> Garbage Collection</a></li><li class="chapter-item expanded "><a href="procedural-macros.html"><strong aria-hidden="true">2.7.</strong> Procedural Macros</a></li><li class="chapter-item expanded "><a href="compilation.html"><strong aria-hidden="true">2.8.</strong> Compilation</a></li><li class="chapter-item expanded "><a href="feature-flags.html"><strong aria-hidden="true">2.9.</strong> Feature Flags</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="performance-figures.html">Appendix A: Performance Figures</a></li><li class="chapter-item expanded affix "><a href="naming-conventions.html">Appendix B: Naming Conventions</a></li><li class="chapter-item expanded affix "><a href="implementation-limits.html">Appendix C: Implementation Limits</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                    </div>
+
+                    <h1 class="menu-title">GameLisp Reference Manual</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#code-reuse" id="code-reuse">Code Reuse</a></h1>
+<p>In game development, you'll often have a small piece of data and behaviour which you need to 
+duplicate between many different classes. In a go-kart racing game, you might require all entities 
+to register their bounding box with the collision system; or in a city simulator, you might have 
+many different buildings which have their own population count and tax revenue; or in a 3D
+exploration game, you may wish to plug hundreds of diverse entities into the same animation system.</p>
+<p>You already have several ways to achieve this sort of code reuse:</p>
+<ul>
+<li>
+<p>In many cases, the code can simply be <a href="https://twitter.com/ID_AA_Carmack/status/53512300451201024">refactored into a free function</a>. &quot;The <code>on-grow</code> method
+for all of my fruit tree classes is identical - they should be calling a shared <code>grow-fruit-tree</code>
+function instead.&quot;</p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Duck_typing">Duck typing</a> can be an elegant solution for some simple cases, but you normally can't use it to 
+uphold complex invariants. &quot;If I'm creating an entity, and I notice that has a <code>target-rect</code> 
+field, I will automatically register it with the combat-targeting system.&quot;</p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Composition_over_inheritance">Composition over inheritance</a> will explicitly fracture your classes into small, reusable
+components which are separate from the whole. This will certainly make each component reusable,
+but it can be a hassle. &quot;When I create a <code>Skyscraper</code>, it automatically creates a new
+<code>PopulationNode</code> and <code>TaxNode</code>.&quot;</p>
+</li>
+<li>
+<p>If the only thing the entities have in common is that they all belong to the same general 
+category, and some external system needs to manipulate them all in the same way, then you could 
+implement a tag database. &quot;Each frame, my <code>Lava</code> entity looks up any nearby entities with the 
+<code>heat-sensitive</code> tag, and calls their <code>on-heat</code> method.&quot;</p>
+</li>
+<li>
+<p>Consider whether the differences between your entities can be described using plain data rather 
+than code. If you were to reimplement the original <a href="https://youtu.be/fTdlzqhSdt8?t=2879">Final Fantasy</a> in GameLisp, you wouldn't 
+need a distinct class for an <code>Ogre</code> and a <code>Creep</code> - you would just have a single <code>Enemy</code> class 
+which makes use of plain data like &quot;hit points&quot; and &quot;sprite size&quot;. Likewise, if you were to 
+reimplement <a href="https://youtu.be/NG7lgdJNgB0?t=1806">The Sims</a>, all of the different doorways would probably be modelled as a single 
+<code>Door</code> class which is capable of displaying a few different sprites.</p>
+</li>
+</ul>
+<p>Occasionally, none of those options will be sufficient. This usually happens when a component
+is shared by a very large number of entities (dozens or hundreds), and those entities need to 
+frequently interact with the component in some intrusive way, so splitting it into a separate 
+object would make things too bureaucratic. For example...</p>
+<ul>
+<li>
+<p>In an action-adventure game, we don't want to type out <code>[@collider 'coords]</code> every single time 
+an entity needs to know its own coordinates; we just want to type <code>@coords</code> instead. On the other 
+hand, an entity's physical location is a very fragile thing (if you get it wrong, entities will 
+start clipping through the scenery!), so our physics system shouldn't just manipulate a bare 
+<code>@coords</code> field using duck typing.</p>
+</li>
+<li>
+<p>In a theme-park simulation game, the code for saving and loading the game needs to be able
+to serialize and deserialize most of the game's entities. Explicitly writing <code>serialize</code> and
+<code>deserialize</code> methods for every building, every visitor and every worker would be 
+labour-intensive and tedious.</p>
+</li>
+<li>
+<p>In a massively-multiplayer online game, the code for scripting the user-interface might need
+to filter or intercept certain methods. For example, if a user-interface element has scrollbars, 
+then the arguments to its <code>on-mouse-click</code> method should be adjusted to give the illusion that 
+it belongs to a different coordinate system. If each new type of user-interface element was 
+forced to convert between coordinate systems manually, you would end up writing a lot of extra 
+code, and bugs would certainly creep in.</p>
+</li>
+</ul>
+<p>In situations like these, your first port of call should be a macro or a 
+<a href="object-oriented-programming.html#classmacros">classmacro</a>. It would be straightforward to write 
+a <code>defentity</code> macro which acts like <code>defclass</code>, but emits a few extra clauses to hook the 
+resulting class into the savegame system and the collision system.</p>
+<p>If you find that even macros aren't powerful enough, GameLisp does have one more trick up
+its sleeve.</p>
+<h2><a class="header" href="#mixins" id="mixins">Mixins</a></h2>
+<p>A mixin is a small class which can't be instantiated. Instead, it can only be &quot;mixed into&quot; the
+definition of another class. The target class will incorporate all of the mixin's fields, methods, 
+states, and so on, almost as though they were simply copied and pasted at the beginning of the 
+class definition.</p>
+<pre><code>(defmixin Sized
+  (field width)
+  (field height))
+
+(defclass Box
+  (mixin Sized)
+  (init (@width @height)))
+
+(let box (Box 20 15))
+(prn [box 'width] [box 'height]) ; prints 20 15
+(prn (is? box Box) (is? box Sized)) ; prints #t #t
+</code></pre>
+<p>This is similar to a classmacro, but it comes with several advantages:</p>
+<ul>
+<li>
+<p>Mixins can customize their object's initialization and finalization. (This would be difficult
+to achieve using a classmacro, since each class may only have a single <code>init</code> clause and a
+single <code>fini</code> clause, which can't normally be wrapped.)</p>
+</li>
+<li>
+<p>Mixins introduce a new namespace. If your <code>SoftBody</code> mixin specifically wants to override a 
+method introduced by your <code>Collider</code> mixin, it can include the clause 
+<code>(wrap Collider:something ...)</code>.</p>
+</li>
+<li>
+<p>As demonstrated above, the <code>(is? obj class)</code> function can be used to test whether an object's 
+class implements a particular mixin.</p>
+</li>
+</ul>
+<p><span></span></p>
+<pre><code>; a mixin which adds a `coords` property and a `move` method to a class, 
+; and ensures that the collision system is kept up-to-date whenever the 
+; coords are changed.
+(defmixin Coords
+  (prop coords 
+    (get)
+    (set (new-coords)
+      (= @field new-coords)
+      (colliders:update @self)))
+
+  (meth move (dx dy)
+    (colliders:move @self dx dy))
+
+  (init-mixin (..args)
+    (@base ..args)
+    (colliders:register @self))
+
+  (fini-mixin ()
+    (colliders:unregister @self)))
+</code></pre>
+<h2><a class="header" href="#advanced-wrapper-methods" id="advanced-wrapper-methods">Advanced Wrapper Methods</a></h2>
+<p>In the <a href="state-machines.html">previous chapter</a>, we discussed wrapper methods, which can be used to 
+override a specific <code>meth</code> or <code>wrap</code> clause defined elsewhere in the class.</p>
+<p>So far, the obvious limitation of wrapper methods is that they require you to know the entire 
+structure of your class up front. There's a <code>Jumping</code> state, which wraps the <code>Active:energy-level</code> 
+property, which wraps the <code>Main:energy-level</code> property...</p>
+<p>Let's suppose you have an <code>on-step</code> method, and you want to write a mixin which spawns a particle 
+effect every step, without replacing or modifying the entity's normal behaviour. GameLisp gives you
+two options for achieving that.</p>
+<p>The first option:</p>
+<pre><code>(defmixin Cloudy
+  (wrap Main:on-step ()
+    (@base)
+    (spawn-particle @coords 'clouds)))
+</code></pre>
+<p>If <code>Main:on-step</code> is undefined, or if you include multiple states or mixins which all try to 
+override <code>Main:on-step</code>, or if a state other than <code>Main</code> tries to define a <code>meth on-step</code>, an 
+error will occur. This is normally a good thing! It highlights the fact that your code has 
+an ambiguous order of execution, and it prompts you to disambiguate it by, for example, changing 
+one of your wrapper methods to override <code>Cloudy:on-step</code> instead.</p>
+<p>In cases where you're absolutely sure that you don't care about the order of execution, you could
+consider the second option:</p>
+<pre><code>(defmixin Cloudy
+  (wrap _:on-step ()
+    (@base)
+    (spawn-particle @coords 'clouds)))
+</code></pre>
+<p>The underscore makes this a &quot;wildcard wrapper method&quot;. It means &quot;I want this code to be executed 
+when <code>on-step</code> is called, but I don't care about what happens before or after&quot;.</p>
+<p>Wildcard wrappers are much less strict than explicit wrappers. It's fine to have a wildcard
+wrapper for <code>_:on-step</code>, even when there is no actual <code>meth on-step</code> anywhere in the class. 
+If there is no other <code>on-step</code> method, or if it's disabled, <code>(@base)</code> will be a silent no-op. 
+There can be any number of <code>_:on-step</code> wrappers in each class; you can even put several in the 
+same state!</p>
+<p>Wildcard wrappers can only be invoked using their unqualified method name: <code>(.Cloudy:on-step ob)</code>
+would fail, but <code>(.on-step ob)</code> would succeed. When you call an unqualified method like <code>on-step</code>,
+<code>(@base)</code> will chain through all of the wildcard wrappers in an unspecified order, followed by all 
+of the explicit wrappers, followed by the <code>meth</code> form. Methods which belong to disabled states are 
+skipped.</p>
+<p>Although wildcard wrappers can lead to spaghetti code when overused, they're a powerful tool when
+used responsibly.</p>
+<pre><code>(class Monster
+  (meth on-inspect ()
+    (prn &quot;It's terrifying!&quot;))
+  
+  (state OnFire
+    (wrap _:on-inspect ()
+	  (@base)
+	  (prn &quot;Also, it's on fire!&quot;)))
+  
+  (state Howling
+    (wrap _:on-inspect ()
+	  (@base)
+	  (prn &quot;It's howling, too!&quot;))))
+</code></pre>
+<h2><a class="header" href="#initialization-and-finalization" id="initialization-and-finalization">Initialization and Finalization</a></h2>
+<p>Mixins are initialized using an <a href="../std/init-mixin-clause"><code>init-mixin</code> clause</a>, which defines a 
+wrapper for the class's initializer method. If a class has three mixins and an <code>init</code> clause...</p>
+<pre><code>(defclass
+  (mixin A B C)
+  (init
+    ...))
+</code></pre>
+<p>...then it effectively has a hidden initializer method <code>Main:init</code>, which is wrapped by 
+<code>C:init-mixin</code>, which is wrapped by <code>B:init-mixin</code>, which is wrapped by <code>A:init-mixin</code>.</p>
+<p>Like any other wrapper method, <code>init-mixin</code> is versatile. It can intercept leading or trailing
+initializer arguments, modify arguments, and execute arbitrary code before or after calling 
+<code>(@base)</code>. The only thing it's not capable of doing is inverting the flow of information - a class 
+can't decide which arguments to pass to each of its mixins - but this is a deliberate design 
+choice.</p>
+<p>Finalization is simpler than initialization. When an object is killed, GameLisp will first call
+the object's <code>fini</code> method, and then call <a href="../std/fini-mixin-clause"><code>fini-mixin</code></a> for each mixin 
+from right to left. <code>fini-mixin</code> isn't a wrapper method, so it doesn't need to call <code>(@base)</code>.</p>
+<h2><a class="header" href="#states-in-mixins" id="states-in-mixins">States in Mixins</a></h2>
+<p>Mixins may define states. However, it's an error for a mixin to define a state which is also
+defined by the target class, or by another mixin. GameLisp provides no way to mix two states 
+together, simply because it would be too confusing.</p>
+<p>For similar reasons, mixins don't <a href="state-machines.html#shadowing">shadow</a> their implementing class. 
+If the toplevel of a mixin defines a field or constant which is also defined by the <code>Main</code> state 
+of its implementing class, it's an error.</p>
+<p>If a mixin defines a state, that state will participate in name-shadowing as normal, as though
+it was copied-and-pasted in at the very start of the implementing class.</p>
+<pre><code>(defmixin Heavy
+  (const kg 1000)
+  (state* Burdened
+    (const kg 1100)))
+
+; this is an error, because the name Weight:kg collides with Heavy:kg.
+; if Heavy:kg were to be commented out, the code would compile.
+(defclass Weight
+  (mixin Heavy)
+  (const kg 500))
+</code></pre>
+<h3><a class="header" href="#mixin-states" id="mixin-states">Mixin States</a></h3>
+<p>It's ordinarily an error for a mixin and a state to share the same name, because it would cause
+a namespace collision:</p>
+<pre><code>; which one of these two fields is named `Fighting:health`?
+(mixin Fighting
+  (field health)
+  (state Fighting
+    (field health)))
+</code></pre>
+<p>However, there's a special exception when a mixin only contains a single <code>state</code> or <code>state*</code>,
+with no other clauses. In that case, the state &quot;takes over&quot; the mixin's namespace. In effect, you 
+end up with a mixin which can be dynamically enabled and disabled - a useful abstraction.</p>
+<h2><a class="header" href="#aside-why-not-inheritance" id="aside-why-not-inheritance">Aside: Why Not Inheritance?</a></h2>
+<p>Most object-oriented languages in common use include an inheritance hierarchy. Code reuse is
+achieved by designating one or more &quot;parent classes&quot; for each class. All of the fields and methods
+in the parent class are incorporated into the child class.</p>
+<p>I find that this is often an unhelpful abstraction, for two main reasons:</p>
+<ul>
+<li>
+<p>The boundary between a parent class and its children can be fiendishly difficult to manage.
+Designing <code>ClassA</code> so that it extends and improves <code>ClassB</code> sounds deceptively straightforward,
+but in reality it's anything but.</p>
+</li>
+<li>
+<p>The problems with multiple inheritance are well-documented, but single inheritance is too
+limited. It tends to create awkward, towering inheritance hierarchies, bringing in many
+features which the final object doesn't actually need.</p>
+</li>
+</ul>
+<p>Mixins vaguely resemble an inheritance hierarchy, but they're deliberately simpler. Mixins can't 
+include or require other mixins, so they form a flat list rather than a tree. Mixins don't have
+a general ability to override or shadow everything in the implementing class - they just have a 
+limited ability to override initialization, finalization and methods. By convention, mixins are 
+also much smaller than base classes: a mixin should define a small, reusable piece of code,
+rather than defining the entire foundation upon which another class will be built.</p>
+<h3><a class="header" href="#emulating-inheritance" id="emulating-inheritance">Emulating Inheritance</a></h3>
+<p>One thing which single inheritance excels at is defining multiple classes which are almost
+identical, but with only small differences in their logic. In a military-strategy game, if you 
+have a red soldier with an aggressive AI and a musket, and a blue soldier with a defensive AI and a
+pike, then it would be natural to model them as:</p>
+<pre><code class="language-java">class Soldier extends Entity { ... }
+class RedSoldier extends Soldier { ... }
+class BlueSolider extends Soldier { ... }
+</code></pre>
+<p>If you're trying to achieve something like this in GameLisp, I would strongly advise against
+defining a <code>Soldier</code> mixin. Mixins aren't designed to be used for inheritance; you'll be able
+to make it work with a little effort, but it won't be elegant.</p>
+<p>Instead, you should use runtime configuration: a single <code>Soldier</code> class which accepts a <code>color</code>
+parameter. States make it easy to compartmentalize the class into two sub-types.</p>
+<pre><code>(defclass Soldier
+  (init (color)
+    (match color
+      ('red (@enab! 'Red))
+      ('blue (@enab! 'Blue))
+      (_ (bail))))
+
+  (state Red
+    (const weapon-name 'musket)
+    (meth select-action ()
+      ...))
+
+  (state Blue
+    (const weapon-name 'pike)
+    (meth select-action ()
+      ...)))
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="state-machines.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="structs.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="state-machines.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="structs.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="glsp-highlight.js"></script>
+        
+
+        
+
+    </body>
+</html>

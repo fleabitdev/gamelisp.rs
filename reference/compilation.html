@@ -1,0 +1,319 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Compilation - GameLisp Reference Manual</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="overview.html">Overview</a></li><li class="chapter-item expanded affix "><a href="introduction-for-rust-programmers.html">Introduction for Rust Programmers</a></li><li class="chapter-item expanded affix "><a href="introduction-for-lisp-programmers.html">Introduction for Lisp Programmers</a></li><li class="chapter-item expanded "><a href="the-language.html"><strong aria-hidden="true">1.</strong> The Language</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="syntax-and-types.html"><strong aria-hidden="true">1.1.</strong> Syntax and Types</a></li><li class="chapter-item expanded "><a href="evaluation.html"><strong aria-hidden="true">1.2.</strong> Evaluation</a></li><li class="chapter-item expanded "><a href="macros.html"><strong aria-hidden="true">1.3.</strong> Macros</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="built-in-macros.html"><strong aria-hidden="true">1.3.1.</strong> Built-in Macros</a></li></ol></li><li class="chapter-item expanded "><a href="numbers.html"><strong aria-hidden="true">1.4.</strong> Numbers</a></li><li class="chapter-item expanded "><a href="arrays.html"><strong aria-hidden="true">1.5.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="strings-and-text.html"><strong aria-hidden="true">1.6.</strong> Strings and Text</a></li><li class="chapter-item expanded "><a href="tables.html"><strong aria-hidden="true">1.7.</strong> Tables</a></li><li class="chapter-item expanded "><a href="iterators.html"><strong aria-hidden="true">1.8.</strong> Iterators</a></li><li class="chapter-item expanded "><a href="coroutines.html"><strong aria-hidden="true">1.9.</strong> Coroutines</a></li><li class="chapter-item expanded "><a href="patterns.html"><strong aria-hidden="true">1.10.</strong> Patterns</a></li><li class="chapter-item expanded "><a href="object-oriented-programming.html"><strong aria-hidden="true">1.11.</strong> Object-Oriented Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="state-machines.html"><strong aria-hidden="true">1.11.1.</strong> State Machines</a></li><li class="chapter-item expanded "><a href="code-reuse.html"><strong aria-hidden="true">1.11.2.</strong> Code Reuse</a></li><li class="chapter-item expanded "><a href="structs.html"><strong aria-hidden="true">1.11.3.</strong> Structs</a></li></ol></li><li class="chapter-item expanded "><a href="errors.html"><strong aria-hidden="true">1.12.</strong> Errors</a></li><li class="chapter-item expanded "><a href="miscellaneous.html"><strong aria-hidden="true">1.13.</strong> Miscellaneous</a></li></ol></li><li class="chapter-item expanded "><a href="the-rust-api.html"><strong aria-hidden="true">2.</strong> The Rust API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="the-glsp-crate.html"><strong aria-hidden="true">2.1.</strong> The glsp Crate</a></li><li class="chapter-item expanded "><a href="collection-types.html"><strong aria-hidden="true">2.2.</strong> Collection Types</a></li><li class="chapter-item expanded "><a href="rust-functions.html"><strong aria-hidden="true">2.3.</strong> Rust Functions</a></li><li class="chapter-item expanded "><a href="rust-data.html"><strong aria-hidden="true">2.4.</strong> Rust Data</a></li><li class="chapter-item expanded "><a href="libraries.html"><strong aria-hidden="true">2.5.</strong> Libraries</a></li><li class="chapter-item expanded "><a href="garbage-collection.html"><strong aria-hidden="true">2.6.</strong> Garbage Collection</a></li><li class="chapter-item expanded "><a href="procedural-macros.html"><strong aria-hidden="true">2.7.</strong> Procedural Macros</a></li><li class="chapter-item expanded "><a href="compilation.html" class="active"><strong aria-hidden="true">2.8.</strong> Compilation</a></li><li class="chapter-item expanded "><a href="feature-flags.html"><strong aria-hidden="true">2.9.</strong> Feature Flags</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="performance-figures.html">Appendix A: Performance Figures</a></li><li class="chapter-item expanded affix "><a href="naming-conventions.html">Appendix B: Naming Conventions</a></li><li class="chapter-item expanded affix "><a href="implementation-limits.html">Appendix C: Implementation Limits</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                    </div>
+
+                    <h1 class="menu-title">GameLisp Reference Manual</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#compilation" id="compilation">Compilation</a></h1>
+<p>GameLisp code is quite fast to load. <a href="../tcof/">The Castle on Fire</a>'s codebase is currently around 
+800 kilobytes of idiomatic GameLisp code (15 KLoC plus comments), which is completely loaded in 550 
+milliseconds. For most games, it should be fine to simply call <a href="https://docs.rs/glsp/*/glsp/fn.load.html"><code>glsp::load</code></a> at startup.</p>
+<p>However, if you're keen to improve startup performance, GameLisp supports pre-compilation of
+its source code into a binary format, similar to Lua's binary chunks or Python's <code>py_compile</code>
+module. Because this skips macro-expansion, it's much faster than <a href="https://docs.rs/glsp/*/glsp/fn.load.html"><code>glsp::load</code></a>: The Castle
+on Fire's source, when pre-compiled, loads in less than 100 milliseconds.</p>
+<p>Compiling your source code can also help to obfuscate it. When you use compiled code, there's no 
+need to distribute the original source files alongside your executable. Reverse-engineering the 
+GameLisp binary format into readable GameLisp code would be a challenge, to say the least. </p>
+<p>Note that compiled GameLisp code does not run faster than uncompiled code. The final result is
+the same - the only difference is how the code is loaded into memory.</p>
+<p>Because compilation relies on the <a href="https://serde.rs/"><code>serde</code></a> and 
+<a href="https://docs.rs/bincode"><code>bincode</code></a> crates, it's hidden behind the 
+<a href="feature-flags.html">feature flag</a> <code>&quot;compiler&quot;</code>, which is disabled by default.</p>
+<h2><a class="header" href="#the-compile-macro" id="the-compile-macro">The <code>compile!</code> macro</a></h2>
+<p>The easiest way to precompile GameLisp code is using the <code>compile!</code> macro.</p>
+<p>This is a procedural macro, so it runs while <code>rustc</code> is executing. It starts up a generic, empty
+GameLisp runtime, uses it to compile all of the GameLisp source files which you specify, and
+embeds the result directly into the Rust executable (like <a href="https://doc.rust-lang.org/std/macro.include_bytes.html"><code>include_bytes!</code></a>), returning it as a
+<code>&amp;'static [u8]</code>.</p>
+<p>That byte slice can then be passed to <a href="https://docs.rs/glsp/*/glsp/fn.load_compiled.html"><code>glsp::load_compiled</code></a> to run it.</p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>//these two calls are roughly equivalent
+glsp::load_compiled(compile![&quot;scripts/main.glsp&quot;])?;
+glsp::load(&quot;scripts/main.glsp&quot;)?;
+<span class="boring">}
+</span></code></pre></pre>
+<p>The main downside of using <a href="https://docs.rs/glsp/*/glsp/macro.compile.html"><code>compile!</code></a> is that, because your scripts are no longer being loaded
+from the filesystem, the only way to change them is to run <code>rustc</code> again, which is slow and
+inconvenient. Therefore, you should generally only use <a href="https://docs.rs/glsp/*/glsp/macro.compile.html"><code>compile!</code></a> when producing your final
+binary for distribution:</p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>#[cfg(feature = &quot;compiler&quot;)]
+glsp::load_compiled(compile![&quot;scripts/main.glsp&quot;])?;
+
+#[cfg(not(feature = &quot;compiler&quot;))]
+glsp::load(&quot;scripts/main.glsp&quot;)?;
+<span class="boring">}
+</span></code></pre></pre>
+<h2><a class="header" href="#the-glspload_and_compile-function" id="the-glspload_and_compile-function">The <code>glsp::load_and_compile</code> function</a></h2>
+<p><a href="https://docs.rs/glsp/*/glsp/macro.compile.html"><code>compile!</code></a> is very convenient, but it always compiles your source files using an empty,
+generic GameLisp runtime. This runtime will have access to the GameLisp standard library and any
+macros you define using <a href="../std/bind-macro-mut"><code>bind-macro!</code></a> or <a href="../std/defmacro"><code>defmacro</code></a>, 
+but it won't run any of your Rust initialization code, so it won't have access to any libraries, 
+any Rust functions, any assignments you've made to global variables from within Rust code, and 
+so on.</p>
+<p>This will only matter if you rely on one of your libraries, or call one of your Rust functions, 
+in either of the following circumstances:</p>
+<ul>
+<li>When evaluating a toplevel form (see <a href="evaluation.html">Evaluation</a>)
+- When running a macro expander</li>
+</ul>
+<p>In the unlikely event that this is the case, your Rust program can perform its usual setup,
+then compile GameLisp code manually by calling <a href="https://docs.rs/glsp/*/glsp/fn.load_and_compile.html"><code>glsp::load_and_compile</code></a>. This 
+will return a <code>GResult&lt;(Val, Vec&lt;u8&gt;)&gt;</code>, where the <code>Val</code> is the result of loading and running 
+the file, and the <code>Vec&lt;u8&gt;</code> is the result of compiling it.</p>
+<p>It's straightforward to serialize a <code>Vec&lt;u8&gt;</code> to a file. The next time your program runs, you 
+can read that <code>Vec&lt;u8&gt;</code> back in, and pass it to <a href="https://docs.rs/glsp/*/glsp/fn.load_compiled.html"><code>glsp::load_compiled</code></a> as a byte slice.</p>
+<p>The GameLisp binary format has absolutely no stability guarantees. If you recompile your 
+executable, then you must also recompile any GameLisp binaries which that executable has produced 
+in the past. Consider writing a <a href="https://doc.rust-lang.org/cargo/reference/build-scripts.html">build script</a> which deletes any saved binaries.</p>
+<h2><a class="header" href="#corner-cases" id="corner-cases">Corner Cases</a></h2>
+<p>GameLisp code is different from Lua or Python code, because it has a macro-expansion pass. It's
+also different from Scheme and Rust, because those macros are defined <em>dynamically</em> - the set
+of bound macros can change between one toplevel form and the next.</p>
+<p>Macro-expansion is expensive, so the only way to efficiently compile GameLisp code is to expand
+it before compiling it. This means that when you call <a href="https://docs.rs/glsp/*/glsp/fn.load_compiled.html"><code>glsp::load_compiled</code></a>, any macros
+in the current GameLisp runtime will be ignored. All that matters is which macros were present in
+the runtime which compiled the code.</p>
+<p>Unfortunately, because of the dynamic binding mentioned above, the only way to macro-expand
+GameLisp code is to run it. This is why the function is <a href="https://docs.rs/glsp/*/glsp/fn.load_and_compile.html"><code>glsp::load_and_compile</code></a> rather than 
+just <code>glsp::compile</code>; one way of thinking about it is that we're loading the file (and all of the
+files which it loads in turn), running it, and &quot;recording&quot; the execution in a format which can
+be &quot;played back&quot; in the future.</p>
+<p>99% of the time, you won't have to think about this. It's only relevant if the GameLisp environment
+which calls <a href="https://docs.rs/glsp/*/glsp/fn.load_and_compile.html"><code>glsp::load_and_compile</code></a> somehow differs from the GameLisp environment which calls
+<a href="https://docs.rs/glsp/*/glsp/fn.load_compiled.html"><code>glsp::load_compiled</code></a> - because then the expected &quot;playback&quot; will differ from the actual 
+&quot;recording&quot;, and panics or logic bugs may occur.</p>
+<pre><code>; because you're loading different files on different run-throughs, an 
+; error will occur if you compile this form on a linux machine and then 
+; run it on a non-linux machine.
+(cond
+  (on-linux?
+    (load &quot;linux.glsp&quot;))
+  (else
+    (load &quot;non-linux.glsp&quot;)))
+
+; this macro expands to a constant value representing the screen width 
+; *at the time of macro expansion*. if this happens to be different between 
+; your own machine and the user's machine, the value will be incorrect.
+(defmacro screen-w ()
+  (my-window-library:screen-width))
+
+; because you're calling an rfn, this form will trigger an error if you pass
+; it to the compile![] macro, rather than glsp::load_and_compile.
+(my-sound-library:init)
+</code></pre>
+<p>The simplest way to protect yourself against this is to use <a href="https://docs.rs/glsp/*/glsp/macro.compile.html"><code>compile!</code></a> rather than
+<a href="https://docs.rs/glsp/*/glsp/fn.load_and_compile.html"><code>glsp::load_and_compile</code></a>, and perform all of your loading immediately after calling 
+<a href="https://docs.rs/glsp/*/glsp/struct.Runtime.html#method.new"><code>Runtime::new</code></a>, before binding libraries or doing anything else which might modify the 
+<a href="https://docs.rs/glsp/*/glsp/struct.Runtime.html"><code>Runtime</code></a>. This means that you won't be able to access libraries or Rust functions from the 
+toplevel or from macro expanders - but you will still be able to access them from within normal 
+GameLisp functions.</p>
+<pre><code>; this is fine, because it's a fn rather than a macro
+(defn screen-w ()
+  (my-window-library:screen-width))
+
+; this is fine, as long as (init-sound) isn't called from the toplevel or 
+; from a macro expander
+(defn init-sound ()
+  (my-sound-library:init))
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="procedural-macros.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="feature-flags.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="procedural-macros.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="feature-flags.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="glsp-highlight.js"></script>
+        
+
+        
+
+    </body>
+</html>

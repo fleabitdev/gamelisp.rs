@@ -1,0 +1,370 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Iterators - GameLisp Reference Manual</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="overview.html">Overview</a></li><li class="chapter-item expanded affix "><a href="introduction-for-rust-programmers.html">Introduction for Rust Programmers</a></li><li class="chapter-item expanded affix "><a href="introduction-for-lisp-programmers.html">Introduction for Lisp Programmers</a></li><li class="chapter-item expanded "><a href="the-language.html"><strong aria-hidden="true">1.</strong> The Language</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="syntax-and-types.html"><strong aria-hidden="true">1.1.</strong> Syntax and Types</a></li><li class="chapter-item expanded "><a href="evaluation.html"><strong aria-hidden="true">1.2.</strong> Evaluation</a></li><li class="chapter-item expanded "><a href="macros.html"><strong aria-hidden="true">1.3.</strong> Macros</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="built-in-macros.html"><strong aria-hidden="true">1.3.1.</strong> Built-in Macros</a></li></ol></li><li class="chapter-item expanded "><a href="numbers.html"><strong aria-hidden="true">1.4.</strong> Numbers</a></li><li class="chapter-item expanded "><a href="arrays.html"><strong aria-hidden="true">1.5.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="strings-and-text.html"><strong aria-hidden="true">1.6.</strong> Strings and Text</a></li><li class="chapter-item expanded "><a href="tables.html"><strong aria-hidden="true">1.7.</strong> Tables</a></li><li class="chapter-item expanded "><a href="iterators.html" class="active"><strong aria-hidden="true">1.8.</strong> Iterators</a></li><li class="chapter-item expanded "><a href="coroutines.html"><strong aria-hidden="true">1.9.</strong> Coroutines</a></li><li class="chapter-item expanded "><a href="patterns.html"><strong aria-hidden="true">1.10.</strong> Patterns</a></li><li class="chapter-item expanded "><a href="object-oriented-programming.html"><strong aria-hidden="true">1.11.</strong> Object-Oriented Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="state-machines.html"><strong aria-hidden="true">1.11.1.</strong> State Machines</a></li><li class="chapter-item expanded "><a href="code-reuse.html"><strong aria-hidden="true">1.11.2.</strong> Code Reuse</a></li><li class="chapter-item expanded "><a href="structs.html"><strong aria-hidden="true">1.11.3.</strong> Structs</a></li></ol></li><li class="chapter-item expanded "><a href="errors.html"><strong aria-hidden="true">1.12.</strong> Errors</a></li><li class="chapter-item expanded "><a href="miscellaneous.html"><strong aria-hidden="true">1.13.</strong> Miscellaneous</a></li></ol></li><li class="chapter-item expanded "><a href="the-rust-api.html"><strong aria-hidden="true">2.</strong> The Rust API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="the-glsp-crate.html"><strong aria-hidden="true">2.1.</strong> The glsp Crate</a></li><li class="chapter-item expanded "><a href="collection-types.html"><strong aria-hidden="true">2.2.</strong> Collection Types</a></li><li class="chapter-item expanded "><a href="rust-functions.html"><strong aria-hidden="true">2.3.</strong> Rust Functions</a></li><li class="chapter-item expanded "><a href="rust-data.html"><strong aria-hidden="true">2.4.</strong> Rust Data</a></li><li class="chapter-item expanded "><a href="libraries.html"><strong aria-hidden="true">2.5.</strong> Libraries</a></li><li class="chapter-item expanded "><a href="garbage-collection.html"><strong aria-hidden="true">2.6.</strong> Garbage Collection</a></li><li class="chapter-item expanded "><a href="procedural-macros.html"><strong aria-hidden="true">2.7.</strong> Procedural Macros</a></li><li class="chapter-item expanded "><a href="compilation.html"><strong aria-hidden="true">2.8.</strong> Compilation</a></li><li class="chapter-item expanded "><a href="feature-flags.html"><strong aria-hidden="true">2.9.</strong> Feature Flags</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="performance-figures.html">Appendix A: Performance Figures</a></li><li class="chapter-item expanded affix "><a href="naming-conventions.html">Appendix B: Naming Conventions</a></li><li class="chapter-item expanded affix "><a href="implementation-limits.html">Appendix C: Implementation Limits</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                    </div>
+
+                    <h1 class="menu-title">GameLisp Reference Manual</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#iterators" id="iterators">Iterators</a></h1>
+<p>Rust's iterators are a joy to use. They often enable you to replace a dozen lines of imperative
+code with a single line of declarative code, without obscuring your program's meaning.</p>
+<p>This kind of expressiveness seemed like a great fit for GameLisp, so the language comes with an
+iterator library which is, for the most part, shamelessly copied from Rust. (To be fair, Rust 
+originally copied many of its iterator APIs from Python...)</p>
+<pre><code>(let text &quot;Revered. Exalted. Wise.&quot;)
+
+(for word in (-&gt;&gt; (split text \space) (rev) (map uppercase))
+  (pr word &quot; &quot;)) ; prints WISE. EXALTED. REVERED. 
+</code></pre>
+<h2><a class="header" href="#iteration" id="iteration">Iteration</a></h2>
+<p>The <a href="syntax-and-types.html#type-summary"><code>iter</code> primitive type</a> is like a Rust <a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html"><code>Iterator</code></a>,
+except that it's dynamically typed and heap‑allocated. (Don't panic! GameLisp is smart enough
+to reuse an iterator's heap storage when you're done with it, so the allocation is very cheap.)</p>
+<p>The simplest way to allocate a new iterator is by calling <a href="../std/iter"><code>(iter x)</code></a>, where <code>x</code> is 
+some kind of collection or sequence. We say that if something can be passed to the <code>iter</code> 
+function, it belongs to the <a href="syntax-and-types.html#abstract-types"><code>iterable</code> abstract type</a>. 
+The following types are iterable:</p>
+<ul>
+<li>Arrays iterate over their elements.</li>
+<li>Strings iterate over their characters.</li>
+<li>Tables iterate over their entries as <code>(key value)</code> pairs. Each pair is a newly-allocated, 
+two-element array.
+<ul>
+<li>Alternatively, you can use the <a href="../std/keys"><code>(keys tbl)</code></a> function to iterate over a 
+table's keys, or the <a href="../std/values"><code>(values tbl)</code></a> function to iterate over its values.</li>
+</ul>
+</li>
+<li>Coroutines will be discussed in the <a href="coroutines.html">next chapter</a>.</li>
+<li>Passing an iterator to <code>(iter x)</code> is the identity operation - it just returns <code>x</code>.</li>
+</ul>
+<p>To advance an iterator and return its next item, use the <a href="../std/iter-next-mut"><code>iter-next!</code> 
+function</a>. If the iterator has no more items, it will return <code>#n</code>.</p>
+<p>However, you can't assume that an iterator is finished just because it's returned <code>#n</code> - if so, 
+iteration over the array <code>(1 2 #n 4 5)</code> would stop after the first two items! Instead, you should 
+use the function <a href="../std/iter-finished-p"><code>iter-finished?</code></a>. If it returns <code>#t</code>, then the iterator 
+has no more items, and the previous <code>#n</code> item should be discarded.</p>
+<h3><a class="header" href="#the-for-macro" id="the-for-macro">The <code>for</code> Macro</a></h3>
+<p>GameLisp comes with a <a href="../std/for"><code>for</code> macro</a>, which is very similar to Rust's <code>for</code> loop. It 
+takes an iterable, and evaluates its body once for each item produced by the iterable, binding 
+that item to a <a href="patterns.html">pattern</a>. <a href="../std/break"><code>break</code></a> and <a href="../std/continue"><code>continue</code></a> 
+work as expected.</p>
+<pre><code>(for element in '(1 2 3 4 5)
+  (prn (* element 10)))
+
+(for (key value) in table
+  (ensure (sym? key))
+  (prn &quot;{key}: {value}&quot;))
+</code></pre>
+<p><code>for</code> isn't doing anything special - it just invokes the <code>iter</code>, <code>iter-next!</code> and <code>iter-finished?</code>
+functions.</p>
+<h2><a class="header" href="#standard-iterators" id="standard-iterators">Standard Iterators</a></h2>
+<p>GameLisp comes with a large library of built-in iterators. Almost all of Rust's standard
+iterators are included: <a href="../std/enumerate"><code>enumerate</code></a>, <a href="../std/zip"><code>zip</code></a>, <a href="../std/map"><code>map</code></a>, 
+<a href="../std/lines"><code>lines</code></a>, and so on. You can take a look at <a href="../std/iterators">the standard library 
+documentation</a> for the full list.</p>
+<p>Unlike Rust, GameLisp's <a href="../std/once"><code>once</code></a> and <a href="../std/repeat"><code>repeat</code></a> iterators can accept 
+multiple arguments. If you want an empty iterator which won't produce anything, just call 
+<code>(once)</code> with no arguments.</p>
+<p><a href="../std/rn"><code>rn</code></a> counts upwards from one number to another. <code>(rn 5 10)</code> is equivalent to the Rust
+iterator <code>5 .. 10</code>, and <code>(rn 8)</code> is equivalent to <code>0 .. 8</code>. If you need an inclusive upper bound,
+you can use <a href="../std/rni"><code>rni</code></a>: <code>(rni -5 5)</code> is equivalent to <code>-5 ..= 5</code>.</p>
+<p>Because <code>rn</code> is such a common iterator, we provide the <a href="../std/forn"><code>forn</code> macro</a> to make it more
+convenient to use. (<code>forn</code> should be read as a contraction of <code>for rn</code>, in the same way that
+<code>defn</code> is a contraction of <code>def fn</code>.)</p>
+<pre><code>(forn (digit 0 10)
+  (prn digit))
+
+; ...is equivalent to...
+
+(for digit in (rn 0 10)
+  (prn digit))
+</code></pre>
+<h3><a class="header" href="#double-ended-iterators" id="double-ended-iterators">Double-Ended Iterators</a></h3>
+<p>Some iterators are &quot;double-ended&quot;: items can be produced both from their back and from their
+front. For example, array and string iterators are double-ended. You can query whether an iterator
+is double-ended using the <a href="../std/iter-double-ended-p"><code>iter-double-ended?</code></a> function, and you can 
+produce items from the back of a double-ended iterator using 
+<a href="../std/iter-next-back-mut"><code>iter-next-back!</code></a>.</p>
+<p><a href="../std/rev"><code>rev</code></a> takes a double-ended iterable and reverses it, treating its back as its front 
+and its front as its back.</p>
+<h3><a class="header" href="#exact-size-iterators" id="exact-size-iterators">Exact-Size Iterators</a></h3>
+<p>Some iterators know more about their length than others do. For example, a <code>rn</code> iterator knows
+the exact number of items it will return, but a <code>lines</code> iterator has no way to predict its item 
+count in advance.</p>
+<p>We don't provide an equivalent to Rust's <a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.size_hint"><code>size_hint()</code></a>, because it wouldn't be useful. 
+GameLisp doesn't provide any way for you to manipulate the capacity of its collections or reserve
+memory in advance.</p>
+<p>Instead, the <a href="../std/len"><code>len</code></a> function can accept an iterator as its argument. If that iterator
+knows its exact length, it returns an integer; if it knows itself to be infinite, it returns the
+symbol <code>infinite</code>; and otherwise it returns the symbol <code>unknown</code>.</p>
+<pre><code>(prn (len (rn 5))) ; prints 5
+(prn (len (repeat #t))) ; prints infinite
+(prn (len (split text \space))) ; prints unknown
+</code></pre>
+<p>There's nothing to prevent an array or string from being mutated during iteration (although
+this is strongly discouraged). This means that array and string iterators do not know their exact 
+size. Pushing or popping from the end of a deque during iteration will work as expected, but 
+pushing or popping from the start may cause the iterator to behave unpredictably.</p>
+<h2><a class="header" href="#splaying" id="splaying">Splaying</a></h2>
+<p>We've previously mentioned that you can use <a href="../std/splay-abbrv"><code>..</code></a>, an abbreviation for
+<a href="../std/splay"><code>splay</code></a>, to pass all of an array's elements to the array constructor.</p>
+<pre><code>(let triad '(x y z))
+(prn (arr 'a 'b 'c ..triad 1 2 3)) ; prints (a b c x y z 1 2 3)
+</code></pre>
+<p>The splay operator is actually much more powerful than this. It will accept <em>any</em> iterable, 
+and pass all of its items as arguments to <em>any</em> function call.</p>
+<p>This means that there's no need for GameLisp to have a <a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.collect"><code>collect</code></a> function: you can just splay
+an iterator while calling <a href="../std/arr"><code>arr</code></a>, <a href="../std/str"><code>str</code></a>, <a href="../std/tab"><code>tab</code></a>, or any 
+other constructor function.</p>
+<pre><code>(prn (str ..(take 5 (repeat \A)))) ; prints AAAAA
+</code></pre>
+<p>There's also no need for GameLisp to have <a href="http://clhs.lisp.se/Body/f_apply.htm"><code>apply</code></a>: you 
+can just splay an array as a function's last argument instead.</p>
+<p>If you want to take the sum of an array of numbers, there's no need to look up the API for <code>fold</code>.
+Addition is a variadic function, so you can just call <code>(+ ..the-array)</code>. The smallest element of
+a collection is <code>(min ..coll)</code>. To test whether an array of numbers is sorted, call 
+<code>(&lt;= ..numbers)</code>. Appending the contents of one array onto another is just <code>(push! arr0 ..arr1)</code>.</p>
+<h2><a class="header" href="#indexing" id="indexing">Indexing</a></h2>
+<p>Arrays, strings, objects and classes are normally indexed using an integer or a symbol. However,
+it's possible to index them using an iterable instead.</p>
+<p>This returns a new iterator which takes each item in turn from the original iterable, indexes
+the collection using <a href="../std/access"><code>[coll item]</code></a>, and produces the resulting element.</p>
+<p>In effect, <code>[coll iterable]</code> is equivalent to <a href="../std/map"><code>(map (fn1 [coll _]) iterable)</code></a>.</p>
+<pre><code>; re-order an array's elements
+(let shuf (arr ..[src-arr '(1 3 0 2)]))
+
+; equivalent to...
+(let shuf (arr [src-arr 1] [src-arr 3] [src-arr 0] [src-arr 2]))
+
+; swizzle an object's fields
+(let offset (Vec3 x y z))
+(let swizzled (Vec3 ..[offset '(y z x)]))
+
+; discard every second character in a string
+(let text &quot;You're filled with DETERMINATION.&quot;)
+(prn ..[text (step-by 2 (rn (len text)))]) ; prints Yur ildwt EEMNTO.
+
+; use multiple object fields as consecutive function arguments
+(draw-sprite spr ..[very-long-coordinates-name '(x y)])
+
+; equivalent to...
+(draw-sprite spr [very-long-coordinates-name 'x] [very-long-coordinates-name 'y])
+</code></pre>
+<p>Note that tables do not support this kind of indexing. This is because table keys can belong
+to any primitive type, including iterators, arrays, strings, and so on. If you were to call
+<code>[table '(0 0 0)]</code>, it would be ambiguous whether you were trying to access the key <code>(0 0 0)</code>
+once, or trying to access the key <code>0</code> three times.</p>
+<h2><a class="header" href="#arrows" id="arrows">Arrows</a></h2>
+<p>Creating a complicated iterator might involve several deeply-nested function calls.</p>
+<p>As ever, the <a href="built-in-macros.html#arrows">arrow macros</a> are the best way to flatten out
+a deep call hierarchy. <code>-&gt;&gt;</code> is often a good choice when working with iterators,
+because <a href="../std/iterators#iterator-adapters">iterator adapters</a> usually expect an iterator or 
+iterable as their last argument.</p>
+<pre><code>(-&gt;&gt; my-array (step-by 3) (map (fn1 (+ _ 10))) enumerate)
+
+; ...is equivalent to...
+
+(enumerate (map (fn1 (+ _ 10)) (step-by 3 my-array)))
+</code></pre>
+<p>The arrow macros include special handling for the splay operator. If you prefix one of the 
+arrowed function calls with <code>..</code>, then the result of the previous function will be splayed.</p>
+<pre><code>(-&gt;&gt; my-array (step-by 3) (map abs) (filter (fn1 (&lt; _ 10))) ..arr)
+
+; ... is equivalent to...
+
+(arr ..(filter (fn1 (&lt; _ 10)) (map abs (step-by 3 my-array))))
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="tables.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="coroutines.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="tables.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="coroutines.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="glsp-highlight.js"></script>
+        
+
+        
+
+    </body>
+</html>

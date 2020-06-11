@@ -1,0 +1,1 @@
+Static files for the gamelisp.rs website. Generated using a custom static site generator, which can be found in the `website` subdirectory of the `glsp` repository.

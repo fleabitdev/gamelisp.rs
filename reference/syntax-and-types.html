@@ -1,0 +1,456 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Syntax and Types - GameLisp Reference Manual</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="overview.html">Overview</a></li><li class="chapter-item expanded affix "><a href="introduction-for-rust-programmers.html">Introduction for Rust Programmers</a></li><li class="chapter-item expanded affix "><a href="introduction-for-lisp-programmers.html">Introduction for Lisp Programmers</a></li><li class="chapter-item expanded "><a href="the-language.html"><strong aria-hidden="true">1.</strong> The Language</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="syntax-and-types.html" class="active"><strong aria-hidden="true">1.1.</strong> Syntax and Types</a></li><li class="chapter-item expanded "><a href="evaluation.html"><strong aria-hidden="true">1.2.</strong> Evaluation</a></li><li class="chapter-item expanded "><a href="macros.html"><strong aria-hidden="true">1.3.</strong> Macros</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="built-in-macros.html"><strong aria-hidden="true">1.3.1.</strong> Built-in Macros</a></li></ol></li><li class="chapter-item expanded "><a href="numbers.html"><strong aria-hidden="true">1.4.</strong> Numbers</a></li><li class="chapter-item expanded "><a href="arrays.html"><strong aria-hidden="true">1.5.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="strings-and-text.html"><strong aria-hidden="true">1.6.</strong> Strings and Text</a></li><li class="chapter-item expanded "><a href="tables.html"><strong aria-hidden="true">1.7.</strong> Tables</a></li><li class="chapter-item expanded "><a href="iterators.html"><strong aria-hidden="true">1.8.</strong> Iterators</a></li><li class="chapter-item expanded "><a href="coroutines.html"><strong aria-hidden="true">1.9.</strong> Coroutines</a></li><li class="chapter-item expanded "><a href="patterns.html"><strong aria-hidden="true">1.10.</strong> Patterns</a></li><li class="chapter-item expanded "><a href="object-oriented-programming.html"><strong aria-hidden="true">1.11.</strong> Object-Oriented Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="state-machines.html"><strong aria-hidden="true">1.11.1.</strong> State Machines</a></li><li class="chapter-item expanded "><a href="code-reuse.html"><strong aria-hidden="true">1.11.2.</strong> Code Reuse</a></li><li class="chapter-item expanded "><a href="structs.html"><strong aria-hidden="true">1.11.3.</strong> Structs</a></li></ol></li><li class="chapter-item expanded "><a href="errors.html"><strong aria-hidden="true">1.12.</strong> Errors</a></li><li class="chapter-item expanded "><a href="miscellaneous.html"><strong aria-hidden="true">1.13.</strong> Miscellaneous</a></li></ol></li><li class="chapter-item expanded "><a href="the-rust-api.html"><strong aria-hidden="true">2.</strong> The Rust API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="the-glsp-crate.html"><strong aria-hidden="true">2.1.</strong> The glsp Crate</a></li><li class="chapter-item expanded "><a href="collection-types.html"><strong aria-hidden="true">2.2.</strong> Collection Types</a></li><li class="chapter-item expanded "><a href="rust-functions.html"><strong aria-hidden="true">2.3.</strong> Rust Functions</a></li><li class="chapter-item expanded "><a href="rust-data.html"><strong aria-hidden="true">2.4.</strong> Rust Data</a></li><li class="chapter-item expanded "><a href="libraries.html"><strong aria-hidden="true">2.5.</strong> Libraries</a></li><li class="chapter-item expanded "><a href="garbage-collection.html"><strong aria-hidden="true">2.6.</strong> Garbage Collection</a></li><li class="chapter-item expanded "><a href="procedural-macros.html"><strong aria-hidden="true">2.7.</strong> Procedural Macros</a></li><li class="chapter-item expanded "><a href="compilation.html"><strong aria-hidden="true">2.8.</strong> Compilation</a></li><li class="chapter-item expanded "><a href="feature-flags.html"><strong aria-hidden="true">2.9.</strong> Feature Flags</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="performance-figures.html">Appendix A: Performance Figures</a></li><li class="chapter-item expanded affix "><a href="naming-conventions.html">Appendix B: Naming Conventions</a></li><li class="chapter-item expanded affix "><a href="implementation-limits.html">Appendix C: Implementation Limits</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                    </div>
+
+                    <h1 class="menu-title">GameLisp Reference Manual</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#syntax-and-types" id="syntax-and-types">Syntax and Types</a></h1>
+<p>Here is a toy GameLisp program which calculates the first thirty Fibonacci numbers:</p>
+<pre><code>(let fibs (arr 0 1))
+
+(while (&lt; (len fibs) 31)
+  (push! fibs (+ [fibs -1] [fibs -2])))
+
+(prn [fibs -1]) ; prints 832040
+</code></pre>
+<p>In this chapter, we will describe GameLisp's syntax in full; explain why it's so different from 
+the syntax of languages like Rust; and start to think about the unique advantages which come from 
+those differences.</p>
+<h2><a class="header" href="#homoiconicity" id="homoiconicity">Homoiconicity</a></h2>
+<p>All programming languages have something called an <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">abstract syntax tree</a> (AST): a data
+representation of a program's source code. The AST is usually hidden inside the compiler, where 
+the programmer can't interact with it directly.</p>
+<p>For example, this fragment of Rust source code...</p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>foo.bar(1)
+<span class="boring">}
+</span></code></pre></pre>
+<p>...could be represented by this (imaginary) AST data structure:</p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>Expression::MethodCall {
+	callee: Identifier(&quot;foo&quot;),
+	method_name: Identifier(&quot;bar&quot;),
+	arguments: vec![
+		Expression::Literal(Literal::Int(1))
+	]
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>You've probably also encountered text-based data interchange formats, like <a href="https://en.wikipedia.org/wiki/JSON">JSON</a> or <a href="https://en.wikipedia.org/wiki/TOML">TOML</a>. They 
+provide a way for us to store common data structures, like arrays, hash tables, booleans and
+strings, in a human-readable file format which is easy to edit.</p>
+<p>For example, this fragment of JSON describes an array which contains each of the integers
+from 0 to 4 inclusive:</p>
+<pre><code class="language-json">[0, 1, 2, 3, 4]
+</code></pre>
+<p>GameLisp, like all Lisp languages, is <a href="https://en.wikipedia.org/wiki/Homoiconicity">homoiconic</a>. This means that its AST is made out of simple, 
+primitive data types like arrays and booleans - the same data types which you might encounter in
+a JSON file. Let's look more closely at the first line of our Fibonacci program:</p>
+<pre><code>(let fibs (arr 0 1))
+</code></pre>
+<p>This is just the text representation of an array with these three elements:</p>
+<ul>
+<li>The symbol <code>let</code></li>
+<li>The symbol <code>fibs</code></li>
+<li>A nested array, with these three elements:
+<ul>
+<li>The symbol <code>arr</code></li>
+<li>The integer <code>0</code></li>
+<li>The integer <code>1</code></li>
+</ul>
+</li>
+</ul>
+<p>A comparable JSON fragment would be:</p>
+<pre><code class="language-json">[&quot;let&quot;, &quot;fibs&quot;, [&quot;arr&quot;, 0, 1]]
+</code></pre>
+<p>In other words, in GameLisp, <strong>code is data and data is code</strong>. A GameLisp program is <em>not</em>
+defined by a block of text - instead, it's defined by a tree of simple data-types. That tree
+could have been read from a text file, but it could just as well have been generated from nothing 
+by a GameLisp program, or deserialized from a binary file using <a href="https://serde.rs">Serde</a>, or any 
+number of other possibilities.</p>
+<p><img src="ast-generation.svg" alt="A flowchart showing the generation of ASTs in Rust and GameLisp" /></p>
+<h2><a class="header" href="#expansion" id="expansion">Expansion</a></h2>
+<p>There's no sense in denying it: building programs out of array literals causes them to have a 
+relatively ugly syntax. Why is GameLisp designed this way?</p>
+<p>The big advantage is that, when code is data, it becomes much easier to write code which creates 
+or modifies other code on your behalf. There's no need to mess around with an AST or manipulate 
+the raw text of your program - it's all just arrays!</p>
+<p>For example, here's a GameLisp program which reads in a GameLisp source file, performs
+<code>gettext</code>‑style localization on it (replacing English string literals with French 
+string literals based on a one-to-one mapping listed in a file), and then runs the program:</p>
+<pre><code>(let replacements (parse-1 (read-file &quot;en-to-fr.glsp&quot;)))
+(let source (parse-all (read-file &quot;source.glsp&quot;)))
+
+(let-fn recursively-translate (val)
+  (match val
+    (coll : (or arr? tab?)
+      (map-syntax recursively-translate coll))
+    (st : str?
+      (or [replacements (? st)] st))
+    (val
+      val)))
+
+(eval-multi (recursively-translate source))
+</code></pre>
+<p>To make this kind of code-generation more convenient, all GameLisp code is automatically put through 
+an &quot;expansion pass&quot; just before being run. The expansion pass inspects each array in the program; 
+checks whether that array's first element is the name of a macro (a function which transforms 
+GameLisp source code into different GameLisp source code); and if so, uses that macro to 
+transform the array into something else. </p>
+<p>Unlike Rust macros, GameLisp macros are indistinguishable from the language's built-in syntax.
+This gives you the ability to profoundly customise the language - we'll explore some of the
+possibilities in the <a href="macros.html">Macros</a> chapter. </p>
+<h2><a class="header" href="#representable-types" id="representable-types">Representable Types</a></h2>
+<p>GameLisp is a dynamically-typed language. Memory locations like global variables, table fields
+and function arguments always store a single generic &quot;value&quot;, which can belong to any of 
+sixteen different primitive types. The full set of types is <a href="#type-summary">summarized below</a>.</p>
+<p>Of these sixteen types, nine of them can be losslessly converted into text and
+then read back in by the parser. We say that they are &quot;representable&quot;, because they have an exact
+text representation. Valid GameLisp source code is entirely made out of these representable types.</p>
+<h3><a class="header" href="#nil" id="nil"><code>nil</code></a></h3>
+<p><code>nil</code> is the type of a value which is absent, uninitialized or undefined. In Rust terms, it
+takes on the roles of both <code>None</code> and <code>()</code>.</p>
+<p>It only has one value, which is represented as <code>#n</code>.</p>
+<h3><a class="header" href="#bool" id="bool"><code>bool</code></a></h3>
+<p><code>bool</code> is the type of a boolean value: either true (represented as <code>#t</code>) or false (represented
+as <code>#f</code>).</p>
+<p>When testing whether or not a value is true (for example, when deciding how an <code>if</code> expression
+should branch), we consider <code>#f</code> and <code>#n</code> to be &quot;falsy&quot; values, and all other values to be 
+&quot;truthy&quot;.</p>
+<h3><a class="header" href="#int-flo" id="int-flo"><code>int</code>, <code>flo</code></a></h3>
+<p>The <code>int</code> type is a 32-bit signed integer number: an <code>i32</code>.</p>
+<p>The <code>flo</code> type is a 32-bit floating-point number: an <code>f32</code>.</p>
+<p>The text representation for numbers is almost identical to <a href="https://doc.rust-lang.org/reference/tokens.html#number-literals">their representation in Rust</a>. You can
+embed underscores in numbers, and integers can be prefixed with <code>0b</code>, <code>0o</code> or <code>0x</code> to change their
+base.</p>
+<p>There are only a few small changes compared to Rust's syntax:</p>
+<ul>
+<li>Type suffixes, like <code>_i8</code> or <code>_f32</code>, are forbidden.</li>
+<li>Infinities are represented as <code>+inf.0</code> and <code>-inf.0</code>.</li>
+<li>&quot;Not a number&quot; is represented as <code>nan.0</code>.</li>
+</ul>
+<p>We'll discuss these types in more detail in the <a href="numbers.html">Numbers</a> chapter.</p>
+<h3><a class="header" href="#sym" id="sym"><code>sym</code></a></h3>
+<p>The <code>sym</code> type is a symbol, also known as an <a href="https://en.wikipedia.org/wiki/String_interning">interned string</a>.</p>
+<p>GameLisp uses symbols to represent identifiers and keywords in an efficient way. In the declaration 
+<code>(let var-name 0)</code>, both <code>let</code> and <code>var-name</code> are symbols. Representing them as symbols rather 
+than strings makes several basic operations much faster: comparing one identifier to another,
+looking up a global variable, parsing a keyword from a file, and so on.</p>
+<p>A symbol's name is a sequence of one or more of the following characters: <code>a</code> to <code>z</code>, <code>A</code> to <code>Z</code>, 
+<code>0</code> to <code>9</code>, <code>!</code>, <code>$</code>, <code>%</code>, <code>&amp;</code>, <code>*</code>, <code>+</code>, <code>-</code>, <code>.</code>, <code>/</code>, <code>:</code>, <code>&lt;</code>, <code>=</code>, <code>&gt;</code>, <code>?</code>, <code>^</code>, <code>~</code> or <code>_</code>.
+A symbol can optionally be suffixed with a single <code>#</code>.</p>
+<p>This opens up a much richer selection of identifiers, compared to Rust. Any of the following 
+symbols would be valid names for a variable:</p>
+<pre><code>push!
+int?
+name=
+foo:bar
+-
+//
+1+
+&amp;$+%~#
+</code></pre>
+<p>When the parser encounters a sequence of characters which could represent a symbol, or could
+represent a number or <a href="#abbreviations">abbreviation</a>, then the number or abbreviation will take
+priority. This means that not all symbols are representable. The symbol <code>-10</code> can exist, but if 
+you write it to a file, it will be read back in as a number instead.</p>
+<h3><a class="header" href="#char" id="char"><code>char</code></a></h3>
+<p>The <code>char</code> type is a character. Its storage is identical to a <a href="https://doc.rust-lang.org/reference/types/textual.html">Rust <code>char</code></a>.</p>
+<p>Characters are represented by a backslash followed by the character itself - for example, 
+<code>\a</code>, <code>\(</code>, or <code>\🦀</code>.</p>
+<p>Certain whitespace characters are represented by a backslash followed by their name: <code>\space</code>,
+<code>\tab</code>, <code>\newline</code>, <code>\return</code>, and <code>\nul</code>.</p>
+<p>You can represent an arbitrary unicode character as either... </p>
+<ul>
+<li><code>\xNN</code>, where <code>NN</code> is a hexadecimal value from <code>00</code> to <code>7f</code> inclusive.</li>
+<li><code>\u{NN}</code>, where the curly braces may enclose anywhere from one to six hexadecimal digits.</li>
+</ul>
+<h3><a class="header" href="#str" id="str"><code>str</code></a></h3>
+<p>The <code>str</code> type is a text string.</p>
+<p>The representation of strings is identical to a <a href="https://doc.rust-lang.org/reference/tokens.html#string-literals">Rust string literal</a>, including all of the same 
+escape sequences. Raw strings, like <code>r##&quot;text&quot;##</code>, are supported.</p>
+<p>Strings, characters and symbols are all discussed together in the <a href="strings-and-text.html">Strings and 
+Text</a> chapter.</p>
+<h3><a class="header" href="#arr" id="arr"><code>arr</code></a></h3>
+<p>The <code>arr</code> type is an array of arbitrary values. More specifically, it's a double-ended 
+queue, similar to <a href="https://doc.rust-lang.org/std/collections/struct.VecDeque.html"><code>VecDeque</code></a> in Rust.</p>
+<p>An array is represented by the open-parenthesis <code>(</code>, followed by the representation of zero
+or more values, followed by the close-parenthesis <code>)</code>.</p>
+<p>For example, an array containing squares of the first five positive integers would be represented 
+as <code>(1 4 9 16 25)</code>. An empty array would be represented as <code>()</code>.</p>
+<p>The <a href="arrays.html">Arrays</a> chapter has more details.</p>
+<h3><a class="header" href="#tab" id="tab"><code>tab</code></a></h3>
+<p>The <code>tab</code> type is a table (specifically, a <a href="https://doc.rust-lang.org/std/collections/struct.HashMap.html"><code>HashMap</code></a>) which maps values to values.</p>
+<p>A table is represented by <code>#(</code>, followed by zero or more key-value pairs, each with the same 
+representation as an array of length two, followed by the close-parenthesis <code>)</code>.</p>
+<p>For example, <code>#((a b) (100 200))</code> represents a table which contains the value <code>b</code> bound to the key 
+<code>a</code>, and the value <code>200</code> bound to the key <code>100</code>.</p>
+<p>See the <a href="tables.html">Tables</a> chapter for more.</p>
+<h2><a class="header" href="#whitespace" id="whitespace">Whitespace</a></h2>
+<p>The parser ignores whitespace, except for marking the boundary between one token and the next.
+All comments are parsed as whitespace.</p>
+<p>A line comment is introduced with a single <code>;</code> and continues until the next newline.</p>
+<p>A block comment begins with <code>#|</code> and ends with <code>|#</code>. Block comments can be nested. An unterminated
+block comment is a syntax error.</p>
+<p>Prefixing a value with <code>#;</code> will turn that entire value into a comment. This can be a convenient 
+way to comment out code:</p>
+<pre><code>(when (&lt; a 100)
+  (new-handler (+ a 1))
+  #;(when handler-enabled?
+    (old-handler)))
+</code></pre>
+<p>The comma <code>,</code> is a whitespace character - this can be helpful for visually breaking up long
+sequences into smaller groups.</p>
+<pre><code>(let a b, c d, e f) ; easier to read
+(let a b c d e f)   ; harder to read
+</code></pre>
+<h2><a class="header" href="#abbreviations" id="abbreviations">Abbreviations</a></h2>
+<p>Some patterns appear so frequently in GameLisp programs that they've been given dedicated
+syntax. All of these abbreviations represent an array. For example, if you try to print the 
+two-element array <code>(splay val)</code>, it will be printed as <code>..val</code>.</p>
+<p>The abbreviations are:</p>
+<table><thead><tr><th>Abbreviation</th><th>Represents</th></tr></thead><tbody>
+<tr><td><code>'val</code></td><td><a href="../std/quote"><code>(quote val)</code></a></td></tr>
+<tr><td><code> `val</code></td><td><a href="../std/backquote"><code>(backquote val)</code></a></td></tr>
+<tr><td><code>~val</code></td><td><a href="../std/unquote"><code>(unquote val)</code></a></td></tr>
+<tr><td><code>[x y]</code></td><td><a href="../std/access"><code>(access x y)</code></a></td></tr>
+<tr><td><code>..val</code></td><td><a href="../std/splay"><code>(splay val)</code></a></td></tr>
+<tr><td><code>@val</code></td><td><a href="../std/atsign"><code>(atsign val)</code></a></td></tr>
+<tr><td><code>.val</code></td><td><a href="../std/meth-name"><code>(meth-name val)</code></a></td></tr>
+</tbody></table>
+<p>In addition, we use curly braces for string interpolation. When a string contains curly braces, 
+it actually represents an array rather than a string. These two lines are exactly equivalent:</p>
+<pre><code>&quot;text {a}{b} {c d}&quot;
+(template-str &quot;text &quot; a &quot;&quot; b &quot; &quot; c d)
+</code></pre>
+<p>Curly-brace characters in a string can be escaped by doubling them, as in <code>{{</code> or <code>}}</code>. Raw
+strings cannot be interpolated.</p>
+<h2><a class="header" href="#type-summary" id="type-summary">Type Summary</a></h2>
+<p>The seven non-representable primitive types are each discussed in future chapters. For now, a 
+quick summary of all of <code>val</code>'s possible types:</p>
+<table><thead><tr><th>Name</th><th>Meaning</th><th align="center">Truthy?</th><th align="center">Reference?</th></tr></thead><tbody>
+<tr><td><code>nil</code></td><td>Absent or undefined value</td><td align="center">No</td><td align="center">No</td></tr>
+<tr><td><code>bool</code></td><td>Boolean</td><td align="center">Varies</td><td align="center">No</td></tr>
+<tr><td><code>int</code></td><td>32-bit signed integer</td><td align="center">Yes</td><td align="center">No</td></tr>
+<tr><td><code>flo</code></td><td>32-bit floating-point number</td><td align="center">Yes</td><td align="center">No</td></tr>
+<tr><td><code>char</code></td><td>Character</td><td align="center">Yes</td><td align="center">No</td></tr>
+<tr><td><code>sym</code></td><td>Symbol</td><td align="center">Yes</td><td align="center">Yes</td></tr>
+<tr><td><code>arr</code></td><td>Array</td><td align="center">Yes</td><td align="center">Yes</td></tr>
+<tr><td><code>str</code></td><td>String</td><td align="center">Yes</td><td align="center">Yes</td></tr>
+<tr><td><code>tab</code></td><td>Table</td><td align="center">Yes</td><td align="center">Yes</td></tr>
+<tr><td><code>iter</code></td><td>Iterator</td><td align="center">Yes</td><td align="center">Yes</td></tr>
+<tr><td><code>obj</code></td><td>Object</td><td align="center">Yes</td><td align="center">Yes</td></tr>
+<tr><td><code>class</code></td><td>Class</td><td align="center">Yes</td><td align="center">Yes</td></tr>
+<tr><td><code>fn</code></td><td>Function</td><td align="center">Yes</td><td align="center">Yes</td></tr>
+<tr><td><code>coro</code></td><td>Coroutine</td><td align="center">Yes</td><td align="center">Yes</td></tr>
+<tr><td><code>rfn</code></td><td>Rust function</td><td align="center">Yes</td><td align="center">Yes</td></tr>
+<tr><td><code>rdata</code></td><td>Rust data</td><td align="center">Yes</td><td align="center">Yes</td></tr>
+</tbody></table>
+<h3><a class="header" href="#abstract-types" id="abstract-types">Abstract Types</a></h3>
+<p>Abstract types group together multiple primitive types which share a common API.</p>
+<table><thead><tr><th>Abstract Type</th><th>API</th><th>Concrete Types</th></tr></thead><tbody>
+<tr><td><code>num</code></td><td>Number</td><td><code>int</code>, <code>flo</code></td></tr>
+<tr><td><code>deque</code></td><td>Double-ended queue</td><td><code>arr</code>, <code>str</code></td></tr>
+<tr><td><code>callable</code></td><td>Function-call receiver</td><td><code>fn</code>, <code>rfn</code>, <code>class</code></td></tr>
+<tr><td><code>expander</code></td><td>Macro expander</td><td><code>fn</code>, <code>rfn</code></td></tr>
+<tr><td><code>iterable</code></td><td>Iterable</td><td><code>arr</code>, <code>str</code>, <code>tab</code>, <code>coro</code>, <code>iter</code></td></tr>
+</tbody></table>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="the-language.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="evaluation.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="the-language.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="evaluation.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="glsp-highlight.js"></script>
+        
+
+        
+
+    </body>
+</html>

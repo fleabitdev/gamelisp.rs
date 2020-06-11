@@ -1,0 +1,331 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Arrays - GameLisp Reference Manual</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="overview.html">Overview</a></li><li class="chapter-item expanded affix "><a href="introduction-for-rust-programmers.html">Introduction for Rust Programmers</a></li><li class="chapter-item expanded affix "><a href="introduction-for-lisp-programmers.html">Introduction for Lisp Programmers</a></li><li class="chapter-item expanded "><a href="the-language.html"><strong aria-hidden="true">1.</strong> The Language</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="syntax-and-types.html"><strong aria-hidden="true">1.1.</strong> Syntax and Types</a></li><li class="chapter-item expanded "><a href="evaluation.html"><strong aria-hidden="true">1.2.</strong> Evaluation</a></li><li class="chapter-item expanded "><a href="macros.html"><strong aria-hidden="true">1.3.</strong> Macros</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="built-in-macros.html"><strong aria-hidden="true">1.3.1.</strong> Built-in Macros</a></li></ol></li><li class="chapter-item expanded "><a href="numbers.html"><strong aria-hidden="true">1.4.</strong> Numbers</a></li><li class="chapter-item expanded "><a href="arrays.html" class="active"><strong aria-hidden="true">1.5.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="strings-and-text.html"><strong aria-hidden="true">1.6.</strong> Strings and Text</a></li><li class="chapter-item expanded "><a href="tables.html"><strong aria-hidden="true">1.7.</strong> Tables</a></li><li class="chapter-item expanded "><a href="iterators.html"><strong aria-hidden="true">1.8.</strong> Iterators</a></li><li class="chapter-item expanded "><a href="coroutines.html"><strong aria-hidden="true">1.9.</strong> Coroutines</a></li><li class="chapter-item expanded "><a href="patterns.html"><strong aria-hidden="true">1.10.</strong> Patterns</a></li><li class="chapter-item expanded "><a href="object-oriented-programming.html"><strong aria-hidden="true">1.11.</strong> Object-Oriented Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="state-machines.html"><strong aria-hidden="true">1.11.1.</strong> State Machines</a></li><li class="chapter-item expanded "><a href="code-reuse.html"><strong aria-hidden="true">1.11.2.</strong> Code Reuse</a></li><li class="chapter-item expanded "><a href="structs.html"><strong aria-hidden="true">1.11.3.</strong> Structs</a></li></ol></li><li class="chapter-item expanded "><a href="errors.html"><strong aria-hidden="true">1.12.</strong> Errors</a></li><li class="chapter-item expanded "><a href="miscellaneous.html"><strong aria-hidden="true">1.13.</strong> Miscellaneous</a></li></ol></li><li class="chapter-item expanded "><a href="the-rust-api.html"><strong aria-hidden="true">2.</strong> The Rust API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="the-glsp-crate.html"><strong aria-hidden="true">2.1.</strong> The glsp Crate</a></li><li class="chapter-item expanded "><a href="collection-types.html"><strong aria-hidden="true">2.2.</strong> Collection Types</a></li><li class="chapter-item expanded "><a href="rust-functions.html"><strong aria-hidden="true">2.3.</strong> Rust Functions</a></li><li class="chapter-item expanded "><a href="rust-data.html"><strong aria-hidden="true">2.4.</strong> Rust Data</a></li><li class="chapter-item expanded "><a href="libraries.html"><strong aria-hidden="true">2.5.</strong> Libraries</a></li><li class="chapter-item expanded "><a href="garbage-collection.html"><strong aria-hidden="true">2.6.</strong> Garbage Collection</a></li><li class="chapter-item expanded "><a href="procedural-macros.html"><strong aria-hidden="true">2.7.</strong> Procedural Macros</a></li><li class="chapter-item expanded "><a href="compilation.html"><strong aria-hidden="true">2.8.</strong> Compilation</a></li><li class="chapter-item expanded "><a href="feature-flags.html"><strong aria-hidden="true">2.9.</strong> Feature Flags</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="performance-figures.html">Appendix A: Performance Figures</a></li><li class="chapter-item expanded affix "><a href="naming-conventions.html">Appendix B: Naming Conventions</a></li><li class="chapter-item expanded affix "><a href="implementation-limits.html">Appendix C: Implementation Limits</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                    </div>
+
+                    <h1 class="menu-title">GameLisp Reference Manual</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#arrays" id="arrays">Arrays</a></h1>
+<p>GameLisp's general-purpose sequential data structure is called an &quot;array&quot;, but it's actually
+a <a href="https://doc.rust-lang.org/std/collections/struct.VecDeque.html"><code>VecDeque</code></a>.</p>
+<p>A <code>VecDeque</code> is a growable <a href="https://en.wikipedia.org/wiki/Circular_buffer">ring buffer</a>. It's very similar to a <code>Vec</code>, but with the added ability 
+to push and pop items from the start of the sequence in constant time. (Note that a <code>VecDeque</code>
+is very different from  a C++ <a href="https://en.cppreference.com/w/cpp/container/deque"><code>std::deque</code></a>, 
+which has an odd memory-allocation patterns - <code>VecDeque</code> allocates all of its elements
+is a single buffer, just like a <code>Vec</code>.)</p>
+<h2><a class="header" href="#basic-functions" id="basic-functions">Basic Functions</a></h2>
+<p>The <a href="../std/arr"><code>arr</code></a> function will return a new array which contains all of its arguments. 
+When one of the arguments is an array, and that argument is prefixed with <code>..</code>, all of that 
+array's elements are copied into the array which is being constructed. </p>
+<pre><code>(prn (arr)) ; prints ()
+(prn (arr 1 2 3 4)) ; prints (1 2 3 4)
+
+(let src '(x y z))
+(prn (arr 1 2 src 3 4)) ; prints (1 2 (x y z) 3 4)
+(prn (arr 1 2 ..src 3 4)) ; prints (1 2 x y z 3 4)
+(prn (arr ..src ..src)) ; prints (x y z x y z)
+</code></pre>
+<p><a href="../std/len"><code>len</code></a> returns the array's length, and <a href="../std/empty-p"><code>empty?</code></a> tests whether it 
+has a length of 0.</p>
+<pre><code>(prn (len '())) ; prints 0
+(prn (len (arr 'a 'b))) ; prints 2
+
+(prn (empty? (arr))) ; prints #t
+(prn (empty? '(1))) ; prints #f
+</code></pre>
+<p>An array constructed using the <code>arr</code> function will be mutable. You can add any number of elements
+to the start or end of an array using the functions <a href="../std/push-start-mut"><code>push-start!</code></a> and 
+<a href="../std/push-mut"><code>push!</code></a>, or you can remove one element at a time using 
+<a href="../std/pop-start-mut"><code>pop-start!</code></a> and <a href="../std/pop-mut"><code>pop!</code></a>.</p>
+<pre><code>(let metals (arr 'pewter 'silver 'copper))
+
+(push! metals 'iron 'bronze)
+(prn metals) ; prints (pewter silver copper iron bronze)
+
+(prn (pop! metals)) ; prints bronze
+(prn (pop! metals)) ; prints iron
+(prn (pop-start! metals)) ; prints pewter
+(prn metals) ; prints (silver copper)
+
+(push-start! metals 'titanium 'electrum)
+(prn metals) ; prints (titanium electrum silver copper)
+</code></pre>
+<p>Many other useful functions are described in the <a href="../std/collections">standard library 
+documentation</a>.</p>
+<h2><a class="header" href="#indexing" id="indexing">Indexing</a></h2>
+<p>The macro for looking up an element in any collection is called <a href="../std/access"><code>access</code></a>. 
+To get the first element of an array, you might call <code>(access the-array 0)</code>.</p>
+<p>Because <code>access</code> is such a fundamental operation, it can be
+<a href="syntax-and-types.html#abbreviations">abbreviated</a> using square brackets. <code>(access the-array 0)</code>
+would normally be written as <code>[the-array 0]</code> instead. Notice that this resembles the equivalent
+Rust syntax: <code>the_array[0]</code>.</p>
+<p>Negative indexes count backwards from the end of the array. <code>[names -1]</code> returns the last element
+in the <code>names</code> array, and <code>[names -2]</code> returns its second-to-last element.</p>
+<p>Array elements are <a href="built-in-macros.html#assignment">places</a>, so they can be mutated using the
+<code>=</code> macro.</p>
+<pre><code>(let blues (arr 'azure 'sapphire 'navy))
+
+(prn [blues 2]) ; prints navy
+(prn [blues -3]) ; prints azure
+
+(= [blues 0] 'cerulean)
+(= [blues -2] 'cobalt)
+
+(prn blues) ; prints (cerulean cobalt navy)
+</code></pre>
+<h2><a class="header" href="#slicing" id="slicing">Slicing</a></h2>
+<p>The <code>access</code> macro, and therefore the <code>[]</code> abbreviation, both support special syntax for accessing
+multiple consecutive elements in an array. They use the <code>:</code> symbol, similar to Python's slice 
+syntax.</p>
+<pre><code>(let alphabet '(a b c d e f g h i j k l m n o p q r s t u v w x y z))
+
+; elements from n to m are sliced using `n : m`
+(prn [alphabet 3 : 8]) ; prints (d e f g h)
+(prn [alphabet -10 : 21]) ; prints (q r s t u)
+(prn [alphabet 5 : 5]) ; prints ()
+
+; elements from 0 to n are sliced using `: n`
+(prn [alphabet : 5]) ; prints (a b c d e)
+(prn [alphabet : -23]) ; prints (a b c)
+(prn [alphabet : 30]) ; an error
+
+; elements from n to the end are sliced using `n :`
+(prn [alphabet 23 :]) ; prints (x y z)
+(prn [alphabet -1 :]) ; prints (z)
+
+; the entire array can be sliced using `:`
+(prn (eq? [alphabet :] alphabet)) ; prints #t
+
+; the `:` symbol is whitespace-sensitive
+(prn [alphabet 2:5]) ; an error
+(prn [alphabet 3:]) ; an error
+</code></pre>
+<p>To keep things simple, all of these slicing operations will allocate, and return, a new array. 
+Unlike Rust, there's no way to produce a reference which points into an array's interior.</p>
+<p>The <a href="../std/del-mut"><code>del!</code></a> and <a href="../std/remove-mut"><code>remove!</code></a> macros also support the same 
+slicing syntax.</p>
+<pre><code>(del! names 3) ; delete element 3
+(del! names 2 : 5) ; delete elements 2, 3 and 4
+(del! names :) ; delete every element
+</code></pre>
+<p>A slice is a <a href="built-in-macros.html#assignment">place</a>. Assigning an array to a slice will overwrite
+all of the elements stored there, changing the size of the array if necessary.</p>
+<pre><code>(let numbers (arr 0 1 2 3 4 5 6 7 8 9))
+
+(= [numbers : 6] '())
+(prn numbers) ; prints (6 7 8 9)
+
+(= [numbers -2 :] (arr 42 42 42))
+(prn numbers) ; prints (6 7 42 42 42)
+
+(= [numbers :] '(5 5 5))
+(prn numbers) ; prints (5 5 5)
+</code></pre>
+<p>GameLisp doesn't include some of the traditional Lisp functions for processing sequences, like 
+<code>rest</code>, <code>butlast</code>, <code>take</code> and <code>drop</code>. All of those functions can be expressed in a more versatile 
+and general way using the slice syntax.</p>
+<h2><a class="header" href="#arrows" id="arrows">Arrows</a></h2>
+<p>Deeply-nested use of the <code>[]</code> syntax can sometimes be visually confusing.</p>
+<pre><code>[[[the-array index] 0] start-index :]
+</code></pre>
+<p>&quot;Arrow macros&quot; were discussed in the <a href="built-in-macros.html#arrows">previous chapter</a>. The <code>[]</code>
+syntax works well when used with the <code>-&gt;</code> macro:</p>
+<pre><code>(-&gt; the-array [index] [0] [start-index :])
+</code></pre>
+<p>This is similar to the equivalent Rust syntax:</p>
+<pre><code>the_array[index][0][start_index..]
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="numbers.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="strings-and-text.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="numbers.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="strings-and-text.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="glsp-highlight.js"></script>
+        
+
+        
+
+    </body>
+</html>

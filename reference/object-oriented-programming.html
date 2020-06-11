@@ -1,0 +1,617 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Object-Oriented Programming - GameLisp Reference Manual</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="overview.html">Overview</a></li><li class="chapter-item expanded affix "><a href="introduction-for-rust-programmers.html">Introduction for Rust Programmers</a></li><li class="chapter-item expanded affix "><a href="introduction-for-lisp-programmers.html">Introduction for Lisp Programmers</a></li><li class="chapter-item expanded "><a href="the-language.html"><strong aria-hidden="true">1.</strong> The Language</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="syntax-and-types.html"><strong aria-hidden="true">1.1.</strong> Syntax and Types</a></li><li class="chapter-item expanded "><a href="evaluation.html"><strong aria-hidden="true">1.2.</strong> Evaluation</a></li><li class="chapter-item expanded "><a href="macros.html"><strong aria-hidden="true">1.3.</strong> Macros</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="built-in-macros.html"><strong aria-hidden="true">1.3.1.</strong> Built-in Macros</a></li></ol></li><li class="chapter-item expanded "><a href="numbers.html"><strong aria-hidden="true">1.4.</strong> Numbers</a></li><li class="chapter-item expanded "><a href="arrays.html"><strong aria-hidden="true">1.5.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="strings-and-text.html"><strong aria-hidden="true">1.6.</strong> Strings and Text</a></li><li class="chapter-item expanded "><a href="tables.html"><strong aria-hidden="true">1.7.</strong> Tables</a></li><li class="chapter-item expanded "><a href="iterators.html"><strong aria-hidden="true">1.8.</strong> Iterators</a></li><li class="chapter-item expanded "><a href="coroutines.html"><strong aria-hidden="true">1.9.</strong> Coroutines</a></li><li class="chapter-item expanded "><a href="patterns.html"><strong aria-hidden="true">1.10.</strong> Patterns</a></li><li class="chapter-item expanded "><a href="object-oriented-programming.html" class="active"><strong aria-hidden="true">1.11.</strong> Object-Oriented Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="state-machines.html"><strong aria-hidden="true">1.11.1.</strong> State Machines</a></li><li class="chapter-item expanded "><a href="code-reuse.html"><strong aria-hidden="true">1.11.2.</strong> Code Reuse</a></li><li class="chapter-item expanded "><a href="structs.html"><strong aria-hidden="true">1.11.3.</strong> Structs</a></li></ol></li><li class="chapter-item expanded "><a href="errors.html"><strong aria-hidden="true">1.12.</strong> Errors</a></li><li class="chapter-item expanded "><a href="miscellaneous.html"><strong aria-hidden="true">1.13.</strong> Miscellaneous</a></li></ol></li><li class="chapter-item expanded "><a href="the-rust-api.html"><strong aria-hidden="true">2.</strong> The Rust API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="the-glsp-crate.html"><strong aria-hidden="true">2.1.</strong> The glsp Crate</a></li><li class="chapter-item expanded "><a href="collection-types.html"><strong aria-hidden="true">2.2.</strong> Collection Types</a></li><li class="chapter-item expanded "><a href="rust-functions.html"><strong aria-hidden="true">2.3.</strong> Rust Functions</a></li><li class="chapter-item expanded "><a href="rust-data.html"><strong aria-hidden="true">2.4.</strong> Rust Data</a></li><li class="chapter-item expanded "><a href="libraries.html"><strong aria-hidden="true">2.5.</strong> Libraries</a></li><li class="chapter-item expanded "><a href="garbage-collection.html"><strong aria-hidden="true">2.6.</strong> Garbage Collection</a></li><li class="chapter-item expanded "><a href="procedural-macros.html"><strong aria-hidden="true">2.7.</strong> Procedural Macros</a></li><li class="chapter-item expanded "><a href="compilation.html"><strong aria-hidden="true">2.8.</strong> Compilation</a></li><li class="chapter-item expanded "><a href="feature-flags.html"><strong aria-hidden="true">2.9.</strong> Feature Flags</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="performance-figures.html">Appendix A: Performance Figures</a></li><li class="chapter-item expanded affix "><a href="naming-conventions.html">Appendix B: Naming Conventions</a></li><li class="chapter-item expanded affix "><a href="implementation-limits.html">Appendix C: Implementation Limits</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                    </div>
+
+                    <h1 class="menu-title">GameLisp Reference Manual</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#object-oriented-programming" id="object-oriented-programming">Object-Oriented Programming</a></h1>
+<p>Game code is naturally object-oriented. A typical game codebase might contain:</p>
+<ul>
+<li>
+<p>A central &quot;engine&quot;, mostly implemented in a native language, to handle anything highly 
+performance-sensitive (such as physics and rendering) and anything which is inherently 
+global (such as key bindings and saved games).</p>
+</li>
+<li>
+<p>A very large number of unique &quot;entity&quot; types, mostly implemented in a scripting language,
+each representing a different kind of in-game object.</p>
+<ul>
+<li>
+<p>The engine behaves as a &quot;server&quot; and the entities behave as its &quot;clients&quot;: registering 
+themselves to participate in the physics system, emitting drawing commands, 
+serializing themselves when the game is saved, and so on.</p>
+</li>
+<li>
+<p>Entities are sometimes data-driven (for example, an enemy in an action-adventure game
+might be partially defined by its total health and a list of elemental weaknesses), but 
+defining a new entity usually involves at least some scripting (for example, each enemy 
+would have an AI script to control its behaviour in combat).</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Entity definitions usually make up the lion's share of any game's codebase, so providing a great
+environment for defining entities was my number one priority while designing GameLisp. After 
+experimenting with a few <a href="#aside-why-not-prototypes">alternatives</a>, I eventually settled on a 
+traditional, class‑based object‑oriented programming (OOP) system.</p>
+<p>This may surprise some readers - after all, OOP has been steadily going out of fashion for the
+last decade or two, particularly in game development. This is because OOP has a few well-known
+flaws which can make it architecturally awkward. GameLisp has a unique take on OOP which
+tries to minimize those downsides, while still taking advantage of its convenience and 
+intuitiveness. It's quite different from OOP as seen in languages like C++, Java and Python.</p>
+<h2><a class="header" href="#fundamentals" id="fundamentals">Fundamentals</a></h2>
+<p>GameLisp's <a href="syntax-and-types.html#type-summary">primitive types</a> include objects and classes.
+Each class describes a type of object, and each object is an individual instance of a class.</p>
+<p>You can define a new class using the macros <a href="../std/defclass"><code>defclass</code></a>, 
+<a href="../std/let-class"><code>let-class</code></a> and <a href="../std/class"><code>class</code></a>. They work in the same way as 
+<code>defn</code>, <code>let-fn</code> and <code>fn</code>, respectively.</p>
+<pre><code>(defclass Bomb
+  (const initial-time 30.0)
+  (field timer @initial-time)
+
+  (meth tick (delta-time)
+    (dec! @timer delta-time)
+    (when (&lt;= @timer 0.0)
+      (prn &quot;BOOM!&quot;))))
+</code></pre>
+<p>Classes are full-fledged GameLisp values. You can store them in an array, bind them to a local
+variable, pass them as a function argument, and so on. <code>defclass</code> just evaluates a <code>(class ...)</code> 
+form and binds it to a global variable.</p>
+<pre><code>(let Renamed Bomb)
+(ensure (class? Bomb))
+(ensure (same? Bomb Renamed))
+
+(prn Bomb) ; prints #&lt;class:Bomb&gt;
+(del-global! 'Bomb)
+(prn Bomb) ; an error
+</code></pre>
+<p>Classes are always immutable. There's no way to modify a class after you've defined it.</p>
+<p>As demonstrated above, classes are described using a sequence of &quot;clause&quot; forms. The most 
+important clauses are <a href="../std/field-clause"><code>(field ...)</code></a>, 
+<a href="../std/const-clause"><code>(const ...)</code></a> and <a href="../std/meth-clause"><code>(meth ...)</code></a>.</p>
+<h3><a class="header" href="#fields-and-constants" id="fields-and-constants">Fields and Constants</a></h3>
+<p>A <a href="../std/field-clause"><code>(field name)</code> clause</a> defines an object field. Each field reserves enough 
+space inside the object to store a single GameLisp value, of any type. You can optionally provide 
+an initializer form, which will be evaluated during <a href="#initialization">object initialization</a>. All 
+fields are mutable.</p>
+<p>A <a href="../std/const-clause"><code>(const name init)</code> clause</a> defines an associated constant. Constants take 
+up no storage in the object. Their <code>init</code> form is evaluated when the class is defined, and it can 
+refer to previous constants in the same class.</p>
+<pre><code>(const width 40)
+(const height 60)
+(const area (* @width @height))
+</code></pre>
+<p>Fields and constants share the same namespace, and they're public by default. You can access a 
+field or constant on a particular object using the <a href="../std/access"><code>[]</code> syntax</a>, just as you might 
+access a table field.</p>
+<pre><code>(defn describe-bomb (bomb)
+  (prn &quot;initial time: &quot; [bomb 'initial-time])
+  (prn &quot;current time: &quot; [bomb 'timer]))
+
+(defn reset-bomb (bomb)
+  (= [bomb 'timer] [bomb 'initial-time]))
+</code></pre>
+<p>You can also use <code>[]</code> to look up the value of a constant in a class.</p>
+<pre><code>(prn &quot;initial time for all bombs: &quot; [Bomb 'initial-time])
+</code></pre>
+<h3><a class="header" href="#methods" id="methods">Methods</a></h3>
+<p>A <a href="../std/meth-clause"><code>(meth name (args...) body...)</code> clause</a> defines a method: a function which 
+&quot;acts on&quot; a particular object. Unlike Rust, the <code>self</code> argument is defined implicitly rather than 
+explicitly, so you would write <code>(meth a (b) ...)</code> rather than <code>(meth a (self b) ...)</code>.</p>
+<p>Methods share the same namespace as fields and constants, and like fields and constants, they're 
+public by default.</p>
+<p>To invoke a method on an object, use the <code>(.name obj args...)</code> syntax.</p>
+<pre><code>(defn tick-all-bombs (bombs delta-time)
+  (for bomb in bombs
+    (.tick bomb delta-time)))
+</code></pre>
+<p>That same syntax can be used to invoke a function which is stored in a field or constant. In that 
+case, the function isn't considered to be a method, so it won't receive a <code>self</code> parameter and it
+won't be able to access any object fields.</p>
+<pre><code>(defclass Static
+  (const print-description (fn () 
+    (prn &quot;your hair is standing on end!&quot;))))
+
+(.print-description Static)
+</code></pre>
+<h2><a class="header" href="#-forms" id="-forms"><code>@</code> Forms</a></h2>
+<p><code>@name</code> is an <a href="syntax-and-types.html#abbreviations">abbreviation</a> for 
+<a href="../std/atsign"><code>(atsign name)</code></a>.</p>
+<p><code>@</code> is only meaningful within the body of a method, or within the initializer form of a field or 
+constant. Broadly speaking, it's used to access some property of the current object, similar to 
+<code>self</code> in Rust. </p>
+<p><code>@width</code> means &quot;access the field or constant named <code>width</code> on the current object&quot;.</p>
+<p><code>(@run a b)</code> means &quot;invoke the method <code>run</code> on the current object, with arguments <code>a</code> and <code>b</code>&quot;.</p>
+<pre><code>(defclass Paintbrush
+  (field red)
+  (field green)
+  (field blue)
+
+  (meth rgb ()
+    (arr @red @green @blue))
+
+  (meth print-color ()
+    (prn (@rgb)))
+
+  (meth make-grayscale! ()
+    (let avg (/ (+ @red @green @blue) 3))
+    (= @red avg, @green avg, @blue avg)))
+</code></pre>
+<p>There are a <a href="../std/objects-and-classes#abbreviations">few special cases</a>. <code>@self</code> returns a 
+reference to the current object, <code>@class</code> is the current object's class, and <code>@class-name</code> is 
+the name of the current object's class as a symbol.</p>
+<h3><a class="header" href="#first-class-functions" id="first-class-functions">First-Class Functions</a></h3>
+<p>Methods can't be passed around as first-class values. If you try to access a method as you would
+access a field or constant, it's an error.</p>
+<pre><code>(defclass WidgetValidator
+  (const threshold 10.0)
+
+  (meth widget-valid? (widget)
+    (&gt;= [widget 'validity] @threshold))
+
+  (meth validate (widgets)
+    (all? @widget-valid? widgets))) ; an error
+</code></pre>
+<p>However, forms like <code>@self</code> and <code>@width</code> work by referring to a hidden local variable, which is
+eligible to be captured using <code>fn</code>. Therefore, creating a first-class function which delegates to 
+a method is straightforward.</p>
+<pre><code>(meth validate (widgets)
+  ; invoke the widget-valid? method on @self, passing in each widget
+  (all? (fn1 (@widget-valid? _)) widgets))
+</code></pre>
+<h2><a class="header" href="#initialization" id="initialization">Initialization</a></h2>
+<p>To instantiate a new object, simply call a class, in the same way that you would call a function.</p>
+<pre><code>(let bomb (Bomb))
+
+(prn bomb) ; prints #&lt;obj:Bomb&gt;
+(ensure (obj? bomb))
+(ensure (same? (class-of bomb) Bomb))
+</code></pre>
+<p>You can pass in parameters to the function call. Those parameters will be passed to a special
+initializer method, which can be defined using an <a href="../std/init-clause"><code>(init ...)</code> clause</a>.</p>
+<pre><code>(defclass Refinery
+  (field fuel-limit)
+  (field fuel)
+
+  (init (@fuel-limit)
+    (= @fuel (/ @fuel-limit 5))))
+
+(let refinery (Refinery 1000))
+(prn [refinery 'fuel]) ; prints 200
+</code></pre>
+<p>There will often be a one-to-one relationship between your class's fields and the parameters to
+its initializer method. To save you from typing out the same name several times, we provide
+special field-initialization syntax:</p>
+<pre><code>(defclass AppleTree
+  (field fruit-count)
+  (field health (* @fruit-count 20))
+  (field planted-on-date)
+
+  (init (@fruit-count @planted-on-date))
+    (prn &quot;created an apple tree with {@fruit-count} fruit&quot;))
+
+(let tree (AppleTree 6 (in-game-date)))
+</code></pre>
+<p>The initialization method may prefix any of its parameter names with <code>@</code>, in which case the class 
+must have a field which shares the same name. At the start of the initialization method, each 
+field is initialized in the order that they were defined, emitting an <code>(= @name name)</code> form for 
+any parameters prefixed with <code>@</code>.</p>
+<p>In other words, the above <code>AppleTree</code> class definition is equivalent to:</p>
+<pre><code>(defclass AppleTree
+  (field fruit-count)
+  (field health)
+  (field planted-on-date)
+
+  (init (fruit-count planted-on-date)
+    (= @fruit-count fruit-count)
+    (= @health (* @fruit-count 20))
+    (= @planted-on-date planted-on-date)
+    (prn &quot;created an apple tree with {@fruit-count} fruit&quot;)))
+</code></pre>
+<p>Normal <code>meth</code> clauses may also have <code>@</code>-parameters. In that case, they just emit a <code>(= @name name)</code>
+form at the start of their body, in no particular order.</p>
+<pre><code>(meth on-health-change (@health)
+  (when (&lt; @health 0)
+    (prn &quot;the tree withers away!&quot;)))
+
+; ...is equivalent to...
+
+(meth on-health-change (health)
+  (= @health health)
+  (when (&lt; @health 0)
+    (prn &quot;the tree withers away!&quot;)))
+</code></pre>
+<h2><a class="header" href="#finalization" id="finalization">Finalization</a></h2>
+<p>The <a href="../std/obj-kill-mut"><code>obj-kill!</code> function</a> will execute an object's finalizer method 
+(defined using a <a href="../std/fini-clause"><code>(fini ...)</code> clause</a>), and then permanently delete 
+its storage. Trying to access a field or call a method on a killed object is an error.</p>
+<pre><code>(defclass Mandrake
+  (field coords)
+
+  ; ...
+
+  (fini
+    (for entity in (query-entities 'within-distance 50 @self)
+      (.hit 150 'necrotic))))
+
+(let mandrake (Mandrake spawn-coords))
+(obj-kill! mandrake)
+(prn [mandrake 'coords]) ; an error
+</code></pre>
+<p>Note that the <code>fini</code> method will not be called if an object is simply garbage-collected,
+so it can't be used for RAII-style resource cleanup. We'll discuss some alternatives to RAII
+in the <a href="errors.html">Errors</a> chapter.</p>
+<h2><a class="header" href="#privacy" id="privacy">Privacy</a></h2>
+<p>If you read the textbooks, they will tell you that information hiding is one of the pillars
+of object-oriented programming. Languages like C# tend to make all class members private
+by default - not only is it impossible to access them from a different project, but they can't
+even be accessed by a different class within the same source file!</p>
+<p>In practice, for day-to-day code, it's easy to waste too much effort carefully hiding fields 
+and methods from yourself and your colleagues. I find that a game codebase can tolerate a lot of 
+&quot;unnecessarily public&quot; fields and methods, as long as you choose sensible names for those few 
+bindings which are intended to be accessed from outside the class. This is why fields, constants 
+and methods are public by default in GameLisp.</p>
+<p>That being said, privacy is occasionally useful. If you're writing a <a href="code-reuse.html#mixins">mixin</a> 
+or <a href="#classmacros">classmacro</a> which will be integrated into many different classes, or if you're
+writing a class for a library which is intended to be used by strangers, then putting lots of 
+names in your object's public namespace becomes significantly more risky.</p>
+<p>In the macros chapter, we discussed a technique for avoiding name collisions in macros:
+<a href="macros.html#hygiene">auto‑gensym</a>. Classes have access to the same technique. When a symbol
+anywhere in a class is suffixed with <code>#</code>, each occurrence of that symbol will be replaced with 
+the same <a href="../std/gensym"><code>gensym</code></a>. This makes it impossible to refer to that name from outside 
+the class, but it can still be accessed by other objects of the same class.</p>
+<pre><code>(defclass SecretivePoint
+  (field x#)
+  (field y#)
+
+  (init (@x# @y#))
+
+  (meth op-eq? (other)
+    (and (== @x# [other 'x#]) (== @y# [other 'y#]))))
+
+(let point (SecretivePoint 20 20))
+(prn [point 'x#]) ; an error
+</code></pre>
+<h2><a class="header" href="#properties" id="properties">Properties</a></h2>
+<p>If you have one entity which advertises its coordinates as a field <code>[et 'coords]</code>, and a more 
+complex entity which provides the same information as a method <code>(.coords et)</code>, writing client code 
+to deal with both possibilities can be irritating.</p>
+<p>On the other hand, when defining a class, you don't want to waste a lot of effort writing useless
+methods which only return a field's value.</p>
+<pre><code>(defclass GameLispOrJava?
+  (field width# 5)
+  (field height# 5)
+
+  (meth width ()
+    @width#)
+
+  (meth height ()
+    @height#))
+</code></pre>
+<p>GameLisp borrows a leaf from C#'s book by allowing you to define a pair of methods which behave 
+like a field. The &quot;getter&quot; method is called when the field is accessed, and the &quot;setter&quot; method is
+called when a new value is assigned to the field.</p>
+<pre><code>(defclass GameLispOrCSharp?
+  (prop width 5 (get))
+  (prop height 5 (get)))
+</code></pre>
+<p>Each property has a &quot;backing field&quot; which stores a single value. The class above would define
+one field named <code>width:field</code> and another named <code>height:field</code>. The empty <code>(get)</code> forms simply
+return the backing field's current value. You could also define an empty <code>(set)</code> form, which just 
+assigns its argument to the backing field.</p>
+<p>Of course, <code>(get ...)</code> and <code>(set ...)</code> can also be defined with a method body. Within those 
+methods, it's possible to refer to the backing field as <a href="../std/atsign-field"><code>@field</code></a>:</p>
+<pre><code>; a creature whose apparent position differs from its true position
+(defclass DisplacerBeast
+  (prop coords
+    (get
+      (let (x y) @field)
+      (arr (- x 10) (- y 10)))
+    (set (arg)
+      (let (x y) arg)
+      (= @field (arr (+ x 10) (+ y 10)))))
+
+  (meth print-description ()
+    (prn &quot;my coords are &quot; @coords))
+
+  (meth print-secret-description ()
+    (prn &quot;my actual coords are &quot; @coords:field)))
+</code></pre>
+<p>Just like fields and constants, properties can be initialized automatically, using the syntax
+<code>(prop name init ...)</code>. The initial value is assigned to the backing field directly; the setter 
+is not invoked.</p>
+<p>Properties are more complicated than fields, so you should avoid using them when they're not
+necessary. Unless you really need to prevent assignment for some reason, the classes above 
+should simply be written as:</p>
+<pre><code>(defclass GameLisp
+  (field width 5)
+  (field height 5))
+</code></pre>
+<h2><a class="header" href="#arrows" id="arrows">Arrows</a></h2>
+<p>As usual, the <a href="built-in-macros.html#arrows">arrow macros</a> can be used to flatten out deeply-nested
+function calls and field accesses. The arrow macros include special handling for <code>@name</code> and 
+<code>.name</code> forms.</p>
+<pre><code>(-&gt; rect .coords (.offset-by 10 10) @to-local ['x])
+
+; ...is equivalent to...
+
+[(@to-local (.offset-by (.coords rect) 10 10)) 'x]
+</code></pre>
+<p>Note the resemblance to Rust's syntax. In Rust, the above would be written as:</p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>self.to_local(rect.coords.offset_by(10, 10)).x
+<span class="boring">}
+</span></code></pre></pre>
+<h2><a class="header" href="#classmacros" id="classmacros">Classmacros</a></h2>
+<p>Class definitions can become repetitive. For example, every entity in your game might have
+an <code>on-step</code> method with the same set of parameters:</p>
+<pre><code>(defclass MetalWall
+  (meth on-step (controller delta-time)
+    ...))
+
+(defclass LaserSword
+  (meth on-step (controller delta-time)
+    ...))
+
+; i've only typed that boilerplate twice and i'm already tired of it
+</code></pre>
+<p>You can use <code>defclassmacro</code> to define a macro which will be invoked in place of a class clause.
+For example, in the above case, we might define a <code>step</code> classmacro:</p>
+<pre><code>(defclassmacro step (..body)
+  `(meth on-step (controller delta-time)
+    ..body))
+
+(defclass MetalWall
+  (step
+    ...))
+
+(defclass LaserSword
+  (step
+    ...))
+</code></pre>
+<p>Classmacros can use <a href="macros.html#the-expansion-algorithm"><code>splice</code></a> to emit multiple clauses from a 
+single macro invocation. On the other hand, if a classmacro decides that it doesn't want to emit 
+any clauses, it can return <code>#n</code>. Nil clauses are silently ignored.</p>
+<p>Classmacros are powerful. For example, you could define a small <code>coro-step</code> classmacro which 
+resumes a coroutine every step.</p>
+<pre><code>(defclassmacro coro-step (..body)
+  `(splice
+    (field coro-name#)
+    (field setter-name#)
+
+    (meth on-step (controller cur-delta-time#)
+      (when (or (nil? coro-name#) (not (eq? (coro-state coro-name#) 'paused))) 
+        (let delta-time cur-delta-time#)
+        (= coro-name# ((fn () ..body)))
+        (ensure (coro? coro-name#))
+        (= setter-name# (fn (dt) (= delta-time dt))))
+
+      (setter-name# cur-delta-time#)
+      (coro-run coro-name#))))
+
+(defclass LaserSword
+  (coro-step
+    (prn &quot;vrumm&quot;)
+    (yield)
+    (prn &quot;VWOM&quot;)
+    (yield)
+    (prn &quot;ñommmm&quot;)))
+</code></pre>
+<h2><a class="header" href="#aside-why-not-prototypes" id="aside-why-not-prototypes">Aside: Why Not Prototypes?</a></h2>
+<p>Several popular scripting languages (namely Lua, JavaScript, and their derivatives) have an object
+system very different from GameLisp's. In those languages, there is no distinction between an 
+object and a table, or between a method and a table field. Tables may delegate field accesses to 
+another table, which establishes a <em>de facto</em> single inheritance hierarchy.</p>
+<p>Prototype-based object systems have the advantage of being extremely simple and easy to learn.
+Unfortunately, they're also quite limited. Some pre-release versions of GameLisp experimented 
+with a prototype-based object system, and encountered these problems:</p>
+<ul>
+<li>Prototype chains tend to have poor performance, and the nature of the object model makes
+optimization difficult.</li>
+<li>The hybrid object/tables tend to be weakly-typed and excessively dynamic. There's often no way
+to disable unhelpful operations like adding arbitrary fields to any object, or deleting any 
+field, or iterating over every field. Abstractions end up feeling leaky and insecure.</li>
+<li>The lack of dedicated syntax for things like methods and fields causes many quality-of-life
+papercuts. Methods being called as non-method functions accidentally; silent name collisions;
+no easy way to differentiate a general-purpose hash table from an object; no good way to make
+an individual table field immutable; etc.</li>
+<li>Prototypes are a natural fit for single inheritance, but a poor fit for more complicated kinds 
+of class relationship, like those which we'll explore in the next two chapters.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="patterns.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="state-machines.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="patterns.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="state-machines.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="glsp-highlight.js"></script>
+        
+
+        
+
+    </body>
+</html>

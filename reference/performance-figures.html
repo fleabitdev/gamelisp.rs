@@ -1,0 +1,317 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Appendix A: Performance Figures - GameLisp Reference Manual</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="overview.html">Overview</a></li><li class="chapter-item expanded affix "><a href="introduction-for-rust-programmers.html">Introduction for Rust Programmers</a></li><li class="chapter-item expanded affix "><a href="introduction-for-lisp-programmers.html">Introduction for Lisp Programmers</a></li><li class="chapter-item expanded "><a href="the-language.html"><strong aria-hidden="true">1.</strong> The Language</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="syntax-and-types.html"><strong aria-hidden="true">1.1.</strong> Syntax and Types</a></li><li class="chapter-item expanded "><a href="evaluation.html"><strong aria-hidden="true">1.2.</strong> Evaluation</a></li><li class="chapter-item expanded "><a href="macros.html"><strong aria-hidden="true">1.3.</strong> Macros</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="built-in-macros.html"><strong aria-hidden="true">1.3.1.</strong> Built-in Macros</a></li></ol></li><li class="chapter-item expanded "><a href="numbers.html"><strong aria-hidden="true">1.4.</strong> Numbers</a></li><li class="chapter-item expanded "><a href="arrays.html"><strong aria-hidden="true">1.5.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="strings-and-text.html"><strong aria-hidden="true">1.6.</strong> Strings and Text</a></li><li class="chapter-item expanded "><a href="tables.html"><strong aria-hidden="true">1.7.</strong> Tables</a></li><li class="chapter-item expanded "><a href="iterators.html"><strong aria-hidden="true">1.8.</strong> Iterators</a></li><li class="chapter-item expanded "><a href="coroutines.html"><strong aria-hidden="true">1.9.</strong> Coroutines</a></li><li class="chapter-item expanded "><a href="patterns.html"><strong aria-hidden="true">1.10.</strong> Patterns</a></li><li class="chapter-item expanded "><a href="object-oriented-programming.html"><strong aria-hidden="true">1.11.</strong> Object-Oriented Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="state-machines.html"><strong aria-hidden="true">1.11.1.</strong> State Machines</a></li><li class="chapter-item expanded "><a href="code-reuse.html"><strong aria-hidden="true">1.11.2.</strong> Code Reuse</a></li><li class="chapter-item expanded "><a href="structs.html"><strong aria-hidden="true">1.11.3.</strong> Structs</a></li></ol></li><li class="chapter-item expanded "><a href="errors.html"><strong aria-hidden="true">1.12.</strong> Errors</a></li><li class="chapter-item expanded "><a href="miscellaneous.html"><strong aria-hidden="true">1.13.</strong> Miscellaneous</a></li></ol></li><li class="chapter-item expanded "><a href="the-rust-api.html"><strong aria-hidden="true">2.</strong> The Rust API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="the-glsp-crate.html"><strong aria-hidden="true">2.1.</strong> The glsp Crate</a></li><li class="chapter-item expanded "><a href="collection-types.html"><strong aria-hidden="true">2.2.</strong> Collection Types</a></li><li class="chapter-item expanded "><a href="rust-functions.html"><strong aria-hidden="true">2.3.</strong> Rust Functions</a></li><li class="chapter-item expanded "><a href="rust-data.html"><strong aria-hidden="true">2.4.</strong> Rust Data</a></li><li class="chapter-item expanded "><a href="libraries.html"><strong aria-hidden="true">2.5.</strong> Libraries</a></li><li class="chapter-item expanded "><a href="garbage-collection.html"><strong aria-hidden="true">2.6.</strong> Garbage Collection</a></li><li class="chapter-item expanded "><a href="procedural-macros.html"><strong aria-hidden="true">2.7.</strong> Procedural Macros</a></li><li class="chapter-item expanded "><a href="compilation.html"><strong aria-hidden="true">2.8.</strong> Compilation</a></li><li class="chapter-item expanded "><a href="feature-flags.html"><strong aria-hidden="true">2.9.</strong> Feature Flags</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="performance-figures.html" class="active">Appendix A: Performance Figures</a></li><li class="chapter-item expanded affix "><a href="naming-conventions.html">Appendix B: Naming Conventions</a></li><li class="chapter-item expanded affix "><a href="implementation-limits.html">Appendix C: Implementation Limits</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                    </div>
+
+                    <h1 class="menu-title">GameLisp Reference Manual</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#performance-figures" id="performance-figures">Performance Figures</a></h1>
+<p>All performance timings on this page were obtained using a mid-range laptop from 2016 with
+an Intel Core i7-6500U CPU (2.5 GHz). Rust code was compiled with <code>opt-level = 3</code>, <code>lto = true</code>,
+<code>codegen-units = 1</code>. The <code>&quot;unsafe-internals&quot;</code> feature was enabled unless noted otherwise.</p>
+<h2><a class="header" href="#specimen-project" id="specimen-project">Specimen Project</a></h2>
+<p>GameLisp's specimen project is <a href="https://gamelisp.rs/tcof/">The Castle on Fire</a>, a 2D sidescroller
+which is still under development. We can use this project to provide some representative
+performance figures for a real-world game which uses GameLisp.</p>
+<p>The project has around 15,000 non-empty, non-comment lines of GameLisp code, which are loaded 
+into the GameLisp runtime in about 550 milliseconds (or less than 100 milliseconds when 
+<a href="compilation.html">pre‑compiled</a>).</p>
+<p>The entity system, main loop and parts of the physics system are implemented in GameLisp. Each
+entity receives a minimum of two method calls per frame. In a scene with 292 (mostly trivial)
+entities, the total execution time spent running GameLisp code is ~2.0 milliseconds per frame, the 
+memory pressure is 180 kilobytes of small allocations per frame, and the GC time is around 0.10 
+milliseconds per frame, maintaining a 7 megabyte heap.</p>
+<p>When we switch to a very busy scene (30 physics-enabled on-screen enemies with behaviour scripting 
+and rendering, all controlled from GameLisp), the GameLisp execution time climbs to ~4.0 
+milliseconds, the memory pressure to 350 kilobytes, and the GC time to 0.20 milliseconds. 
+Most of this execution time is spent on the physics simulation - moving the hottest parts of the 
+physics engine to Rust would be an easy optimization, if necessary.</p>
+<p>If the heap size seems small, note that the game's total memory usage is a few dozen
+megabytes. The 7 megabyte heap only contains memory managed directly by GameLisp, not including 
+<code>rdata</code>.</p>
+<p>When the game is run on a low-end laptop from 2011 (with a Pentium P6100), all GameLisp code
+execution (including source-file loading and garbage-collection) experiences a constant-factor 
+slowdown of around 2x to 4x relative to the i7-6500U. The game remains very playable.</p>
+<h2><a class="header" href="#benchmarks" id="benchmarks">Benchmarks</a></h2>
+<p>GameLisp uses a bytecode interpreter, so I've benchmarked it against other interpreted languages -
+specifically, the reference implementations of Lua and Python. Please note that JITted scripting 
+language implementations, like LuaJIT, PyPy, V8, and SpiderMonkey, would be significantly faster. 
+(However, integrating those libraries into a Rust game project would not be straightforward.)</p>
+<p>The &quot;GameLisp (SI)&quot; column was compiled with the <a href="feature-flags.html">default feature flags</a>, and the 
+&quot;GameLisp (UI)&quot; column was compiled with the <code>&quot;unsafe-internals&quot;</code> flag enabled.</p>
+<p>The <code>primitive_x</code> benchmarks perform a basic operation (like addition or array indexing)
+in an unrolled loop, while the remaining benchmarks try to imitate actual game code.</p>
+<table><thead><tr><th>Benchmark</th><th align="center">Lua 5.3</th><th align="center">GameLisp (UI)</th><th align="center">Python 3.7.7</th><th align="center">GameLisp (SI)</th></tr></thead><tbody>
+<tr><td><code>primitive-inc</code></td><td align="center">432.2ms</td><td align="center">672.1ms</td><td align="center">3710.3ms</td><td align="center">1079.8ms</td></tr>
+<tr><td><code>primitive-arith</code></td><td align="center">534.0ms</td><td align="center">535.1ms</td><td align="center">2298.7ms</td><td align="center">828.4ms</td></tr>
+<tr><td><code>primitive-call0</code></td><td align="center">258.3ms</td><td align="center">631.9ms</td><td align="center">740.2ms</td><td align="center">1036.1ms</td></tr>
+<tr><td><code>primitive-call3</code></td><td align="center">592.3ms</td><td align="center">994.0ms</td><td align="center">955.7ms</td><td align="center">1891.2ms</td></tr>
+<tr><td><code>primitive-array</code></td><td align="center">76.1ms</td><td align="center">204.5ms</td><td align="center">247.4ms</td><td align="center">390.5ms</td></tr>
+<tr><td><code>primitive-table</code></td><td align="center">85.8ms</td><td align="center">395.9ms</td><td align="center">269.6ms</td><td align="center">679.2ms</td></tr>
+<tr><td><code>primitive-field</code></td><td align="center">82.9ms</td><td align="center">217.6ms</td><td align="center">333.2ms</td><td align="center">633.6ms</td></tr>
+<tr><td><code>primitive-method</code></td><td align="center">489.1ms</td><td align="center">1275.1ms</td><td align="center">838.7ms</td><td align="center">2093.0ms</td></tr>
+<tr><td><code>rects</code></td><td align="center">384.0ms</td><td align="center">1142.5ms</td><td align="center">1234.7ms</td><td align="center">2664.8ms</td></tr>
+<tr><td><code>flood_fill</code></td><td align="center">400.1ms</td><td align="center">632.2ms</td><td align="center">664.3ms</td><td align="center">976.9ms</td></tr>
+<tr><td><code>rotation</code></td><td align="center">657.4ms</td><td align="center">1015.3ms</td><td align="center">1325.6ms</td><td align="center">1843.9ms</td></tr>
+</tbody></table>
+<p>By default, GameLisp's performance is inferior to Python. If you've benchmarked your
+GameLisp scripts and established that they're a performance bottleneck, switching on the
+<code>&quot;unsafe-internals&quot;</code> flag will roughly double their performance. With that flag switched
+on, GameLisp's performance currently hovers somewhere between Lua and Python.</p>
+<h2><a class="header" href="#optimizing-gamelisp-code" id="optimizing-gamelisp-code">Optimizing GameLisp Code</a></h2>
+<p>Don't.</p>
+<p>I really mean it. Other than occasionally thinking about the big-O complexity of your algorithms, 
+you shouldn't waste any effort at all trying to make GameLisp run fast. Please don't be tempted.</p>
+<p>The primary reason is that, as described in <a href="the-rust-api.html">Section 2</a>, GameLisp is very closely 
+integrated with Rust. Here's the punchline to those benchmark figures above:</p>
+<table><thead><tr><th>Benchmark</th><th align="center">Rust</th><th align="center">GameLisp (UI)</th><th align="center">GameLisp (SI)</th></tr></thead><tbody>
+<tr><td><code>primitive-inc</code></td><td align="center">44.1ms</td><td align="center">672.1ms</td><td align="center">1079.8ms</td></tr>
+<tr><td><code>primitive-arith</code></td><td align="center">126.7ms</td><td align="center">535.1ms</td><td align="center">828.4ms</td></tr>
+<tr><td><code>primitive-call0</code></td><td align="center">14.1ms</td><td align="center">631.9ms</td><td align="center">1036.1ms</td></tr>
+<tr><td><code>primitive-call3</code></td><td align="center">34.5ms</td><td align="center">994.0ms</td><td align="center">1891.2ms</td></tr>
+<tr><td><code>primitive-array</code></td><td align="center">12.1ms</td><td align="center">204.5ms</td><td align="center">390.5ms</td></tr>
+<tr><td><code>primitive-table</code></td><td align="center">259.5ms</td><td align="center">395.9ms</td><td align="center">679.2ms</td></tr>
+<tr><td><code>primitive-field</code></td><td align="center">10.3ms</td><td align="center">217.6ms</td><td align="center">633.6ms</td></tr>
+<tr><td><code>primitive-method</code></td><td align="center">10.4ms</td><td align="center">1275.1ms</td><td align="center">2093.0ms</td></tr>
+<tr><td><code>rects</code></td><td align="center">9.6ms</td><td align="center">1142.5ms</td><td align="center">2664.8ms</td></tr>
+<tr><td><code>flood_fill</code></td><td align="center">2.7ms</td><td align="center">632.2ms</td><td align="center">976.9ms</td></tr>
+<tr><td><code>rotation</code></td><td align="center">59.4ms</td><td align="center">1015.3ms</td><td align="center">1843.9ms</td></tr>
+</tbody></table>
+<p>Idiomatic Rust code will often be more than a hundred times faster than idiomatic GameLisp code. 
+Even hand-optimized GameLisp code is usually dozens of times slower than a naive Rust 
+implementation. Rust is incredibly fast.</p>
+<p>As I mentioned at the <a href="introduction-for-rust-programmers.html">very beginning</a>, GameLisp is 
+intended to be used for the messy, exploratory, frequently-changing parts of your codebase. 
+Whenever I've been faced with a dilemma between making GameLisp fast and making it convenient, 
+I've almost always chosen convenience.</p>
+<p>This is why I've put so much effort into giving GameLisp a really nice Rust API. If some part of 
+your GameLisp codebase has unacceptably poor performance, it's usually an easy task to &quot;rewrite
+it in Rust&quot;, in which case you'll immediately reap huge performance gains.</p>
+<p>Here's a quick breakdown of the parts of a game codebase which are likely to be better-suited 
+for either Rust or GameLisp, speaking from experience:</p>
+<ul>
+<li>
+<p>For binary file-format parsing, rendering, audio mixing, image processing, vertex processing, 
+spatial data structures, collisions, physics simulation, and particle effects, Rust is the 
+obvious winner.</p>
+<ul>
+<li>
+<p>That being said, you can definitely manage those parts of your engine using GameLisp. 
+Your <code>.zip</code> file parser might be implemented in Rust, but your resource manager could be 
+implemented in GameLisp. Your physics simulator might be implemented in Rust, but you 
+could also have a <code>PhysicsRect</code> mixin which hooks an entity into the physics system.</p>
+</li>
+<li>
+<p>GameLisp can also be useful for prototyping. For example, if your game procedurally generates
+its levels, you could use GameLisp to freely experiment with different algorithms, and then 
+reimplement the final algorithm in Rust.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Your main loop might belong in Rust, depending on how complicated it is.</p>
+<ul>
+<li>If your game uses an entity-component system, the bulk of the ECS should definitely be 
+implemented in Rust. Good performance is more-or-less the entire point of an ECS.
+Consider implementing a <code>Script</code> component which owns a GameLisp object and invokes callbacks 
+on it - or perhaps even one component for each callback, like <code>UpdateScript</code> and <code>DrawScript</code>.</li>
+</ul>
+</li>
+<li>
+<p>For entity behaviour scripting and cutscene scripting, GameLisp is the obvious choice.</p>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="feature-flags.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="naming-conventions.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="feature-flags.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="naming-conventions.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="glsp-highlight.js"></script>
+        
+
+        
+
+    </body>
+</html>

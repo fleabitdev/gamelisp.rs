@@ -1,0 +1,641 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>State Machines - GameLisp Reference Manual</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="overview.html">Overview</a></li><li class="chapter-item expanded affix "><a href="introduction-for-rust-programmers.html">Introduction for Rust Programmers</a></li><li class="chapter-item expanded affix "><a href="introduction-for-lisp-programmers.html">Introduction for Lisp Programmers</a></li><li class="chapter-item expanded "><a href="the-language.html"><strong aria-hidden="true">1.</strong> The Language</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="syntax-and-types.html"><strong aria-hidden="true">1.1.</strong> Syntax and Types</a></li><li class="chapter-item expanded "><a href="evaluation.html"><strong aria-hidden="true">1.2.</strong> Evaluation</a></li><li class="chapter-item expanded "><a href="macros.html"><strong aria-hidden="true">1.3.</strong> Macros</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="built-in-macros.html"><strong aria-hidden="true">1.3.1.</strong> Built-in Macros</a></li></ol></li><li class="chapter-item expanded "><a href="numbers.html"><strong aria-hidden="true">1.4.</strong> Numbers</a></li><li class="chapter-item expanded "><a href="arrays.html"><strong aria-hidden="true">1.5.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="strings-and-text.html"><strong aria-hidden="true">1.6.</strong> Strings and Text</a></li><li class="chapter-item expanded "><a href="tables.html"><strong aria-hidden="true">1.7.</strong> Tables</a></li><li class="chapter-item expanded "><a href="iterators.html"><strong aria-hidden="true">1.8.</strong> Iterators</a></li><li class="chapter-item expanded "><a href="coroutines.html"><strong aria-hidden="true">1.9.</strong> Coroutines</a></li><li class="chapter-item expanded "><a href="patterns.html"><strong aria-hidden="true">1.10.</strong> Patterns</a></li><li class="chapter-item expanded "><a href="object-oriented-programming.html"><strong aria-hidden="true">1.11.</strong> Object-Oriented Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="state-machines.html" class="active"><strong aria-hidden="true">1.11.1.</strong> State Machines</a></li><li class="chapter-item expanded "><a href="code-reuse.html"><strong aria-hidden="true">1.11.2.</strong> Code Reuse</a></li><li class="chapter-item expanded "><a href="structs.html"><strong aria-hidden="true">1.11.3.</strong> Structs</a></li></ol></li><li class="chapter-item expanded "><a href="errors.html"><strong aria-hidden="true">1.12.</strong> Errors</a></li><li class="chapter-item expanded "><a href="miscellaneous.html"><strong aria-hidden="true">1.13.</strong> Miscellaneous</a></li></ol></li><li class="chapter-item expanded "><a href="the-rust-api.html"><strong aria-hidden="true">2.</strong> The Rust API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="the-glsp-crate.html"><strong aria-hidden="true">2.1.</strong> The glsp Crate</a></li><li class="chapter-item expanded "><a href="collection-types.html"><strong aria-hidden="true">2.2.</strong> Collection Types</a></li><li class="chapter-item expanded "><a href="rust-functions.html"><strong aria-hidden="true">2.3.</strong> Rust Functions</a></li><li class="chapter-item expanded "><a href="rust-data.html"><strong aria-hidden="true">2.4.</strong> Rust Data</a></li><li class="chapter-item expanded "><a href="libraries.html"><strong aria-hidden="true">2.5.</strong> Libraries</a></li><li class="chapter-item expanded "><a href="garbage-collection.html"><strong aria-hidden="true">2.6.</strong> Garbage Collection</a></li><li class="chapter-item expanded "><a href="procedural-macros.html"><strong aria-hidden="true">2.7.</strong> Procedural Macros</a></li><li class="chapter-item expanded "><a href="compilation.html"><strong aria-hidden="true">2.8.</strong> Compilation</a></li><li class="chapter-item expanded "><a href="feature-flags.html"><strong aria-hidden="true">2.9.</strong> Feature Flags</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="performance-figures.html">Appendix A: Performance Figures</a></li><li class="chapter-item expanded affix "><a href="naming-conventions.html">Appendix B: Naming Conventions</a></li><li class="chapter-item expanded affix "><a href="implementation-limits.html">Appendix C: Implementation Limits</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                    </div>
+
+                    <h1 class="menu-title">GameLisp Reference Manual</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#state-machines" id="state-machines">State Machines</a></h1>
+<p>The behaviour of most game entities can be at least partially described by a <a href="https://en.wikipedia.org/wiki/Finite-state_machine">state machine</a>.
+The door might be opening, open, closing, or closed. The gold ring might be bouncing around, 
+flickering as it's about to vanish, or disappearing in a flash of light as it's collected.
+The ghost might be playing an animation as it springs out of its hiding-place, or it might be 
+slowly gliding towards the player character. The main menu might be fading in, showing the title 
+screen, showing the settings screen, or fading out.</p>
+<p>As a Rust programmer, you probably understand better than most the value of state machines for
+modelling programs. Rust's <code>enums</code> are one of its greatest strengths: they take what would be a 
+vague, implicit set of state transitions, and change them into something completely explicit
+and obvious which can be statically checked by the compiler.</p>
+<p>As we saw in the <a href="coroutines.html">Coroutines</a> chapter, describing a state machine using traditional
+object-oriented code is very challenging. Consider a frog which cycles between crouching, jumping
+and croaking:</p>
+<pre><code>(defclass Frog
+  (field color 'green)
+
+  (field state 'crouching)
+
+  (field state-change-timer 3.0)
+  (field next-state 'croaking)
+
+  (field elevation 0.0)
+  (field vertical-speed 0.0)
+  (const gravity -9.81)
+
+  (meth on-step (elapsed)
+    (match @state
+      ('crouching
+        (dec! @state-change-timer elapsed)
+        (when (&lt;= 0.0 @state-change-timer)
+          (match @next-state
+            ('crouching
+              (bail))
+            ('jumping
+              (= @vertical-speed 3.0)
+              (= @state 'jumping))
+            ('croaking
+              (= @state 'croaking)
+              (= @state-change-timer 2.0)))))
+
+      ('jumping
+        (inc! @elevation (* elapsed @vertical-speed))
+        (inc! @vertical-speed (* elapsed @gravity))
+        (when (&gt;= @elevation 0.0)
+          (= @elevation 0.0)
+          (= @state 'crouching)
+          (= @state-change-timer 1.0)
+          (= @next-state 'croaking)))
+
+      ('croaking
+        (inc! @state-change-timer elapsed)
+        (when (&lt;= 0.0 @state-change-timer)
+          (= @state 'crouching)
+          (= @state-change-timer 3.0)
+          (= @next-state 'jumping))))))
+</code></pre>
+<p>This is code which only a mother could love. The object scatters its state variables across a
+mess of different toplevel fields, which stick around even after their state is complete, and
+which are sometimes overloaded between one state and the next. The intended lifetime of each 
+field is unclear. Understanding the flow of control takes a fair amount of conscious effort. 
+Adding in nested state machines, or multiple simultaneous state machines, would be a great
+challenge.</p>
+<p>On the other hand, if we were to try to formalize this state machine in a language like Java or 
+Rust, it could easily become over-engineered. You don't want to create an entirely separate type,
+or potentially even a hierarchy of types, just to manage control flow in a forty-line class.</p>
+<p>When programming a game, you'll face this dilemma for just about every entity which you come
+across. It wouldn't be unusual for a game to contain hundreds, or even thousands, of state 
+machines. When they're all defined using code which looks like the above, it's not a pretty sight.</p>
+<p>This brings us to GameLisp's <code>state</code> clauses:</p>
+<pre><code>(defclass Frog
+  (field color 'green)
+
+  (fsm
+    (state* Crouching
+      (field timer)
+      (field next-state)
+
+      (init-state ((? @timer 3.0) (? @next-state 'Jumping)))
+
+      (meth on-step (elapsed)
+        (dec! @timer elapsed)
+        (when (&lt;= @timer 0.0)
+          (@enab! @next-state))))
+
+    (state Jumping
+      (field elevation 0.0)
+      (field vertical-speed 3.0)
+      (const gravity -9.81)
+
+      (meth on-step (elapsed)
+        (inc! @elevation (* elapsed @vertical-speed))
+        (inc! @vertical-speed (* elapsed @gravity))
+        (when (&lt;= @elevation 0.0)
+          (@enab! 'Crouching 1.0 'Croaking))))
+
+    (state Croaking
+      (field timer 2.0)
+
+      (meth on-step (elapsed)
+        (dec! @timer elapsed)
+        (when (&lt;= @timer 0.0)
+          (@enab! 'Crouching))))))
+</code></pre>
+<h2><a class="header" href="#states" id="states">States</a></h2>
+<p>By default, a <code>state</code> introduces a binary state machine. It represents part of a class which can 
+be switched on and switched off. <a href="../std/statex-clause"><code>state*</code> clauses</a> are enabled by default, 
+whereas <a href="../std/state-clause"><code>state</code> clauses</a> are disabled by default.</p>
+<p>States may contain most of the same clauses which are permitted at the toplevel of a class:
+<code>field</code>, <code>const</code>, <code>prop</code>, <code>meth</code>, classmacros, and so on. The difference is that, while the state 
+is disabled, its contents &quot;stop existing&quot;. Its fields, constants and properties can't be accessed, 
+and its methods can't be invoked.</p>
+<p>A state can be enabled by calling the function <a href="../std/enab-mut"><code>(enab! obj name)</code></a>, where 
+<code>name</code> is the state's name as a symbol, e.g. <code>'Opening</code>. Similarly, <a href="../std/disab-mut"><code>disab!</code></a>
+can be used to disable a state, and <a href="../std/enab-p"><code>enab?</code></a> to test whether a state is currently
+enabled.</p>
+<p>Within a method, <code>(@enab! name)</code> is shorthand for <code>(enab! @self name)</code>, and likewise for
+<code>@disab!</code> and <code>@enab?</code>. <code>@state-name</code> will return the name of the enclosing state.</p>
+<pre><code>(defclass Gem
+  ...
+
+  (state Sparkling
+    (meth stop-sparkling
+      (@disab! @state-name))
+
+    ...))
+
+(let gem (Gem))
+(prn (enab? gem 'Sparkling)) ; prints #f
+
+(enab! gem 'Sparkling)
+(prn (enab? gem 'Sparkling)) ; prints #t
+
+(.stop-sparkling gem)
+(prn (enab? gem 'Sparkling)) ; prints #f
+
+(.stop-sparkling gem) ; an error
+</code></pre>
+<h2><a class="header" href="#finite-state-machines" id="finite-state-machines">Finite State Machines</a></h2>
+<p>A single state by itself is rarely useful. What you usually need is a group of states which are 
+mutually exclusive, so that no more than one of the states can be enabled at any given moment.
+This can be achieved using an <a href="../std/fsm-clause"><code>fsm</code> clause</a>.</p>
+<pre><code>(defclass Fighter
+  (fsm
+    (state* Neutral
+      (const defense 50))
+    (state Guarding
+      (const defense 150))
+    (state Staggered
+      (const defense 0))))
+</code></pre>
+<p>When a state within an <code>fsm</code> clause is about to be enabled, but one of its siblings is already 
+enabled, that sibling is automatically disabled first. In this case, if we were to call
+<code>(enab! fighter 'Guarding)</code>, it would automatically call <code>(disab! fighter 'Neutral)</code> first.</p>
+<h2><a class="header" href="#nested-states" id="nested-states">Nested States</a></h2>
+<p>A <code>state</code> clause may appear within another <code>state</code> clause, establishing a hierarchy of state
+machines.</p>
+<p>If you attempt to enable a child state, and its parent is disabled, the parent will automatically
+be enabled first. </p>
+<p>Similarly, if you disable a parent state when any of its children are enabled, those child states 
+will automatically be disabled first.</p>
+<pre><code>(defclass Owl
+  (fsm
+    (state* Sleeping
+      ...
+      (meth on-startled ()
+        (@enab! 'Awake))) ; disables Sleeping, enables Fleeing
+
+    (state Awake
+      (fsm
+        (state* Fleeing
+          ...
+          (meth on-collide (other)
+            (when (is? other TreeBranch)
+              (@enab! 'Perching other)))) ; disables Fleeing
+        
+        (state Perching
+          ...
+          (meth on-step ()
+            (unless (humans-nearby? @self)
+              (@enab! 'Sleeping)))))))) ; disables Perching and Awake
+</code></pre>
+<h2><a class="header" href="#initialization-and-finalization" id="initialization-and-finalization">Initialization and Finalization</a></h2>
+<p>A state may include an <a href="../std/init-state-cluse"><code>init-state</code> clause</a> and/or a 
+<a href="../std/fini-state-clause"><code>fini-state</code> clause</a>. These are analogous to the <code>init</code> and <code>fini</code> 
+clauses which can appear at the toplevel of a class.</p>
+<p><code>init-state</code> defines a method which is automatically invoked just after the state is enabled. Its 
+arguments are the same arguments which were passed to <code>enab!</code> or <code>@enab!</code>. </p>
+<pre><code>(defclass Cog
+  (fsm
+    (state* Immobile
+      (meth on-activate ()
+        (@enab! 'Mobile (rand-select -1 1))))
+
+    (state Mobile
+      (field direction)
+      (field rotation-rate)
+
+      (init-state (@direction)
+        (= rotation-rate (* @direction 0.3))))))
+</code></pre>
+<p>When a state is enabled automatically by GameLisp (e.g. if it's a parent state whose child state 
+is enabled, or if it was defined using <code>state*</code> rather than <code>state</code>), then its initializer is 
+invoked with no arguments.</p>
+<p><code>fini-state</code> defines a cleanup method which is automatically called just before the state is 
+disabled. It will also be called if the object is 
+<a href="object-oriented-programming.html#finalization">killed</a>.</p>
+<p>It's possible to call <code>@enab!</code> and <code>@disab!</code> from within an <code>init-state</code> or <code>fini-state</code> method,
+but it's not recommended. It can make the order of operations confusing, and in the worst 
+case it might trigger an endless loop of state changes.</p>
+<h3><a class="header" href="#errors" id="errors">Errors</a></h3>
+<p>If an error occurs during initialization or finalization, the object will be left in an incoherent
+state. Child <code>state*</code> forms may not have been automatically enabled, a state passed to <code>disab!</code> 
+may not actually have been disabled, an <code>init</code> method may have only been executed halfway, 
+and so on.</p>
+<p>This is almost never a recoverable situation, so GameLisp takes no chances: if an error bubbles 
+through an <code>init</code>, <code>fini</code>, <code>init-state</code> or <code>fini-state</code> method, the object is immediately 
+<a href="object-oriented-programming.html#finalization">killed</a> without any finalizers being run.</p>
+<h2><a class="header" href="#shadowing" id="shadowing">Shadowing</a></h2>
+<p>If you have a global or local variable bound to the name <code>dragon</code>, and you define a new local
+variable using <code>(let dragon ...)</code>, then any references to the name <code>dragon</code> will refer to the
+new binding rather than the older bindings. We say that the later local binding &quot;shadows&quot; the
+earlier bindings.</p>
+<p>The same is true for fields and constants in states. It's possible for a name to be bound by
+several different states at the same time, all of which might be simultaneously enabled.
+Under those circumstances, when GameLisp evaluates an expression like <code>@dragon</code> or <code>[obj 'dragon]</code>,
+it needs to choose which binding takes priority.</p>
+<p>The rules are:</p>
+<ul>
+<li>
+<p>Names in child states will shadow names defined by their parent.</p>
+</li>
+<li>
+<p>Names in any state will shadow names defined by sibling states which appear textually earlier 
+in the <code>class</code> definition.</p>
+</li>
+</ul>
+<p>These are essentially the same rules which govern local variable bindings.</p>
+<pre><code>(defclass ShoppingCentre
+  (field tax-revenue 10_000)
+
+  (state WellKnown
+    (field tax-revenue 15_000))
+
+  (state Damaged
+    (field tax-revenue 2_000)
+
+    (state Demolished
+      (field tax-revenue 0))))
+
+(let shops (ShoppingCentre))
+(prn [shops 'tax-revenue]) ; prints 10000
+
+(enab! shops 'Demolished)
+(prn [shops 'tax-revenue]) ; prints 0
+
+(enab! shops 'WellKnown)
+(prn [shops 'tax-revenue]) ; prints 0
+</code></pre>
+<h3><a class="header" href="#fully-qualified-names" id="fully-qualified-names">Fully-Qualified Names</a></h3>
+<p>If you need to access a field or constant in a specific state, you can use its fully-qualified 
+name, <code>StateName:field-name</code>, to bypass the normal shadowing rules. For the purpose of name lookup, 
+all fields and constants defined in the toplevel of a class are considered to belong to a <code>Main</code>
+state which can never be disabled.</p>
+<pre><code>(defclass FancyChair
+  (const comfort 75)
+  (const room 40)
+  (const fun 5)
+
+  (state Grubby
+    (const comfort 40)
+    (const room 10)
+
+    (state Filthy
+      (const room -30))))
+
+(let chair (FancyChair))
+(enab! chair 'Filthy)
+
+(prn [chair 'comfort]) ; prints 40
+(prn [chair 'room]) ; prints -30
+(prn [chair 'fun]) ; prints 5
+
+(prn [chair 'Main:comfort]) ; prints 75
+(prn [chair 'Grubby:room]) ; prints 10
+(prn [chair 'Filthy:room]) ; prints -30
+</code></pre>
+<p>This highlights a quirky detail of how state namespaces work: state names don't actually form a 
+hierarchy. A state <code>Child</code> defined within the state <code>Parent</code> defined within the <code>Main</code> state is 
+just called <code>Child</code>, rather than <code>Main:Parent:Child</code>. This means that you can't 
+simultaneously have, say, <code>Defending:KnockedBack</code> and <code>Attacking:KnockedBack</code> - that would be a 
+name collision, because both states are actually just named <code>KnockedBack</code>.</p>
+<p>This is a deliberate design choice. Being able to define multiple different states which share
+the same name would be confusing, and typing out fully-qualified names would be too much effort.
+Flattening the namespace hierarchy is an effective solution.</p>
+<h2><a class="header" href="#wrapper-methods" id="wrapper-methods">Wrapper Methods</a></h2>
+<p>You will sometimes want to change the behaviour of a method depending on which states are enabled.
+For example, when the main character is being controlled by a cutscene script rather than being 
+directly controlled by the player, you might want to override their <code>on-input</code> event handler to 
+do nothing.</p>
+<p>A naive attempt to achieve this using name shadowing will fail:</p>
+<pre><code>(defclass Character
+  (meth on-input (input-event)
+    (match [input-event 'tag]
+      ('left (@walk-left))
+      ('right (@walk-right))
+      ('pause (game:pause))))
+  
+  (state CutsceneControl
+    (meth on-input (input-event)
+      ; do nothing
+      #n)))
+
+(let mc (Character))
+(enab! mc 'CutsceneControl) ; error: name collision for 'on-input
+</code></pre>
+<p>It's not possible to have multiple active <code>meth</code> forms which share the same name. This is because, 
+although name-shadowing is adequate for fields and constants, it's not powerful enough for methods.
+We provide a better alternative.</p>
+<p>A <a href="../std/wrap-clause"><code>(wrap ...)</code> clause</a> defines a &quot;wrapper method&quot;: a method which replaces, 
+and modifies, a method in another state.</p>
+<pre><code>(defclass Character
+  (meth on-input (input-event)
+    (match [input-event 'tag]
+      ('left (@walk-left))
+      ('right (@walk-right))
+      ('pause (game:pause))))
+  
+  (state CutsceneControl
+    (wrap Main:on-input (input-event)
+      ; do nothing
+      #n)))
+</code></pre>
+<p>In this case, when the <code>CutsceneControl</code> state is active, any calls to <code>(.on-input ch ev)</code> will be 
+routed to the wrapper method in <code>CutsceneControl</code>. It would still be possible to invoke the 
+original method using its fully-qualified name: <code>(.Main:on-input ch ev)</code> or <code>(@Main:on-input ev)</code>.</p>
+<p>Within our wrapper method, we can invoke the original <code>meth on-input</code> by calling 
+<a href="../std/atsign-base"><code>(@base)</code></a>. This is a versatile tool. We could ignore the base method 
+altogether, execute some additional code before or after calling <code>(@base)</code>, transform the 
+base method's arguments or return value, or even call the base method multiple times!</p>
+<p>For example, some cutscenes might want to give the player a limited ability to move the main
+character around, but still forbid them from opening the pause menu. This would be easy to achieve 
+using <code>(@base)</code>:</p>
+<pre><code>(defclass Character
+  (meth on-input (input-event)
+    (match [input-event 'tag]
+      ('left (@walk-left))
+      ('right (@walk-right))
+      ('pause (game:pause))))
+  
+  (state CutsceneControl
+    (wrap Main:on-input (input-event)
+      (unless (eq? [input-event 'tag] 'pause)
+        (@base input-event))))
+</code></pre>
+<h3><a class="header" href="#chained-wrappers" id="chained-wrappers">Chained Wrappers</a></h3>
+<p>You will have noticed that the <code>wrap</code> clause receives a fully-qualified name for its target
+method: in this case, <code>Main:on-input</code>. </p>
+<p>The target is usually a <code>meth</code> form, but it's also possible to recursively wrap another <code>wrap</code> 
+form. The wrapper methods form an orderly stack, with each <code>(@base)</code> call moving down the stack 
+until it reaches the <code>meth</code>.</p>
+<p>Let's suppose that we're writing an action game (or a business simulation game?) with a 
+<code>BerserkerBoss</code> entity who turns progressively more red and angry as the encounter goes on:</p>
+<pre><code>(defclass BerserkerBoss
+  (meth ruddiness ()
+    (+ @attacks-received @henchmen-defeated))
+
+  (state Angry
+    (wrap Main:ruddiness ()
+      (match @difficulty-level
+        ('easy
+          (* 1.2 (@base)))
+        ('hard
+          (* 1.4 (+ 3 (@base))))))
+
+    (state Furious
+      (wrap Angry:ruddiness ()
+        (* 1.5 (@base))))))
+</code></pre>
+<p>When the <code>Furious</code> state is enabled, its parent state <code>Angry</code> must also be enabled. The
+original definition of <code>ruddiness</code> is wrapped by <code>Angry:ruddiness</code>, which is in turn wrapped
+by <code>Furious:ruddiness</code>, so a non-specific call to the <code>ruddiness</code> method will end up invoking
+<code>Furious:ruddiness</code>. Each wrapper delegates down the chain through successive calls to <code>(@base)</code>.</p>
+<h3><a class="header" href="#property-wrappers" id="property-wrappers">Property Wrappers</a></h3>
+<p>You can wrap a property in much the same way that you might wrap a method. Simply define a
+<code>(wrap-prop ...)</code> clause. If we wanted to refactor <code>ruddiness</code> to be a property rather than a 
+method, we would write:</p>
+<pre><code>(defclass BerserkerBoss
+  (prop ruddiness (get (+ @attacks-received @henchmen-defeated)))
+
+  (state Angry
+    (wrap-prop Main:ruddiness
+      (get
+        (match @difficulty-level
+          ('easy
+            (* 1.2 (@base)))
+          ('hard
+            (* 1.4 (+ 3 (@base)))))))
+
+    (state Furious
+      (wrap-prop Angry:ruddiness (get (* 1.5 (@base)))))))
+</code></pre>
+<p>Property wrappers can't use the <code>@field</code> shorthand to access the original property's backing
+storage. Instead, they should invoke the original getter or setter using <code>(@base)</code>.</p>
+<h2><a class="header" href="#zombie-methods" id="zombie-methods">Zombie Methods</a></h2>
+<p>A state may be disabled partway through executing one of its own methods. Similarly, an object
+may call <code>(obj-kill! @self)</code> from within one of its own methods. In both cases, this will land you
+in an awkward grey area. Code will be executing which <em>appears</em> to belong to a state or object,
+even though the state or object no longer exists. Under those circumstances, any <code>@name</code> 
+field accesses or <code>(@name)</code> method calls will usually trigger an error. I call this situation a 
+&quot;zombie method&quot;.</p>
+<pre><code>(defclass Person
+  (meth check-health ()
+    (when (&lt;= @health 0)
+      (obj-kill! @self))
+
+    ; execution continues after the object is killed. braaains...
+
+    (when (== @health 100) ; error: nonexistent field 'health
+      (prn &quot;feeling pretty healthy!&quot;))))
+</code></pre>
+<p>(For the record, this is a problem which already exists in many game state machines - it's just 
+something which GameLisp makes explicit, rather than leaving it as a silent logic error.)</p>
+<p>There's  no practical way for GameLisp to prevent this. It would require dynamic checks
+to be inserted every time control flow leaves the body of a method, which would be difficult 
+to implement and carry a huge performance cost.</p>
+<p>Zombie methods tend to fail loudly rather than introducing subtle bugs, so they're mostly just
+an annoyance. You could consider using two techniques to make zombie methods less common:</p>
+<ul>
+<li>
+<p>Get into the habit of calling <a href="../std/return"><code>return</code></a> immediately after 
+<code>(@disab! 'CurrentStateName)</code>. You might like to combine the two calls by defining a 
+macro - perhaps <code>(done)</code>, <code>(end)</code>, or <code>(switch-to state-name)</code>.</p>
+</li>
+<li>
+<p>Postpone any <code>(obj-kill!)</code> calls until the very end of each frame. (As it so happens, most game 
+engines already do this by default. Entity deletion is a common source of bugs, probably 99% of 
+which can be prevented by postponing the deletion.)</p>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="object-oriented-programming.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="code-reuse.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="object-oriented-programming.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="code-reuse.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="glsp-highlight.js"></script>
+        
+
+        
+
+    </body>
+</html>

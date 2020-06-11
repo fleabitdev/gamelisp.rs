@@ -1,0 +1,245 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Feature Flags - GameLisp Reference Manual</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="overview.html">Overview</a></li><li class="chapter-item expanded affix "><a href="introduction-for-rust-programmers.html">Introduction for Rust Programmers</a></li><li class="chapter-item expanded affix "><a href="introduction-for-lisp-programmers.html">Introduction for Lisp Programmers</a></li><li class="chapter-item expanded "><a href="the-language.html"><strong aria-hidden="true">1.</strong> The Language</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="syntax-and-types.html"><strong aria-hidden="true">1.1.</strong> Syntax and Types</a></li><li class="chapter-item expanded "><a href="evaluation.html"><strong aria-hidden="true">1.2.</strong> Evaluation</a></li><li class="chapter-item expanded "><a href="macros.html"><strong aria-hidden="true">1.3.</strong> Macros</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="built-in-macros.html"><strong aria-hidden="true">1.3.1.</strong> Built-in Macros</a></li></ol></li><li class="chapter-item expanded "><a href="numbers.html"><strong aria-hidden="true">1.4.</strong> Numbers</a></li><li class="chapter-item expanded "><a href="arrays.html"><strong aria-hidden="true">1.5.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="strings-and-text.html"><strong aria-hidden="true">1.6.</strong> Strings and Text</a></li><li class="chapter-item expanded "><a href="tables.html"><strong aria-hidden="true">1.7.</strong> Tables</a></li><li class="chapter-item expanded "><a href="iterators.html"><strong aria-hidden="true">1.8.</strong> Iterators</a></li><li class="chapter-item expanded "><a href="coroutines.html"><strong aria-hidden="true">1.9.</strong> Coroutines</a></li><li class="chapter-item expanded "><a href="patterns.html"><strong aria-hidden="true">1.10.</strong> Patterns</a></li><li class="chapter-item expanded "><a href="object-oriented-programming.html"><strong aria-hidden="true">1.11.</strong> Object-Oriented Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="state-machines.html"><strong aria-hidden="true">1.11.1.</strong> State Machines</a></li><li class="chapter-item expanded "><a href="code-reuse.html"><strong aria-hidden="true">1.11.2.</strong> Code Reuse</a></li><li class="chapter-item expanded "><a href="structs.html"><strong aria-hidden="true">1.11.3.</strong> Structs</a></li></ol></li><li class="chapter-item expanded "><a href="errors.html"><strong aria-hidden="true">1.12.</strong> Errors</a></li><li class="chapter-item expanded "><a href="miscellaneous.html"><strong aria-hidden="true">1.13.</strong> Miscellaneous</a></li></ol></li><li class="chapter-item expanded "><a href="the-rust-api.html"><strong aria-hidden="true">2.</strong> The Rust API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="the-glsp-crate.html"><strong aria-hidden="true">2.1.</strong> The glsp Crate</a></li><li class="chapter-item expanded "><a href="collection-types.html"><strong aria-hidden="true">2.2.</strong> Collection Types</a></li><li class="chapter-item expanded "><a href="rust-functions.html"><strong aria-hidden="true">2.3.</strong> Rust Functions</a></li><li class="chapter-item expanded "><a href="rust-data.html"><strong aria-hidden="true">2.4.</strong> Rust Data</a></li><li class="chapter-item expanded "><a href="libraries.html"><strong aria-hidden="true">2.5.</strong> Libraries</a></li><li class="chapter-item expanded "><a href="garbage-collection.html"><strong aria-hidden="true">2.6.</strong> Garbage Collection</a></li><li class="chapter-item expanded "><a href="procedural-macros.html"><strong aria-hidden="true">2.7.</strong> Procedural Macros</a></li><li class="chapter-item expanded "><a href="compilation.html"><strong aria-hidden="true">2.8.</strong> Compilation</a></li><li class="chapter-item expanded "><a href="feature-flags.html" class="active"><strong aria-hidden="true">2.9.</strong> Feature Flags</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="performance-figures.html">Appendix A: Performance Figures</a></li><li class="chapter-item expanded affix "><a href="naming-conventions.html">Appendix B: Naming Conventions</a></li><li class="chapter-item expanded affix "><a href="implementation-limits.html">Appendix C: Implementation Limits</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                    </div>
+
+                    <h1 class="menu-title">GameLisp Reference Manual</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#feature-flags" id="feature-flags">Feature Flags</a></h1>
+<p>By default, the <code>glsp</code> crate's only transitive dependencies are <a href="https://docs.rs/smallvec"><code>smallvec</code></a>, <a href="https://docs.rs/owning_ref"><code>owning_ref</code></a>, 
+<a href="https://docs.rs/stable_deref_trait"><code>stable_deref_trait</code></a>, <a href="https://docs.rs/fnv"><code>fnv</code></a>, and the Rust standard library.</p>
+<pre><code>$ cargo tree
+glsp v0.1.0
++-- glsp-engine v0.1.0
+|   +-- fnv v1.0.7
+|   +-- owning_ref v0.4.1
+|   |   +-- stable_deref_trait v1.1.1
+|   +-- smallvec v1.4.0
++-- glsp-proc-macros v0.1.0
+|   +-- glsp-engine v0.1.0 (*)
++-- glsp-stdlib v0.1.0
+	+-- glsp-engine v0.1.0 (*)
+	+-- glsp-proc-macros v0.1.0 (*)
+	+-- smallvec v1.4.0 (*)
+</code></pre>
+<p>All large or non-essential dependencies are feature-gated, and all features are disabled by
+default.</p>
+<h2><a class="header" href="#unsafe-internals" id="unsafe-internals">&quot;unsafe-internals&quot;</a></h2>
+<p>By default, <code>glsp</code>'s implementation doesn't use any <code>unsafe</code> code at all. This is guaranteed 
+using <code>#![forbid(unsafe_code)]</code>.</p>
+<p>With the <code>&quot;unsafe-internals&quot;</code> feature enabled, a small amount of unsafe code is switched on in
+the <code>glsp-engine</code> crate. This makes the interpreter run roughly <a href="performance-figures.html">twice as 
+fast</a>.</p>
+<p>Note that <code>glsp</code>'s public API is always intended to be safe, even when the <code>&quot;unsafe-internals&quot;</code>
+feature is enabled. The purpose of this feature flag is to mitigate the safety impact of any 
+undetected bugs which are internal to the <code>glsp</code> crate.</p>
+<p>Even with <code>&quot;unsafe-internals&quot;</code> disabled, <code>glsp</code> may depend on crates which themselves use <code>unsafe</code> 
+internally - currently <a href="https://docs.rs/smallvec"><code>smallvec</code></a>, <a href="https://docs.rs/owning_ref"><code>owning_ref</code></a> and optionally <a href="https://docs.rs/bincode"><code>bincode</code></a>. As usual, 
+you shouldn't trust this crate's safety unless you also trust its dependencies.</p>
+<h2><a class="header" href="#serde" id="serde">&quot;serde&quot;</a></h2>
+<p>Introduces a dependency on the <a href="https://docs.rs/serde"><code>serde</code></a> crate, but not <a href="https://docs.rs/serde_derive"><code>serde_derive</code></a>.</p>
+<p>Implements <a href="https://docs.serde.rs/serde/ser/trait.Serialize.html"><code>Serialize</code></a> and <a href="https://docs.serde.rs/serde/de/trait.Deserialize.html"><code>Deserialize</code></a> for <a href="https://docs.rs/glsp/*/glsp/enum.Val.html"><code>Val</code></a>, <a href="https://docs.rs/glsp/*/glsp/struct.Root.html"><code>Root</code></a>, <a href="https://docs.rs/glsp/*/glsp/struct.Arr.html"><code>Arr</code></a>, <a href="https://docs.rs/glsp/*/glsp/struct.Tab.html"><code>Tab</code></a>, <a href="https://docs.rs/glsp/*/glsp/struct.Str.html"><code>Str</code></a> and 
+<a href="https://docs.rs/glsp/*/glsp/struct.Sym.html"><code>Sym</code></a>. Note that the serializer will gracefully fail if it encounters a <a href="strings-and-text.html#parsing-and-unparsing">non-representable</a> 
+type, or a type which contains reference cycles. <a href="../std/gensym">Gensyms</a> and textually-ambiguous 
+symbols can be serialized and deserialized, even though they're not representable.</p>
+<h2><a class="header" href="#compiler" id="compiler">&quot;compiler&quot;</a></h2>
+<p>Introduces a dependency on the <code>&quot;serde&quot;</code> feature, as well as the crates <a href="https://docs.rs/bincode"><code>bincode</code></a>, <a href="https://docs.rs/flate2"><code>flate2</code></a>, 
+<a href="https://docs.rs/syn"><code>syn</code></a>, <a href="https://docs.rs/quote"><code>quote</code></a>, <a href="https://docs.rs/proc_macros2"><code>proc_macros2</code></a> and <a href="https://docs.rs/serde_derive"><code>serde_derive</code></a>.</p>
+<p>This feature flag enables GameLisp source code to be pre-compiled into an efficient binary 
+format. Provides the <a href="https://docs.rs/glsp/*/glsp/macro.compile.html"><code>compile!</code></a> and <a href="https://docs.rs/glsp/*/glsp/macro.eval.html"><code>eval!</code></a> macros, and the <a href="https://docs.rs/glsp/*/glsp/fn.load_and_compile.html"><code>glsp::load_and_compile</code></a> 
+and <a href="https://docs.rs/glsp/*/glsp/fn.load_compiled.html"><code>glsp::load_compiled</code></a> functions. See the <a href="compilation.html">Compilation</a> chapter for
+more information.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="compilation.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="performance-figures.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="compilation.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="performance-figures.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="glsp-highlight.js"></script>
+        
+
+        
+
+    </body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Introduction for Lisp Programmers - GameLisp Reference Manual</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="overview.html">Overview</a></li><li class="chapter-item expanded affix "><a href="introduction-for-rust-programmers.html">Introduction for Rust Programmers</a></li><li class="chapter-item expanded affix "><a href="introduction-for-lisp-programmers.html" class="active">Introduction for Lisp Programmers</a></li><li class="chapter-item expanded "><a href="the-language.html"><strong aria-hidden="true">1.</strong> The Language</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="syntax-and-types.html"><strong aria-hidden="true">1.1.</strong> Syntax and Types</a></li><li class="chapter-item expanded "><a href="evaluation.html"><strong aria-hidden="true">1.2.</strong> Evaluation</a></li><li class="chapter-item expanded "><a href="macros.html"><strong aria-hidden="true">1.3.</strong> Macros</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="built-in-macros.html"><strong aria-hidden="true">1.3.1.</strong> Built-in Macros</a></li></ol></li><li class="chapter-item expanded "><a href="numbers.html"><strong aria-hidden="true">1.4.</strong> Numbers</a></li><li class="chapter-item expanded "><a href="arrays.html"><strong aria-hidden="true">1.5.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="strings-and-text.html"><strong aria-hidden="true">1.6.</strong> Strings and Text</a></li><li class="chapter-item expanded "><a href="tables.html"><strong aria-hidden="true">1.7.</strong> Tables</a></li><li class="chapter-item expanded "><a href="iterators.html"><strong aria-hidden="true">1.8.</strong> Iterators</a></li><li class="chapter-item expanded "><a href="coroutines.html"><strong aria-hidden="true">1.9.</strong> Coroutines</a></li><li class="chapter-item expanded "><a href="patterns.html"><strong aria-hidden="true">1.10.</strong> Patterns</a></li><li class="chapter-item expanded "><a href="object-oriented-programming.html"><strong aria-hidden="true">1.11.</strong> Object-Oriented Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="state-machines.html"><strong aria-hidden="true">1.11.1.</strong> State Machines</a></li><li class="chapter-item expanded "><a href="code-reuse.html"><strong aria-hidden="true">1.11.2.</strong> Code Reuse</a></li><li class="chapter-item expanded "><a href="structs.html"><strong aria-hidden="true">1.11.3.</strong> Structs</a></li></ol></li><li class="chapter-item expanded "><a href="errors.html"><strong aria-hidden="true">1.12.</strong> Errors</a></li><li class="chapter-item expanded "><a href="miscellaneous.html"><strong aria-hidden="true">1.13.</strong> Miscellaneous</a></li></ol></li><li class="chapter-item expanded "><a href="the-rust-api.html"><strong aria-hidden="true">2.</strong> The Rust API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="the-glsp-crate.html"><strong aria-hidden="true">2.1.</strong> The glsp Crate</a></li><li class="chapter-item expanded "><a href="collection-types.html"><strong aria-hidden="true">2.2.</strong> Collection Types</a></li><li class="chapter-item expanded "><a href="rust-functions.html"><strong aria-hidden="true">2.3.</strong> Rust Functions</a></li><li class="chapter-item expanded "><a href="rust-data.html"><strong aria-hidden="true">2.4.</strong> Rust Data</a></li><li class="chapter-item expanded "><a href="libraries.html"><strong aria-hidden="true">2.5.</strong> Libraries</a></li><li class="chapter-item expanded "><a href="garbage-collection.html"><strong aria-hidden="true">2.6.</strong> Garbage Collection</a></li><li class="chapter-item expanded "><a href="procedural-macros.html"><strong aria-hidden="true">2.7.</strong> Procedural Macros</a></li><li class="chapter-item expanded "><a href="compilation.html"><strong aria-hidden="true">2.8.</strong> Compilation</a></li><li class="chapter-item expanded "><a href="feature-flags.html"><strong aria-hidden="true">2.9.</strong> Feature Flags</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="performance-figures.html">Appendix A: Performance Figures</a></li><li class="chapter-item expanded affix "><a href="naming-conventions.html">Appendix B: Naming Conventions</a></li><li class="chapter-item expanded affix "><a href="implementation-limits.html">Appendix C: Implementation Limits</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                    </div>
+
+                    <h1 class="menu-title">GameLisp Reference Manual</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#introduction-for-lisp-programmers" id="introduction-for-lisp-programmers">Introduction for Lisp Programmers</a></h1>
+<p>Veteran Lisp programmers will find some parts of GameLisp's design surprising. I've done my best 
+to preserve Lisp's strengths, but I haven't hesitated to remove or modify features which are 
+standard in other Lisp dialects.</p>
+<p>The most Lispy features of GameLisp are its homoiconicity, its Common‑Lisp‑style macro system, and 
+the powerful metaprogramming which that implies. The parser, printer, symbols, and data‑as‑code 
+should feel familiar to any Lisp programmer.</p>
+<p>The <em>least</em> Lispy feature of GameLisp is the fact that it's not a functional language. Game code 
+tends to be object-oriented and imperative, so GameLisp is an object-oriented, imperative
+language. Like Rust, it sprinkles in a little bit of functional flavour here and there (such as 
+its Rust-style <a href="iterators.html">iterator adapters</a> and <a href="patterns.html">pattern-matching</a>) - but unlike 
+Rust, most data is mutable-by-default and there are no restrictions on shared ownership.</p>
+<p>Because it's not a functional language, GameLisp doesn't use lists. The singly-linked-list 
+data structure loses many of its advantages when coding in a non-functional style, while still having
+many disadvantages (<code>caddar</code>, poor big-O complexity for many operations, extra pressure on the 
+allocator...), so I've completely removed cons cells from the language. Instead, <code>(a b c)</code> 
+represents a double-ended contiguous array 
+(specifically, a <a href="https://doc.rust-lang.org/std/collections/struct.VecDeque.html"><code>VecDeque</code></a>). 
+I've found that for representing syntax, and as a general-purpose sequential data structure, 
+double-ended arrays are significantly more versatile and convenient than lists. The slightly 
+increased cost of <code>(rest x)</code> hasn't been a problem in practice.</p>
+<p>(I'm aware that Lisp is an acronym for <em>Lis</em>t <em>P</em>rocessing, and I do appreciate the irony...)</p>
+<p>Finally, I've made GameLisp's syntax and keywords as &quot;Rust-like&quot; as possible, to minimize the
+mental friction when switching between the Rust and GameLisp parts of your codebase. I've also 
+changed a handful of names to make them more concise or more descriptive. Notable changes:</p>
+<ul>
+<li>
+<p><code>lambda</code> has been renamed to <code>fn</code>.</p>
+</li>
+<li>
+<p><code>set!</code>/<code>setf</code> has been renamed to <code>=</code>.</p>
+<ul>
+<li>The numeric-equality test <code>=</code> has been renamed to <code>==</code>.</li>
+<li>The naming convention for assignment, <code>set-something!</code>, is now <code>something=</code>.</li>
+<li>I've retained the <code>!</code> suffix for other mutating functions, like <code>push!</code> and <code>inc!</code>, and the 
+<code>?</code> suffix for predicates, like <code>int?</code>.</li>
+</ul>
+</li>
+<li>
+<p><code>progn</code>/<code>begin</code> has been renamed to <code>do</code>.</p>
+</li>
+<li>
+<p>The special values for true, false and nil are written as <code>#t</code>, <code>#f</code> and <code>#n</code>. Nil, false, and
+the empty sequence <code>()</code> are all distinct from one another.</p>
+</li>
+<li>
+<p><code>let</code> no longer defines a block: it introduces a new binding which is scoped to the end of its 
+enclosing block, similar to <code>define</code> in Scheme or <code>let</code> in Rust.</p>
+</li>
+<li>
+<p>Conditionals follow the conventions from 
+<a href="https://docs.racket-lang.org/style/Choosing_the_Right_Construct.html">Racket</a>: prefer <code>cond</code>
+or <code>match</code> rather than <code>if</code>, unless it's a very brief conditional which fits into a single line.</p>
+</li>
+<li>
+<p>Sequence-processing primitives have been renamed to match their Rust equivalents: <code>len</code> 
+rather than <code>length</code>, <code>rev</code> rather than <code>reverse</code>, and so on.</p>
+</li>
+<li>
+<p>A small number of new abbreviations (all of which have a <a href="syntax-and-types.html#abbreviations">straightforward 
+representation</a>): </p>
+<ul>
+<li><code>[a b]</code> to access the field <code>b</code> in the collection <code>a</code>.</li>
+<li><code>@name</code> to access the field <code>name</code> on a method's self-object.</li>
+<li><code>(.meth-name a b c)</code> to invoke the method <code>meth-name</code> on the object <code>a</code>.</li>
+<li><code>(callee ..args x)</code> to splay the contents of the <code>args</code> collection into individual 
+function arguments. This is similar to <code>(apply)</code>, but more powerful and versatile.</li>
+</ul>
+</li>
+<li>
+<p>The quasiquote syntax resembles Clojure. Forms are unquoted with <code>~</code> rather than <code>,</code>, and symbols 
+can be auto-gensymed with a <code>#</code> suffix, as in <code>name#</code>. We parse commas as whitespace so that 
+function or macro arguments can be visually grouped together, like <code>(let a b, c d)</code>.</p>
+</li>
+</ul>
+<p>Early on in GameLisp's development, its syntax and keywords were much more Scheme-like. These
+changes aren't arbitrary - each of them came from battle-testing GameLisp while developing The 
+Castle on Fire. They each represent something which has caused me enough frustration that I 
+thought it would be worth refactoring a dense, 15,000-line codebase to change it.</p>
+<p>That being said, GameLisp is still in its infancy. If you're interested in shaping the growth of
+a new Lisp - specifically, if you've spent a little time working with GameLisp and you have a 
+suggestion for its syntax, naming conventions or style conventions - please feel free to
+<a href="https://github.com/fleabitdev/glsp/issues/">get in touch on GitHub</a>. Some changes which are possible now might be impossible in twelve 
+months' time, so don't hesitate!</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="introduction-for-rust-programmers.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="the-language.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="introduction-for-rust-programmers.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="the-language.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="glsp-highlight.js"></script>
+        
+
+        
+
+    </body>
+</html>
