@@ -594,7 +594,7 @@ function resizeCanvas() {
 
 	if (intRatio >= 1 && intRatio/floatRatio >= 0.667) {
 		//image-rendering: pixelated is pretty broken on Chrome right now, so we fall back to 
-		//just using imageSmoothingDisabled on a larger canvas
+		//just using imageSmoothingEnabled and enlarging the canvas
 		let isChrome = !CSS.supports("image-rendering", "crisp-edges");
 
 		if (isChrome) {

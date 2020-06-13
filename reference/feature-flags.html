@@ -171,7 +171,7 @@ type, or a type which contains reference cycles. <a href="../std/gensym">Gensyms
 symbols can be serialized and deserialized, even though they're not representable.</p>
 <h2><a class="header" href="#compiler" id="compiler">&quot;compiler&quot;</a></h2>
 <p>Introduces a dependency on the <code>&quot;serde&quot;</code> feature, as well as the crates <a href="https://docs.rs/bincode"><code>bincode</code></a>, <a href="https://docs.rs/flate2"><code>flate2</code></a>, 
-<a href="https://docs.rs/syn"><code>syn</code></a>, <a href="https://docs.rs/quote"><code>quote</code></a>, <a href="https://docs.rs/proc_macros2"><code>proc_macros2</code></a> and <a href="https://docs.rs/serde_derive"><code>serde_derive</code></a>.</p>
+<a href="https://docs.rs/syn"><code>syn</code></a>, <a href="https://docs.rs/quote"><code>quote</code></a>, <a href="https://docs.rs/proc_macro2"><code>proc_macro2</code></a> and <a href="https://docs.rs/serde_derive"><code>serde_derive</code></a>.</p>
 <p>This feature flag enables GameLisp source code to be pre-compiled into an efficient binary 
 format. Provides the <a href="https://docs.rs/glsp/*/glsp/macro.compile.html"><code>compile!</code></a> and <a href="https://docs.rs/glsp/*/glsp/macro.eval.html"><code>eval!</code></a> macros, and the <a href="https://docs.rs/glsp/*/glsp/fn.load_and_compile.html"><code>glsp::load_and_compile</code></a> 
 and <a href="https://docs.rs/glsp/*/glsp/fn.load_compiled.html"><code>glsp::load_compiled</code></a> functions. See the <a href="compilation.html">Compilation</a> chapter for

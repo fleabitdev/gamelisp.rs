@@ -329,7 +329,7 @@ place. We provide a number of macros to make this easier.</p>
 <a href="../std/div-mut"><code>div!</code></a>, <a href="../std/div-euclid-mut"><code>div-euclid!</code></a>, <a href="../std/rem-mut"><code>rem!</code></a>, 
 <a href="../std/rem-euclid-mut"><code>rem-euclid!</code></a>, <a href="../std/abs-mut"><code>abs!</code></a> and <a href="../std/clamp-mut"><code>clamp!</code></a> 
 can be used to perform basic arithmetic in-place.</p>
-<p>The <a href="../std/swap"><code>(swap! a b)</code> macro</a> swaps the values stored in any two places.</p>
+<p>The <a href="../std/swap-mut"><code>(swap! a b)</code> macro</a> swaps the values stored in any two places.</p>
 <pre><code>; the two places can be different from one another
 (swap! my-local-var (global 'my-global-var))
 (swap! [my-arr 0] [my-arr -1])

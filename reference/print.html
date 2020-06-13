@@ -1350,7 +1350,7 @@ place. We provide a number of macros to make this easier.</p>
 <a href="../std/div-mut"><code>div!</code></a>, <a href="../std/div-euclid-mut"><code>div-euclid!</code></a>, <a href="../std/rem-mut"><code>rem!</code></a>, 
 <a href="../std/rem-euclid-mut"><code>rem-euclid!</code></a>, <a href="../std/abs-mut"><code>abs!</code></a> and <a href="../std/clamp-mut"><code>clamp!</code></a> 
 can be used to perform basic arithmetic in-place.</p>
-<p>The <a href="../std/swap"><code>(swap! a b)</code> macro</a> swaps the values stored in any two places.</p>
+<p>The <a href="../std/swap-mut"><code>(swap! a b)</code> macro</a> swaps the values stored in any two places.</p>
 <pre><code>; the two places can be different from one another
 (swap! my-local-var (global 'my-global-var))
 (swap! [my-arr 0] [my-arr -1])
@@ -1472,7 +1472,7 @@ a <a href="https://doc.rust-lang.org/std/collections/struct.VecDeque.html"><code
 to push and pop items from the start of the sequence in constant time. (Note that a <code>VecDeque</code>
 is very different from  a C++ <a href="https://en.cppreference.com/w/cpp/container/deque"><code>std::deque</code></a>, 
 which has an odd memory-allocation patterns - <code>VecDeque</code> allocates all of its elements
-is a single buffer, just like a <code>Vec</code>.)</p>
+in a single buffer, just like a <code>Vec</code>.)</p>
 <h2><a class="header" href="#basic-functions" id="basic-functions">Basic Functions</a></h2>
 <p>The <a href="../std/arr"><code>arr</code></a> function will return a new array which contains all of its arguments. 
 When one of the arguments is an array, and that argument is prefixed with <code>..</code>, all of that 
@@ -2217,7 +2217,7 @@ changes and additions to reflect the fact that GameLisp is dynamically-typed rat
 statically-typed.</p>
 <h2><a class="header" href="#basic-patterns" id="basic-patterns">Basic Patterns</a></h2>
 <p>A pattern may appear anywhere that you might create a new variable binding: the left-hand-side
-of a <a href="../std/let"><code>let</code></a>, <a href="../std/def"><code>def</code></a>, <a href="../std/field"><code>field</code></a>, or 
+of a <a href="../std/let"><code>let</code></a>, <a href="../std/def"><code>def</code></a>, <a href="../std/field-clause"><code>field</code></a>, or 
 <a href="../std/with-global"><code>with-global</code></a> form, a function parameter, or the item in a 
 <a href="../std/for"><code>for</code> loop</a>.</p>
 <p>A pattern is a form, but it's not evaluated or macro-expanded in the normal way. Patterns have
@@ -2244,7 +2244,7 @@ to match. If a mismatch occurs in <code>let</code>, <code>def</code>, <code>fiel
 (let 'a-symbol (tab ('a 'b))) ; an error
 </code></pre>
 <p>You can deal with fallible bindings using the <a href="../std/match"><code>match</code></a>, 
-<a href="../std/when-let"><code>when-let</code></a> and <a href="matches-p"><code>matches?</code></a> macros. </p>
+<a href="../std/when-let"><code>when-let</code></a> and <a href="../std/matches-p"><code>matches?</code></a> macros. </p>
 <ul>
 <li><code>match</code> checks a value against a series of patterns and executes some code for the first pattern 
 which successfully matches the value, returning <code>#n</code> if no patterns match. </li>
@@ -3186,7 +3186,7 @@ will automatically be disabled first.</p>
               (@enab! 'Sleeping)))))))) ; disables Perching and Awake
 </code></pre>
 <h2><a class="header" href="#initialization-and-finalization" id="initialization-and-finalization">Initialization and Finalization</a></h2>
-<p>A state may include an <a href="../std/init-state-cluse"><code>init-state</code> clause</a> and/or a 
+<p>A state may include an <a href="../std/init-state-clause"><code>init-state</code> clause</a> and/or a 
 <a href="../std/fini-state-clause"><code>fini-state</code> clause</a>. These are analogous to the <code>init</code> and <code>fini</code> 
 clauses which can appear at the toplevel of a class.</p>
 <p><code>init-state</code> defines a method which is automatically invoked just after the state is enabled. Its 
@@ -4347,7 +4347,7 @@ namely <a href="../std/load"><code>load</code></a>, <a href="../std/include"><co
 Untrusted GameLisp code can get up to all sorts of mischief even without filesystem access, so 
 you should still proceed with great caution when running it.</p>
 <h2><a class="header" href="#output-streams-1" id="output-streams-1">Output Streams</a></h2>
-<p>By default, <a href="../std/prn"><code>prn</code></a> will print its output to <a href="https://doc.rust-lang.org/std/io/struct.Stdout.html"><code>std::io::Stdout</code></a>, and 
+<p>By default, <a href="../std/prn-fn"><code>prn</code></a> will print its output to <a href="https://doc.rust-lang.org/std/io/struct.Stdout.html"><code>std::io::Stdout</code></a>, and 
 <a href="../std/eprn"><code>eprn</code></a> will print its output to <a href="https://doc.rust-lang.org/std/io/struct.Stderr.html"><code>std::io::Stderr</code></a>.</p>
 <p>It's possible to replace those streams with an arbitrary <a href="https://doc.rust-lang.org/std/io/trait.Write.html"><code>std::io::Write</code></a> type using the 
 functions <a href="https://docs.rs/glsp/*/glsp/fn.set_pr_writer.html"><code>glsp::set_pr_writer</code></a> and <a href="https://docs.rs/glsp/*/glsp/fn.set_epr_writer.html"><code>glsp::set_epr_writer</code></a>. For example, to 
@@ -4397,7 +4397,7 @@ API has a few quirks to bear in mind.</p>
 <p>We try to keep panics to an absolute minimum. Because there are a lot of things which can
 potentially go wrong when interacting with a collection (out-of-bounds errors, failed type
 conversions, mutating a borrowed collection), almost every collection method returns a
-<a href="https://docs.rs/glsp/*/glsp/enum.GResult.html"><code>GResult</code></a>. You'll need to make generous use of the <code>?</code> operator.</p>
+<a href="https://docs.rs/glsp/*/glsp/type.GResult.html"><code>GResult</code></a>. You'll need to make generous use of the <code>?</code> operator.</p>
 <h2><a class="header" href="#interior-mutability" id="interior-mutability">Interior Mutability</a></h2>
 <p>All of the collection types are both aliasable and mutable - in Rust, this requires <a href="https://doc.rust-lang.org/reference/interior-mutability.html">interior 
 mutability</a>. There are two ways 
@@ -4743,7 +4743,7 @@ return value from, a Rust function.</p>
 </code></pre>
 <p>To move a value onto the GameLisp heap, simply call <a href="https://docs.rs/glsp/*/glsp/fn.rdata.html"><code>glsp::rdata(your_value)</code></a>. It will return a
 <code>Root&lt;RData&gt;</code> - a shared reference to <code>your_value</code>'s new memory location on the heap.</p>
-<p><a href="https://docs.rs/glsp/*/glsp/fn.rdata.html"><code>glsp::rdata</code></a> requires its argument to implement the <a href="https://docs.rs/glsp/*/glsp/struct.RStore.html"><code>RStore</code></a> trait. You could implement this 
+<p><a href="https://docs.rs/glsp/*/glsp/fn.rdata.html"><code>glsp::rdata</code></a> requires its argument to implement the <a href="https://docs.rs/glsp/*/glsp/trait.RStore.html"><code>RStore</code></a> trait. You could implement this 
 manually, but it's usually much more convenient to use the <a href="https://docs.rs/glsp/*/glsp/macro.rdata.html"><code>rdata!</code></a> macro, which also generates 
 a few extra trait implementations to enable some of the useful features described below.</p>
 <pre><pre class="playpen"><code class="language-rust">
@@ -5401,8 +5401,8 @@ so on.</p>
 <p>This will only matter if you rely on one of your libraries, or call one of your Rust functions, 
 in either of the following circumstances:</p>
 <ul>
-<li>When evaluating a toplevel form (see <a href="evaluation.html">Evaluation</a>)
-- When running a macro expander</li>
+<li>When evaluating a toplevel form (see <a href="evaluation.html">Evaluation</a>)</li>
+<li>When running a macro expander</li>
 </ul>
 <p>In the unlikely event that this is the case, your Rust program can perform its usual setup,
 then compile GameLisp code manually by calling <a href="https://docs.rs/glsp/*/glsp/fn.load_and_compile.html"><code>glsp::load_and_compile</code></a>. This 
@@ -5503,7 +5503,7 @@ type, or a type which contains reference cycles. <a href="../std/gensym">Gensyms
 symbols can be serialized and deserialized, even though they're not representable.</p>
 <h2><a class="header" href="#compiler" id="compiler">&quot;compiler&quot;</a></h2>
 <p>Introduces a dependency on the <code>&quot;serde&quot;</code> feature, as well as the crates <a href="https://docs.rs/bincode"><code>bincode</code></a>, <a href="https://docs.rs/flate2"><code>flate2</code></a>, 
-<a href="https://docs.rs/syn"><code>syn</code></a>, <a href="https://docs.rs/quote"><code>quote</code></a>, <a href="https://docs.rs/proc_macros2"><code>proc_macros2</code></a> and <a href="https://docs.rs/serde_derive"><code>serde_derive</code></a>.</p>
+<a href="https://docs.rs/syn"><code>syn</code></a>, <a href="https://docs.rs/quote"><code>quote</code></a>, <a href="https://docs.rs/proc_macro2"><code>proc_macro2</code></a> and <a href="https://docs.rs/serde_derive"><code>serde_derive</code></a>.</p>
 <p>This feature flag enables GameLisp source code to be pre-compiled into an efficient binary 
 format. Provides the <a href="https://docs.rs/glsp/*/glsp/macro.compile.html"><code>compile!</code></a> and <a href="https://docs.rs/glsp/*/glsp/macro.eval.html"><code>eval!</code></a> macros, and the <a href="https://docs.rs/glsp/*/glsp/fn.load_and_compile.html"><code>glsp::load_and_compile</code></a> 
 and <a href="https://docs.rs/glsp/*/glsp/fn.load_compiled.html"><code>glsp::load_compiled</code></a> functions. See the <a href="compilation.html">Compilation</a> chapter for

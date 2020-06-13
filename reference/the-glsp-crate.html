@@ -300,7 +300,7 @@ namely <a href="../std/load"><code>load</code></a>, <a href="../std/include"><co
 Untrusted GameLisp code can get up to all sorts of mischief even without filesystem access, so 
 you should still proceed with great caution when running it.</p>
 <h2><a class="header" href="#output-streams" id="output-streams">Output Streams</a></h2>
-<p>By default, <a href="../std/prn"><code>prn</code></a> will print its output to <a href="https://doc.rust-lang.org/std/io/struct.Stdout.html"><code>std::io::Stdout</code></a>, and 
+<p>By default, <a href="../std/prn-fn"><code>prn</code></a> will print its output to <a href="https://doc.rust-lang.org/std/io/struct.Stdout.html"><code>std::io::Stdout</code></a>, and 
 <a href="../std/eprn"><code>eprn</code></a> will print its output to <a href="https://doc.rust-lang.org/std/io/struct.Stderr.html"><code>std::io::Stderr</code></a>.</p>
 <p>It's possible to replace those streams with an arbitrary <a href="https://doc.rust-lang.org/std/io/trait.Write.html"><code>std::io::Write</code></a> type using the 
 functions <a href="https://docs.rs/glsp/*/glsp/fn.set_pr_writer.html"><code>glsp::set_pr_writer</code></a> and <a href="https://docs.rs/glsp/*/glsp/fn.set_epr_writer.html"><code>glsp::set_epr_writer</code></a>. For example, to 

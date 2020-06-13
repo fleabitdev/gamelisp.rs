@@ -143,7 +143,7 @@ return value from, a Rust function.</p>
 </code></pre>
 <p>To move a value onto the GameLisp heap, simply call <a href="https://docs.rs/glsp/*/glsp/fn.rdata.html"><code>glsp::rdata(your_value)</code></a>. It will return a
 <code>Root&lt;RData&gt;</code> - a shared reference to <code>your_value</code>'s new memory location on the heap.</p>
-<p><a href="https://docs.rs/glsp/*/glsp/fn.rdata.html"><code>glsp::rdata</code></a> requires its argument to implement the <a href="https://docs.rs/glsp/*/glsp/struct.RStore.html"><code>RStore</code></a> trait. You could implement this 
+<p><a href="https://docs.rs/glsp/*/glsp/fn.rdata.html"><code>glsp::rdata</code></a> requires its argument to implement the <a href="https://docs.rs/glsp/*/glsp/trait.RStore.html"><code>RStore</code></a> trait. You could implement this 
 manually, but it's usually much more convenient to use the <a href="https://docs.rs/glsp/*/glsp/macro.rdata.html"><code>rdata!</code></a> macro, which also generates 
 a few extra trait implementations to enable some of the useful features described below.</p>
 <pre><pre class="playpen"><code class="language-rust">

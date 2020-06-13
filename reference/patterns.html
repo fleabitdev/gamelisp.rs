@@ -153,7 +153,7 @@ changes and additions to reflect the fact that GameLisp is dynamically-typed rat
 statically-typed.</p>
 <h2><a class="header" href="#basic-patterns" id="basic-patterns">Basic Patterns</a></h2>
 <p>A pattern may appear anywhere that you might create a new variable binding: the left-hand-side
-of a <a href="../std/let"><code>let</code></a>, <a href="../std/def"><code>def</code></a>, <a href="../std/field"><code>field</code></a>, or 
+of a <a href="../std/let"><code>let</code></a>, <a href="../std/def"><code>def</code></a>, <a href="../std/field-clause"><code>field</code></a>, or 
 <a href="../std/with-global"><code>with-global</code></a> form, a function parameter, or the item in a 
 <a href="../std/for"><code>for</code> loop</a>.</p>
 <p>A pattern is a form, but it's not evaluated or macro-expanded in the normal way. Patterns have
@@ -180,7 +180,7 @@ to match. If a mismatch occurs in <code>let</code>, <code>def</code>, <code>fiel
 (let 'a-symbol (tab ('a 'b))) ; an error
 </code></pre>
 <p>You can deal with fallible bindings using the <a href="../std/match"><code>match</code></a>, 
-<a href="../std/when-let"><code>when-let</code></a> and <a href="matches-p"><code>matches?</code></a> macros. </p>
+<a href="../std/when-let"><code>when-let</code></a> and <a href="../std/matches-p"><code>matches?</code></a> macros. </p>
 <ul>
 <li><code>match</code> checks a value against a series of patterns and executes some code for the first pattern 
 which successfully matches the value, returning <code>#n</code> if no patterns match. </li>

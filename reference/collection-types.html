@@ -139,7 +139,7 @@ API has a few quirks to bear in mind.</p>
 <p>We try to keep panics to an absolute minimum. Because there are a lot of things which can
 potentially go wrong when interacting with a collection (out-of-bounds errors, failed type
 conversions, mutating a borrowed collection), almost every collection method returns a
-<a href="https://docs.rs/glsp/*/glsp/enum.GResult.html"><code>GResult</code></a>. You'll need to make generous use of the <code>?</code> operator.</p>
+<a href="https://docs.rs/glsp/*/glsp/type.GResult.html"><code>GResult</code></a>. You'll need to make generous use of the <code>?</code> operator.</p>
 <h2><a class="header" href="#interior-mutability" id="interior-mutability">Interior Mutability</a></h2>
 <p>All of the collection types are both aliasable and mutable - in Rust, this requires <a href="https://doc.rust-lang.org/reference/interior-mutability.html">interior 
 mutability</a>. There are two ways 

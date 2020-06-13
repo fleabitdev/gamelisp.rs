@@ -187,8 +187,8 @@ so on.</p>
 <p>This will only matter if you rely on one of your libraries, or call one of your Rust functions, 
 in either of the following circumstances:</p>
 <ul>
-<li>When evaluating a toplevel form (see <a href="evaluation.html">Evaluation</a>)
-- When running a macro expander</li>
+<li>When evaluating a toplevel form (see <a href="evaluation.html">Evaluation</a>)</li>
+<li>When running a macro expander</li>
 </ul>
 <p>In the unlikely event that this is the case, your Rust program can perform its usual setup,
 then compile GameLisp code manually by calling <a href="https://docs.rs/glsp/*/glsp/fn.load_and_compile.html"><code>glsp::load_and_compile</code></a>. This 
