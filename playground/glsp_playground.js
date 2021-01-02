@@ -220,11 +220,14 @@ __exports.height = function() {
 */
 __exports.title = function() {
     try {
-        wasm.title(8);
-        var r0 = getInt32Memory0()[8 / 4 + 0];
-        var r1 = getInt32Memory0()[8 / 4 + 1];
+        const retptr = wasm.__wbindgen_export_4.value - 16;
+        wasm.__wbindgen_export_4.value = retptr;
+        wasm.title(retptr);
+        var r0 = getInt32Memory0()[retptr / 4 + 0];
+        var r1 = getInt32Memory0()[retptr / 4 + 1];
         return getStringFromWasm0(r0, r1);
     } finally {
+        wasm.__wbindgen_export_4.value += 16;
         wasm.__wbindgen_free(r0, r1);
     }
 };
@@ -234,11 +237,14 @@ __exports.title = function() {
 */
 __exports.blurb = function() {
     try {
-        wasm.blurb(8);
-        var r0 = getInt32Memory0()[8 / 4 + 0];
-        var r1 = getInt32Memory0()[8 / 4 + 1];
+        const retptr = wasm.__wbindgen_export_4.value - 16;
+        wasm.__wbindgen_export_4.value = retptr;
+        wasm.blurb(retptr);
+        var r0 = getInt32Memory0()[retptr / 4 + 0];
+        var r1 = getInt32Memory0()[retptr / 4 + 1];
         return getStringFromWasm0(r0, r1);
     } finally {
+        wasm.__wbindgen_export_4.value += 16;
         wasm.__wbindgen_free(r0, r1);
     }
 };
@@ -295,18 +301,7 @@ async function init(input) {
     }
     const imports = {};
     imports.wbg = {};
-    imports.wbg.__wbg_playMouseX_a1390c17e393ceca = handleError(function() {
-        var ret = playMouseX();
-        return ret;
-    });
-    imports.wbg.__wbindgen_object_drop_ref = function(arg0) {
-        takeObject(arg0);
-    };
-    imports.wbg.__wbg_playMouseY_8547a76d5959b2fb = handleError(function() {
-        var ret = playMouseY();
-        return ret;
-    });
-    imports.wbg.__wbg_playDownP_d90e2142a7779485 = handleError(function(arg0, arg1) {
+    imports.wbg.__wbg_playDownP_07c9bb1d9a3a4400 = handleError(function(arg0, arg1) {
         try {
             var ret = playDownP(getStringFromWasm0(arg0, arg1));
             return ret;
@@ -314,15 +309,25 @@ async function init(input) {
             wasm.__wbindgen_free(arg0, arg1);
         }
     });
-    imports.wbg.__wbg_playPressedP_0a61766acd540791 = handleError(function(arg0, arg1) {
+    imports.wbg.__wbindgen_object_drop_ref = function(arg0) {
+        takeObject(arg0);
+    };
+    imports.wbg.__wbg_playMouseX_9408e8622488ec0c = handleError(function() {
+        var ret = playMouseX();
+        return ret;
+    });
+    imports.wbg.__wbg_playDraw_9276409e62c8fe02 = handleError(function(arg0, arg1, arg2, arg3, arg4, arg5, arg6) {
         try {
-            var ret = playPressedP(getStringFromWasm0(arg0, arg1));
-            return ret;
+            playDraw(getStringFromWasm0(arg0, arg1), arg2, arg3, arg4 !== 0, arg5 !== 0, arg6);
         } finally {
             wasm.__wbindgen_free(arg0, arg1);
         }
     });
-    imports.wbg.__wbg_playReleasedP_a6c06ad674024b0a = handleError(function(arg0, arg1) {
+    imports.wbg.__wbg_playMouseY_89fb48d6a49879e7 = handleError(function() {
+        var ret = playMouseY();
+        return ret;
+    });
+    imports.wbg.__wbg_playReleasedP_7ab2ff7790b8bd9a = handleError(function(arg0, arg1) {
         try {
             var ret = playReleasedP(getStringFromWasm0(arg0, arg1));
             return ret;
@@ -330,12 +335,13 @@ async function init(input) {
             wasm.__wbindgen_free(arg0, arg1);
         }
     });
-    imports.wbg.__wbg_playFill_4c536c4d70eb0ee2 = handleError(function(arg0, arg1, arg2, arg3, arg4, arg5, arg6) {
+    imports.wbg.__wbg_playFill_e69b5361f7f67ea9 = handleError(function(arg0, arg1, arg2, arg3, arg4, arg5, arg6) {
         playFill(arg0, arg1, arg2, arg3, arg4, arg5, arg6);
     });
-    imports.wbg.__wbg_playDraw_78f376c022b3e7f2 = handleError(function(arg0, arg1, arg2, arg3, arg4, arg5, arg6) {
+    imports.wbg.__wbg_playPressedP_d0b965966cb15467 = handleError(function(arg0, arg1) {
         try {
-            playDraw(getStringFromWasm0(arg0, arg1), arg2, arg3, arg4 !== 0, arg5 !== 0, arg6);
+            var ret = playPressedP(getStringFromWasm0(arg0, arg1));
+            return ret;
         } finally {
             wasm.__wbindgen_free(arg0, arg1);
         }
@@ -362,7 +368,7 @@ async function init(input) {
             wasm.__wbindgen_free(arg0, arg1);
         }
     };
-    imports.wbg.__wbg_log_cc6b9ddc6ca5449d = function(arg0) {
+    imports.wbg.__wbg_log_f2e13ca55da8bad3 = function(arg0) {
         console.log(getObject(arg0));
     };
     imports.wbg.__wbindgen_debug_string = function(arg0, arg1) {

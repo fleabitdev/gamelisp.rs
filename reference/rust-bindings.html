@@ -1,0 +1,497 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Rust Bindings - GameLisp Reference Manual</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="overview.html">Overview</a></li><li class="chapter-item expanded affix "><a href="introduction-for-rust-programmers.html">Introduction for Rust Programmers</a></li><li class="chapter-item expanded affix "><a href="introduction-for-lisp-programmers.html">Introduction for Lisp Programmers</a></li><li class="chapter-item expanded "><a href="the-language.html"><strong aria-hidden="true">1.</strong> The Language</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="syntax-and-types.html"><strong aria-hidden="true">1.1.</strong> Syntax and Types</a></li><li class="chapter-item expanded "><a href="evaluation.html"><strong aria-hidden="true">1.2.</strong> Evaluation</a></li><li class="chapter-item expanded "><a href="macros.html"><strong aria-hidden="true">1.3.</strong> Macros</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="built-in-macros.html"><strong aria-hidden="true">1.3.1.</strong> Built-in Macros</a></li></ol></li><li class="chapter-item expanded "><a href="numbers.html"><strong aria-hidden="true">1.4.</strong> Numbers</a></li><li class="chapter-item expanded "><a href="arrays.html"><strong aria-hidden="true">1.5.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="strings-and-text.html"><strong aria-hidden="true">1.6.</strong> Strings and Text</a></li><li class="chapter-item expanded "><a href="tables.html"><strong aria-hidden="true">1.7.</strong> Tables</a></li><li class="chapter-item expanded "><a href="iterators.html"><strong aria-hidden="true">1.8.</strong> Iterators</a></li><li class="chapter-item expanded "><a href="coroutines.html"><strong aria-hidden="true">1.9.</strong> Coroutines</a></li><li class="chapter-item expanded "><a href="patterns.html"><strong aria-hidden="true">1.10.</strong> Patterns</a></li><li class="chapter-item expanded "><a href="object-oriented-programming.html"><strong aria-hidden="true">1.11.</strong> Object-Oriented Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="state-machines.html"><strong aria-hidden="true">1.11.1.</strong> State Machines</a></li><li class="chapter-item expanded "><a href="code-reuse.html"><strong aria-hidden="true">1.11.2.</strong> Code Reuse</a></li><li class="chapter-item expanded "><a href="structs.html"><strong aria-hidden="true">1.11.3.</strong> Structs</a></li></ol></li><li class="chapter-item expanded "><a href="errors.html"><strong aria-hidden="true">1.12.</strong> Errors</a></li><li class="chapter-item expanded "><a href="miscellaneous.html"><strong aria-hidden="true">1.13.</strong> Miscellaneous</a></li></ol></li><li class="chapter-item expanded "><a href="the-rust-api.html"><strong aria-hidden="true">2.</strong> The Rust API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="the-glsp-crate.html"><strong aria-hidden="true">2.1.</strong> The glsp Crate</a></li><li class="chapter-item expanded "><a href="collection-types.html"><strong aria-hidden="true">2.2.</strong> Collection Types</a></li><li class="chapter-item expanded "><a href="rust-bindings.html" class="active"><strong aria-hidden="true">2.3.</strong> Rust Bindings</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="rfn.html"><strong aria-hidden="true">2.3.1.</strong> RFn</a></li><li class="chapter-item expanded "><a href="rdata.html"><strong aria-hidden="true">2.3.2.</strong> RData</a></li><li class="chapter-item expanded "><a href="rclass.html"><strong aria-hidden="true">2.3.3.</strong> RClass</a></li><li class="chapter-item expanded "><a href="rglobal.html"><strong aria-hidden="true">2.3.4.</strong> RGlobal</a></li></ol></li><li class="chapter-item expanded "><a href="garbage-collection.html"><strong aria-hidden="true">2.4.</strong> Garbage Collection</a></li><li class="chapter-item expanded "><a href="procedural-macros.html"><strong aria-hidden="true">2.5.</strong> Procedural Macros</a></li><li class="chapter-item expanded "><a href="compilation.html"><strong aria-hidden="true">2.6.</strong> Compilation</a></li><li class="chapter-item expanded "><a href="feature-flags.html"><strong aria-hidden="true">2.7.</strong> Feature Flags</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="performance-figures.html">Appendix A: Performance Figures</a></li><li class="chapter-item expanded affix "><a href="naming-conventions.html">Appendix B: Naming Conventions</a></li><li class="chapter-item expanded affix "><a href="implementation-limits.html">Appendix C: Implementation Limits</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                    </div>
+
+                    <h1 class="menu-title">GameLisp Reference Manual</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#rust-bindings" id="rust-bindings">Rust Bindings</a></h1>
+<p>In game development, scripting languages like GameLisp are used to provide a simple, convenient
+interface to the game engine. If you need to change some small detail of your game, you'll have 
+a much more pleasant experience editing a GameLisp or Lua script, rather than directly hacking 
+on your engine's Rust or C++ code.</p>
+<p>Most game engines will, therefore, include sprawling cross-language bindings which enable large
+parts of the engine to be controlled by scripts. Scripts might need to construct native types, 
+invoke native functions and methods, manipulate global data, and otherwise exert fine control 
+over the engine.</p>
+<p>Historically, this has been - not to put too fine a point on it - terrible. The APIs to bind
+a native language to a scripting language usually feel like an afterthought. They're often
+awkward to use, unsafe, and incomplete. This friction between the native language and the 
+scripting language can act as a large, unnecessary maintenance burden.</p>
+<p>Before discussing GameLisp's approach to this problem, let's take a tour of some existing
+scripting language bindings. The task is simple: Define a global function which can be used to 
+construct an empty OpenGL 2D texture, returning it as a scripting-language object. Then, attach 
+two methods to that object so that the texture's width and height can be queried by scripts.</p>
+<h2><a class="header" href="#lua" id="lua">Lua</a></h2>
+<p><a href="https://lua.org/">Lua</a> is the most popular game scripting language in existence.</p>
+<p>Because Lua is written in C, its built-in foreign function interface comes with some major 
+ergonomic problems. Rather than being based around normal function calls, arguments and return 
+values, it instead requires the user to indirectly manipulate an opaque &quot;stack&quot; of Lua values.</p>
+<pre><code class="language-c">typedef struct Texture {
+	GLuint tex_id;
+	GLsizei width;
+	GLsizei height;
+} Texture;
+
+static int create_texture(lua_State* L) {
+	/* receive two integer arguments as &quot;width&quot; and &quot;height&quot; */
+	int width = luaL_checkinteger(L, 1);
+	int height = luaL_checkinteger(L, 2);
+
+	/* generate the OpenGL texture object itself */
+	GLuint tex_id = 0;
+	glGenTextures(1, &amp;tex_id);
+	glBindTexture(GL_TEXTURE_2D, tex_id);
+	glTexImage2D(
+		GL_TEXTURE_2D, 0, GL_RGBA, width, height, 
+		0, GL_RGBA, GL_UNSIGNED_BYTE, NULL
+	);
+	assert(glGetError() == GL_NO_ERROR);
+
+	/* allocate a Texture object as a Lua userdata, push
+	   it to the stack, and initialize it */
+	Texture* texture = (Texture*) lua_newuserdata(L, sizeof(Texture));
+	texture-&gt;tex_id = tex_id;
+	texture-&gt;width = width;
+	texture-&gt;height = height;
+
+	/* push the Texture metatable to the stack, then pop it and
+	   attach it to the userdata */
+	luaL_getmetatable(L, &quot;Texture&quot;);
+	lua_setmetatable(L, -2);
+
+	/* return the userdata to the caller, via the stack */
+	return 1;
+}
+
+static int texture_get_width(lua_State* L) {
+	/* receive a Texture userdata as the first argument */
+	Texture* texture = (Texture*) luaL_checkudata(L, 1, &quot;Texture&quot;);
+
+	/* push its width onto the stack and return it */
+	lua_pushinteger(L, texture-&gt;width);
+	return 1;
+}
+
+static int texture_get_height(lua_State* L) {
+	/* receive a Texture userdata as the first argument */
+	Texture* texture = (Texture*) luaL_checkudata(L, 1, &quot;Texture&quot;);
+
+	/* push its height onto the stack and return it */
+	lua_pushinteger(L, texture-&gt;height);
+	return 1;
+}
+
+void init(lua_State* L) {
+	/* construct the Texture metatable */
+	luaL_newmetatable(L, &quot;Texture&quot;);
+
+	/* push the string key &quot;__index&quot; to the stack */
+	lua_pushstring(L, &quot;__index&quot;);
+
+	/* construct a table which contains the width/height accessor
+	   functions, bound to the string keys &quot;width&quot; and &quot;height&quot; */
+	lua_createtable(L, 0, 2);
+
+	lua_pushstring(L, &quot;width&quot;);
+	lua_pushcfunction(L, texture_get_width);
+	lua_settable(L, -3);
+
+	lua_pushstring(L, &quot;height&quot;);
+	lua_pushcfunction(L, texture_get_height);
+	lua_settable(L, -3);
+
+	/* bind that table to the Texture metatable's &quot;__index&quot; key */
+	lua_settable(L, -3);
+
+	/* remove the Texture metatable from the stack */
+	lua_pop(L, 1);
+
+	/* bind the create_texture function to a global variable */
+	lua_register(L, &quot;create_texture&quot;, create_texture);
+}
+</code></pre>
+<p>I believe this code speaks for itself! Let's move on...</p>
+<h2><a class="header" href="#luabridge" id="luabridge">LuaBridge</a></h2>
+<p><a href="https://github.com/vinniefalco/LuaBridge">LuaBridge</a> is an excellent third-party library which 
+hides all of the above complexity by exploiting C++'s template system.</p>
+<pre><code class="language-c++">class Texture {
+  public:
+	Texture(GLsizei width, GLsizei height)
+	: mTexId(0), mWidth(width), mHeight(height)
+	{
+		//generate the OpenGL texture object itself
+		glGenTextures(1, &amp;mTexId);
+		glBindTexture(GL_TEXTURE_2D, mTexId);
+		glTexImage2D(
+			GL_TEXTURE_2D, 0, GL_RGBA, width, height, 
+			0, GL_RGBA, GL_UNSIGNED_BYTE, NULL
+		);
+		assert(glGetError() == GL_NO_ERROR);
+	}
+
+	GLsizei width() { return mWidth; }
+	GLsizei height() { return mHeight; }
+
+  private:
+	GLuint mTexId;
+	GLsizei mWidth;
+	GLsizei mHeight;
+};
+
+void init(lua_State* L) {
+	luabridge::getGlobalNamespace(L)
+		.beginClass&lt;Texture&gt;(&quot;Texture&quot;)
+			.addConstructor&lt;void (*) (::GLsizei, ::GLsizei)&gt;()
+			.addFunction(&quot;width&quot;, &amp;Texture::width)
+			.addFunction(&quot;height&quot;, &amp;Texture::height)
+		.endClass();
+}
+</code></pre>
+<p>This is a huge improvement - LuaBridge has taken the dozens of lines of confusing glue code we 
+saw above, and trimmed them down to only six lines!</p>
+<p>Notice that LuaBridge is capable of binding <em>existing</em> C++ code to Lua, without requiring 
+the user to rewrite any of their native code, or write wrapper functions to translate Lua 
+data into C++ data. The constructor for the <code>Texture</code> class, and its <code>width()</code> and <code>height()</code> 
+methods, are the sort of code you might write even if you weren't working with Lua at all. 
+Arguments and return values are automatically translated, and so the glue code &quot;just works&quot;. 
+This is about as good as it gets!</p>
+<p>Unfortunately, LuaBridge is built on top of C++'s template system. Rust doesn't have
+a template system - its trait system is much more safe and rigorous, but also much more
+restrictive. In Rust, this kind of magic trick is more difficult to pull off.</p>
+<h2><a class="header" href="#rlua" id="rlua"><code>rlua</code></a></h2>
+<p><a href="https://github.com/amethyst/rlua"><code>rlua</code></a> is a high-level set of Lua bindings for Rust.
+In my opinion, it's the best Lua-to-Rust binding currently available.</p>
+<p>Here is the Rust code which we'll be trying to bind from here on:</p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>use gl::types::{GLint, GLsizei, GLuint};
+use std::ptr::{null};
+
+struct Texture {
+	tex_id: GLuint,
+	width: GLsizei,
+	height: GLsizei
+}
+
+impl Texture {
+	fn empty(width: GLsizei, height: GLsizei) -&gt; Texture {
+		let mut tex_id = 0;
+
+		unsafe {
+			//generate the OpenGL texture object itself
+			gl::GenTextures(1, &amp;mut tex_id);
+			gl::BindTexture(gl::TEXTURE_2D, tex_id);
+			gl::TexImage2D(
+				gl::TEXTURE_2D, 0, gl::RGBA as GLint, width, height,
+				0, gl::RGBA, gl::UNSIGNED_BYTE, null()
+			);
+			assert!(gl::GetError() == gl::NO_ERROR);
+		}
+
+		//construct the Texture
+		Texture { tex_id, width, height }
+	}
+
+	fn width(&amp;self) -&gt; GLsizei { self.width }
+	fn height(&amp;self) -&gt; GLsizei { self.height }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>And here's the <code>rlua</code> glue code:</p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>use rlua::{Context, prelude::LuaResult, UserData, UserDataMethods};
+
+impl UserData for Texture {
+	fn add_methods&lt;'lua, M: UserDataMethods&lt;'lua, Self&gt;&gt;(methods: &amp;mut M) {
+		methods.add_method(&quot;width&quot;, |_, this, _: ()| {
+			Ok(this.width())
+		});
+
+		methods.add_method(&quot;height&quot;, |_, this, _: ()| {
+			Ok(this.height())
+		});
+	}
+}
+
+fn init(lua_ctx: Context) -&gt; LuaResult&lt;()&gt; {
+	let create_texture = lua_ctx.create_function(
+		|_, (width, height): (GLsizei, GLsizei)| {
+			Ok(Texture::empty(width, height))
+		}
+	)?;
+
+	let globals = lua_ctx.globals();
+	globals.set(&quot;create_texture&quot;, create_texture)?;
+
+	Ok(())
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p><code>rlua</code> is a great library, but this glue code is definitely a backwards step, compared to 
+LuaBridge. We're forced to write some impenetrable hieroglyphics every time we want to 
+make a Rust function callable from Lua. Binding global variables isn't as straightforward
+as it could be, and <code>UserData</code>'s method signature isn't exactly a thing of beauty. 
+We can do better.</p>
+<h2><a class="header" href="#pyo3" id="pyo3"><code>pyo3</code></a></h2>
+<p><code>pyo3</code> is the leading set of Python bindings for Rust. Its glue code requires us to go back and
+add some attribute macros to our <code>Texture</code> type:</p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>use pyo3::prelude::*;
+
+#[pyclass]
+struct Texture {
+	tex_id: GLuint,
+	width: GLsizei,
+	height: GLsizei
+}
+
+#[pymethods]
+impl Texture {
+	#[new]
+	fn empty(width: GLsizei, height: GLsizei) -&gt; Texture {
+		//...
+	}
+
+	fn width(&amp;self) -&gt; GLsizei { self.width }
+	fn height(&amp;self) -&gt; GLsizei { self.height }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>In some ways, this is the best approach we've seen so far. Argument and return-value conversions 
+are handled automatically. There's no need to explicitly register any classes or methods; they're 
+all registered automatically at startup, using the <a href="https://docs.rs/ctor/*/ctor/index.html"><code>ctor</code> crate</a>. This means that each method
+only needs to be named once, rather than twice.</p>
+<p>However, this macro-based approach comes with several downsides. Procedural macros require the
+heavyweight dependencies <code>proc-macro2</code>, <code>quote</code> and <code>syn</code>. The <code>ctor</code> crate has poor availability
+on some platforms, such as game consoles and WebAssembly. The <code>#[pysomething]</code> attributes 
+use a <a href="https://pyo3.rs/v0.12.4/class.html#customizing-the-class">complex domain-specific language</a>, 
+which can make them difficult to learn and difficult to customise. Those macros can only be used
+to bind Rust code at its definition site; the macros can't be used to bind third-party code to
+Python. In general, I'd describe this approach as &quot;convenient, but inflexible&quot;.</p>
+<p>I did consider using macros for GameLisp, but I eventually decided to try a different tack.</p>
+<h2><a class="header" href="#gamelisp" id="gamelisp">GameLisp</a></h2>
+<p>GameLisp's glue code looks like this:</p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>use glsp::prelude::*;
+
+fn init() -&gt; GResult&lt;()&gt; {
+	glsp::bind_rfn(&quot;create-texture&quot;, &amp;Texture::empty)?;
+
+	RClassBuilder::&lt;Texture&gt;::new()
+		.met(&quot;width&quot;, &amp;Texture::width)
+		.met(&quot;height&quot;, &amp;Texture::height)
+		.build();
+
+	Ok(())
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>By tying Rust's type system in knots, I've managed to devise a Rust API which has the same
+flexibility and convenience as LuaBridge. It performs automatic conversions for function
+arguments and return values; works well with Rust methods, closures and generic functions; permits 
+arbitrary Rust data to be moved onto the garbage-collected heap; enables you to bind third-party 
+crates so that they can be scripted by GameLisp code; and provides a very convenient way to store, 
+and access, global Rust data.</p>
+<p>Over the next four chapters, we'll go through each of these APIs in detail.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="collection-types.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="rfn.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="collection-types.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="rfn.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="glsp-highlight.js"></script>
+        
+
+        
+
+    </body>
+</html>

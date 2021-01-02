@@ -1,0 +1,562 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>RGlobal - GameLisp Reference Manual</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="overview.html">Overview</a></li><li class="chapter-item expanded affix "><a href="introduction-for-rust-programmers.html">Introduction for Rust Programmers</a></li><li class="chapter-item expanded affix "><a href="introduction-for-lisp-programmers.html">Introduction for Lisp Programmers</a></li><li class="chapter-item expanded "><a href="the-language.html"><strong aria-hidden="true">1.</strong> The Language</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="syntax-and-types.html"><strong aria-hidden="true">1.1.</strong> Syntax and Types</a></li><li class="chapter-item expanded "><a href="evaluation.html"><strong aria-hidden="true">1.2.</strong> Evaluation</a></li><li class="chapter-item expanded "><a href="macros.html"><strong aria-hidden="true">1.3.</strong> Macros</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="built-in-macros.html"><strong aria-hidden="true">1.3.1.</strong> Built-in Macros</a></li></ol></li><li class="chapter-item expanded "><a href="numbers.html"><strong aria-hidden="true">1.4.</strong> Numbers</a></li><li class="chapter-item expanded "><a href="arrays.html"><strong aria-hidden="true">1.5.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="strings-and-text.html"><strong aria-hidden="true">1.6.</strong> Strings and Text</a></li><li class="chapter-item expanded "><a href="tables.html"><strong aria-hidden="true">1.7.</strong> Tables</a></li><li class="chapter-item expanded "><a href="iterators.html"><strong aria-hidden="true">1.8.</strong> Iterators</a></li><li class="chapter-item expanded "><a href="coroutines.html"><strong aria-hidden="true">1.9.</strong> Coroutines</a></li><li class="chapter-item expanded "><a href="patterns.html"><strong aria-hidden="true">1.10.</strong> Patterns</a></li><li class="chapter-item expanded "><a href="object-oriented-programming.html"><strong aria-hidden="true">1.11.</strong> Object-Oriented Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="state-machines.html"><strong aria-hidden="true">1.11.1.</strong> State Machines</a></li><li class="chapter-item expanded "><a href="code-reuse.html"><strong aria-hidden="true">1.11.2.</strong> Code Reuse</a></li><li class="chapter-item expanded "><a href="structs.html"><strong aria-hidden="true">1.11.3.</strong> Structs</a></li></ol></li><li class="chapter-item expanded "><a href="errors.html"><strong aria-hidden="true">1.12.</strong> Errors</a></li><li class="chapter-item expanded "><a href="miscellaneous.html"><strong aria-hidden="true">1.13.</strong> Miscellaneous</a></li></ol></li><li class="chapter-item expanded "><a href="the-rust-api.html"><strong aria-hidden="true">2.</strong> The Rust API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="the-glsp-crate.html"><strong aria-hidden="true">2.1.</strong> The glsp Crate</a></li><li class="chapter-item expanded "><a href="collection-types.html"><strong aria-hidden="true">2.2.</strong> Collection Types</a></li><li class="chapter-item expanded "><a href="rust-bindings.html"><strong aria-hidden="true">2.3.</strong> Rust Bindings</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="rfn.html"><strong aria-hidden="true">2.3.1.</strong> RFn</a></li><li class="chapter-item expanded "><a href="rdata.html"><strong aria-hidden="true">2.3.2.</strong> RData</a></li><li class="chapter-item expanded "><a href="rclass.html"><strong aria-hidden="true">2.3.3.</strong> RClass</a></li><li class="chapter-item expanded "><a href="rglobal.html" class="active"><strong aria-hidden="true">2.3.4.</strong> RGlobal</a></li></ol></li><li class="chapter-item expanded "><a href="garbage-collection.html"><strong aria-hidden="true">2.4.</strong> Garbage Collection</a></li><li class="chapter-item expanded "><a href="procedural-macros.html"><strong aria-hidden="true">2.5.</strong> Procedural Macros</a></li><li class="chapter-item expanded "><a href="compilation.html"><strong aria-hidden="true">2.6.</strong> Compilation</a></li><li class="chapter-item expanded "><a href="feature-flags.html"><strong aria-hidden="true">2.7.</strong> Feature Flags</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="performance-figures.html">Appendix A: Performance Figures</a></li><li class="chapter-item expanded affix "><a href="naming-conventions.html">Appendix B: Naming Conventions</a></li><li class="chapter-item expanded affix "><a href="implementation-limits.html">Appendix C: Implementation Limits</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                    </div>
+
+                    <h1 class="menu-title">GameLisp Reference Manual</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#rglobal" id="rglobal">RGlobal</a></h1>
+<p>As a Rust game developer, you're probably already aware of Rust's stern and disapproving 
+attitude towards global variables.</p>
+<p>In order to prevent unsafe mutation and unsafe multithreading, safe Rust is forced to completely
+forbid global mutable variables. They need to be wrapped in a <a href="https://doc.rust-lang.org/std/macro.thread_local.html"><code>thread_local!</code></a>, a <a href="https://doc.rust-lang.org/std/cell/struct.RefCell.html"><code>RefCell</code></a>, a 
+<a href="https://doc.rust-lang.org/std/sync/struct.Mutex.html"><code>Mutex</code></a>, a <a href="https://docs.rs/lazy_static/"><code>lazy_static!</code></a>, or something else to shield you from the shared mutable data.</p>
+<p>This is strictly necessary to uphold Rust's invariants, but it always makes global variables
+much less convenient to use. Typical use of a <a href="https://doc.rust-lang.org/std/macro.thread_local.html"><code>thread_local!</code></a> variable is not a pretty sight:</p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>thread_local! {
+	pub(crate) static LOG_FILE: RefCell&lt;Option&lt;File&gt;&gt; = RefCell::new(None);
+}
+
+fn log_str(text: &amp;str) {
+	LOG_FILE.with(|ref_cell| {
+		let mut option = ref_cell.borrow_mut();
+		if let Some(ref mut file) = *option {
+			file.write_all(text.as_bytes()).ok();
+		}
+	})
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Contrast the equivalent C code:</p>
+<pre><code class="language-c">thread_local FILE* log_file;
+
+void log_str(const char* text) {
+	if (log_file) {
+		assert(fputs(text, log_file));
+	}
+}
+</code></pre>
+<p>When programming a game, you'll sometimes encounter a part of your engine which seems &quot;naturally
+global&quot; - a texture manager, an audio mixer, a log file, an entity database. There's only ever 
+going to be one of it, and it's only ever going to be accessed from a single thread, but Rust 
+still forces you to keep it at arm's length.</p>
+<p>You're given two options:</p>
+<ul>
+<li>
+<p>Use something like a <a href="https://docs.rs/lazy_static/"><code>lazy_static!</code></a> <a href="https://doc.rust-lang.org/std/sync/struct.RwLock.html"><code>RwLock</code></a>. At minimum, this requires you to recite the
+incantation <code>NAME.read().unwrap()</code> every time you access the global object. This is 
+inconvenient, it makes the order of initialization/destruction less predictable, and it 
+carries a non‑trivial performance cost.</p>
+</li>
+<li>
+<p>Allocate your &quot;global&quot; object on the stack when your program starts up, and pass borrowed
+references down the callstack to any function which needs to access it. I would consider this 
+an anti‑pattern in Rust game development - passing a context reference into most 
+function calls adds a lot of visual noise, and it sometimes causes borrow‑checker 
+headaches.</p>
+<ul>
+<li>This is why functions like <a href="https://docs.rs/glsp/*/glsp/fn.sym.html"><code>glsp::sym</code></a> are free functions, rather than being invoked
+as methods on some <code>&amp;mut Glsp</code> &quot;God object&quot;. An earlier version of the <code>glsp</code> crate
+did work that way, but it made the library much less pleasant to use.</li>
+</ul>
+</li>
+</ul>
+<p>If neither of these options seem appealing, GameLisp offers an alternative.</p>
+<h2><a class="header" href="#rglobal-1" id="rglobal-1"><code>RGlobal</code></a></h2>
+<p>An rglobal is a Rust object which is owned by the GameLisp <a href="https://docs.rs/glsp/*/glsp/struct.Runtime.html"><code>Runtime</code></a>. Predictably, the name 
+stands for &quot;Rust global&quot;. </p>
+<p>Unlike <a href="https://docs.rs/glsp/*/glsp/struct.RData.html"><code>RData</code></a>, rglobals are singletons: for a given rglobal type, you can only store one 
+instance of that type in each <code>Runtime</code>.</p>
+<p>To define an rglobal, implement the <a href="https://docs.rs/glsp/*/glsp/trait.RGlobal.html"><code>RGlobal</code> trait</a> for one of your types, and then pass
+an instance of that type to the <a href="https://docs.rs/glsp/*/glsp/fn.add_rglobal.html"><code>glsp::add_rglobal</code></a> function. Ownership will be transferred
+to the active <code>Runtime</code>. If you later decide that you'd like to remove the rglobal from the
+<code>Runtime</code> and take back ownership (perhaps because you're finished with the rglobal and you
+want to drop it), you can call <a href="https://docs.rs/glsp/*/glsp/fn.take_rglobal.html"><code>glsp::take_rglobal</code></a>.</p>
+<p>While an rglobal of type <code>T</code> is registered with the active <code>Runtime</code>, you can temporarily
+borrow it by calling <a href="https://docs.rs/glsp/*/glsp/trait.RGlobal.html#method.borrow"><code>T::borrow()</code></a> or <a href="https://docs.rs/glsp/*/glsp/trait.RGlobal.html#method.borrow_mut"><code>T::borrow_mut()</code></a>.</p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>struct Textures {
+	by_name: HashMap&lt;Sym, RRoot&lt;Texture&gt;&gt;
+}
+
+impl RGlobal for Textures { }
+
+fn init() {
+	glsp::add_rglobal(Textures::new());
+}
+
+fn get_texture(name: Sym) -&gt; GResult&lt;RRoot&lt;Texture&gt;&gt; {
+	let textures = Textures::borrow();
+
+	match textures.by_name.get(&amp;name) {
+		Some(texture) =&gt; Ok(RRoot::clone(texture)),
+		None =&gt; bail!(&quot;texture {} does not exist&quot;, name)
+	}
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Notice that, unlike <code>RData</code>, we're able to store an <code>RRoot</code> in our rglobal without causing a
+memory leak.</p>
+<p>Dynamic checks are used to uphold Rust's aliasing rules - for example, it's an error to call 
+<a href="https://docs.rs/glsp/*/glsp/fn.take_rglobal.html"><code>glsp::take_rglobal</code></a> or <a href="https://docs.rs/glsp/*/glsp/trait.RGlobal.html#method.borrow_mut"><code>T::borrow_mut()</code></a> for an rglobal which is currently borrowed. When the
+<a href="https://docs.rs/glsp/*/glsp/struct.Runtime.html"><code>Runtime</code></a> is dropped, all of its rglobals will be dropped in the reverse order that they
+were registered.</p>
+<p>This is already a big improvement compared to <a href="https://docs.rs/lazy_static/"><code>lazy_static!</code></a>, but the real magic comes from
+<a href="rfn.html#argument-conversions">argument type conversions</a>. When a function parameter is a
+shared or mutable reference to a type which implements <code>RGlobal</code>, calling the function from 
+GameLisp will automatically borrow that rglobal for the duration of the function call. If the 
+<code>get_texture</code> function above was intended to be called from GameLisp, we could rewrite it like 
+this:</p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>impl Textures {
+	fn get_texture(&amp;self, name: Sym) -&gt; GResult&lt;RRoot&lt;Texture&gt;&gt; {
+		match self.by_name.get(&amp;name) {
+			Some(texture) =&gt; Ok(RRoot::clone(texture)),
+			None =&gt; bail!(&quot;texture {} does not exist&quot;, name)
+		}
+	}
+}
+
+glsp::bind_rfn(&quot;get-texture&quot;, &amp;Textures::get_texture)?;
+<span class="boring">}
+</span></code></pre></pre>
+<p>Because the type of <code>&amp;self</code> is <code>&amp;Textures</code>, and the <code>Textures</code> type implements <code>RGlobal</code>, 
+GameLisp will call <code>Textures::borrow()</code> to immutably borrow the <code>Textures</code> rglobal for the 
+duration of each call to <code>get-texture</code>.</p>
+<p>When an <code>rfn</code> parameter is borrowed from an rglobal, it doesn't consume an argument. You would
+invoke this function from GameLisp by calling <code>(get-texture name)</code>, with only one argument.</p>
+<p>A function may have multiple library parameters:</p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>impl Textures {
+	fn draw_texture(
+		&amp;self,
+		renderer: &amp;mut Renderer,
+		name: Sym,
+		x: i32,
+		y: i32
+	) -&gt; GResult&lt;()&gt; {
+
+		let texture = self.get_texture(name)?;
+		renderer.draw(&amp;texture.borrow(), x, y)
+	}
+}
+
+glsp::bind_rfn(&quot;draw-texture&quot;, &amp;Textures::draw_texture)?;
+<span class="boring">}
+</span></code></pre></pre>
+<p>Assuming <code>Renderer</code> implements <code>RGlobal</code>, you would invoke the above function from GameLisp as 
+<code>(draw-texture id x y)</code>.</p>
+<p>This auto-borrowing is very convenient. It provides a pool of global variables which are 
+&quot;always available&quot; to GameLisp and Rust code, with a minimum of fuss. </p>
+<h2><a class="header" href="#symbol-caching" id="symbol-caching">Symbol Caching</a></h2>
+<p>If you're finicky about performance, function calls like <code>glsp::global(&quot;texture-count&quot;)</code>
+might make you nervous. That function will invoke <code>glsp::sym(&quot;texture-count&quot;)</code> every
+time it's called, performing a hash-table lookup to convert the string into a symbol. Surely it
+would be better to cache the symbol somewhere, and call <code>glsp::global(TEXTURE_COUNT_SYM)</code>
+instead?</p>
+<p>(In 90% of cases, the answer to that question is &quot;no, it doesn't matter&quot;... but the last 10% can 
+be quite important!)</p>
+<p>If you want to cache a symbol, the most convenient option is usually to store it in an rglobal.
+This will ensure that you don't accidentally share symbols between one <code>Runtime</code> and another.</p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>struct Textures {
+	//...
+
+	pub nearest_neighbour_sym: Sym,
+	pub bilinear_sym: Sym,
+	pub trilinear_sym: Sym
+}
+
+impl Textures {
+	fn new() -&gt; Textures {
+		Textures {
+			//...
+
+			nearest_neighbour_sym: sym!(&quot;nearest-neighbour&quot;),
+			bilinear_sym: sym!(&quot;bilinear&quot;),
+			trilinear_sym: sym!(&quot;trilinear&quot;)
+		}
+	}
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>We provide the <a href="https://docs.rs/glsp/*/glsp/macro.syms.html"><code>syms!</code></a> macro to make this more straightforward. The macro defines a struct
+for which every field is a Sym, with a constructor function named <code>new()</code> which initializes each
+field by calling <a href="https://docs.rs/glsp/*/glsp/fn.sym.html"><code>glsp::sym</code></a>.</p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>syms! {
+	pub (crate) struct Syms {
+		pub(crate) nearest_neighbour: &quot;nearest-neighbour&quot;,
+		pub(crate) bilinear: &quot;bilinear&quot;,
+		pub(crate) trilinear: &quot;trilinear&quot;
+	}
+}
+
+struct Textures {
+	syms: Syms,
+
+	//...
+}
+
+impl Textures {
+	fn new() -&gt; Textures {
+		Textures {
+			syms: Syms::new(),
+
+			//...
+		}
+	}
+}
+<span class="boring">}
+</span></code></pre></pre>
+<h2><a class="header" href="#multithreading" id="multithreading">Multithreading</a></h2>
+<p>GameLisp is single-threaded, because multithreading is primarily a performance optimization. 
+Nobody is writing multithreaded game code for its beauty or its convenience! GameLisp code simply 
+<a href="performance-figures.html">isn't fast enough</a> for multithreading to be worth the extra complexity it
+would add to the language, so it's not supported.</p>
+<p>That being said, GameLisp is designed to be cleanly embedded into a multithreaded Rust program.
+You can spin up a separate isolated <a href="https://docs.rs/glsp/*/glsp/struct.Runtime.html"><code>Runtime</code></a> for each thread if you like (similar to a 
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API">Web Worker</a>), but it would be more typical to have one <a href="https://docs.rs/glsp/*/glsp/struct.Runtime.html"><code>Runtime</code></a> which lives on the main 
+thread, with a few worker threads which only run Rust code.</p>
+<p>Let's imagine you have a <code>Clip</code> which stores a few seconds of PCM audio data, and a worker thread
+which performs audio mixing in software. You want to load and manipulate <code>Clips</code> from your GameLisp
+scripts, while still allowing the worker thread to access their PCM samples. A naive attempt 
+would look something like this:</p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>struct Clip {
+	name: Sym,
+	channels: Channels,
+	samples: Vec&lt;i16&gt;
+}
+
+let clip = glsp::rdata(Clip::load(&quot;door-opening.wav&quot;));
+<span class="boring">}
+</span></code></pre></pre>
+<p>You'll run into a problem when you try to pass your <code>Clip</code> to your worker thread. Because the
+<code>Clip</code> is owned by a GameLisp <code>Runtime</code>, you can only refer to it indirectly, using the types 
+<a href="https://docs.rs/glsp/*/glsp/struct.RData.html"><code>Root&lt;RData&gt;</code></a>, <a href="https://docs.rs/glsp/*/glsp/struct.RRoot.html"><code>RRoot&lt;Clip&gt;</code></a>, <code>&amp;Clip</code>, and <code>&amp;mut Clip</code>. None of these types implement
+<a href="https://doc.rust-lang.org/std/marker/trait.Send.html"><code>Send</code></a> or <a href="https://doc.rust-lang.org/std/marker/trait.Sync.html"><code>Sync</code></a>, so there's no way for you to access your <code>Clip</code>'s samples from another 
+thread.</p>
+<p>Thanks to fearless concurrency, there's an easy workaround. Simply wrap the shared parts of 
+your struct in an <a href="https://doc.rust-lang.org/std/sync/struct.Arc.html"><code>Arc&lt;T&gt;</code></a>:</p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>struct Clip {
+	name: Sym,
+	samples: Arc&lt;Samples&gt;
+}
+
+struct Samples {
+	channels: Channels,
+	samples: Vec&lt;i16&gt;
+}
+
+impl Clip {
+	fn play(&amp;self, mixer: &amp;Mixer) {
+		mixer.play_samples(Arc::clone(&amp;self.samples));
+	}
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Ideally, when writing a multithreaded game with GameLisp, your worker threads shouldn't know that 
+GameLisp exists at all. Think of each worker thread's code as a small library written in pure Rust, 
+for which your main thread is a client. In the example above, the <code>Mixer</code> could be thought of as
+a library which mixes raw sample buffers, <em>not</em> a library which mixes <code>Clip</code>s specifically.</p>
+<h2><a class="header" href="#using-gamelisp-with-ecs" id="using-gamelisp-with-ecs">Using GameLisp with ECS</a></h2>
+<p>Although GameLisp has some <a href="code-reuse.html#aside-why-not-ecs">philosophical differences</a> with the
+Entity-Component-System pattern (ECS), it's still possible for GameLisp and ECS to comfortably 
+coexist in the same game.</p>
+<p>The main obstacle is that most ECS libraries are pervasively multithreaded, but each GameLisp 
+<code>Runtime</code> is strictly single-threaded. This means that GameLisp data can't be stored in 
+components, and GameLisp scripts can't be executed by systems.</p>
+<p>Thankfully, ECS libraries usually have a low-level API which can be used to look up an entity's
+components dynamically, as long as no systems are currently executing. This can be used to 
+implement a &quot;pseudo-system&quot; which runs GameLisp scripts once per frame, after all other entity 
+processing is complete.</p>
+<p>For example, with <a href="https://bevyengine.org/"><code>bevy</code></a> 0.4:</p>
+<pre><code>(defmixin Entity
+  (field id) ; an rdata
+
+  (prop position
+    (get
+      (ecs:position @id))
+    (set (new-position)
+      (ecs:position= @id new-position))))
+</code></pre>
+<pre><pre class="playpen"><code class="language-rust">#![feature(min_specialization)]
+
+use bevy::{app::App, ecs::Entity};
+use glsp::prelude::*;
+
+struct Bevy(App);
+impl RGlobal for Bevy { }
+
+//a component
+struct Position(f32, f32);
+
+//the (ecs:position) function: access a Position from a glsp script
+fn ecs_position(
+	bevy: &amp;Bevy,
+	entity: &amp;Entity
+) -&gt; (f32, f32) {
+
+	let position = bevy.0.world.get::&lt;Position&gt;(*entity_id).unwrap();
+	(position.0, position.1)
+}
+
+//the (ecs:position=) function: mutate a Position from a glsp script
+fn ecs_set_position(
+	bevy: &amp;mut Bevy,
+	entity_id: &amp;Entity,
+	(x, y): (f32, f32)
+) {
+
+	let mut position = bevy.0.world.get_mut::&lt;Position&gt;(*entity_id).unwrap();
+	*position = Position(x, y);
+}
+
+fn main() {
+	let runtime = Runtime::new();
+	runtime.run(|| {
+
+		//register accessor/mutator functions with glsp
+		glsp::bind_rfn(&quot;ecs:position&quot;, &amp;ecs_position)?;
+		glsp::bind_rfn(&quot;ecs:position=&quot;, &amp;ecs_set_position)?;
+
+		//construct the ECS
+		let mut app_builder = App::build();
+
+		//...register your usual systems, and so on...
+
+		//store the bevy App as an rglobal
+		glsp::add_rglobal(Bevy(app_builder.app));
+
+		//the main loop
+		loop {
+			//run bevy for a single step
+			Bevy::borrow_mut().0.update();
+
+			//now, you can execute glsp code for this step. global
+			//functions like (ecs:position=) will automatically access a
+			//particular Entity's components, stored within the bevy App
+		}
+
+		Ok(())
+	}).unwrap();
+}
+</code></pre></pre>
+<p>I believe this approach would also be compatible with <code>specs</code>, the ECS used by the Amethyst
+game engine.</p>
+<p>With a little experimentation (and a little unsafe code!), it should also be possible to run 
+GameLisp scripts from a thread-local system. For some games, this might be more the more 
+ergonomic option.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="rclass.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="garbage-collection.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="rclass.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="garbage-collection.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        <script type="text/javascript" src="glsp-highlight.js"></script>
+        
+
+        
+
+    </body>
+</html>

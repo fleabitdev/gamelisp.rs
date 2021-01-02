@@ -17,7 +17,6 @@
 	<url><loc>https://gamelisp.rs/reference/introduction-for-lisp-programmers.html</loc></url>
 	<url><loc>https://gamelisp.rs/reference/introduction-for-rust-programmers.html</loc></url>
 	<url><loc>https://gamelisp.rs/reference/iterators.html</loc></url>
-	<url><loc>https://gamelisp.rs/reference/libraries.html</loc></url>
 	<url><loc>https://gamelisp.rs/reference/macros.html</loc></url>
 	<url><loc>https://gamelisp.rs/reference/miscellaneous.html</loc></url>
 	<url><loc>https://gamelisp.rs/reference/naming-conventions.html</loc></url>
@@ -28,8 +27,11 @@
 	<url><loc>https://gamelisp.rs/reference/performance-figures.html</loc></url>
 	<url><loc>https://gamelisp.rs/reference/print.html</loc></url>
 	<url><loc>https://gamelisp.rs/reference/procedural-macros.html</loc></url>
-	<url><loc>https://gamelisp.rs/reference/rust-data.html</loc></url>
-	<url><loc>https://gamelisp.rs/reference/rust-functions.html</loc></url>
+	<url><loc>https://gamelisp.rs/reference/rclass.html</loc></url>
+	<url><loc>https://gamelisp.rs/reference/rdata.html</loc></url>
+	<url><loc>https://gamelisp.rs/reference/rfn.html</loc></url>
+	<url><loc>https://gamelisp.rs/reference/rglobal.html</loc></url>
+	<url><loc>https://gamelisp.rs/reference/rust-bindings.html</loc></url>
 	<url><loc>https://gamelisp.rs/reference/state-machines.html</loc></url>
 	<url><loc>https://gamelisp.rs/reference/strings-and-text.html</loc></url>
 	<url><loc>https://gamelisp.rs/reference/structs.html</loc></url>
@@ -88,12 +90,12 @@
 	<url><loc>https://gamelisp.rs/std/bool-p</loc></url>
 	<url><loc>https://gamelisp.rs/std/bool</loc></url>
 	<url><loc>https://gamelisp.rs/std/break</loc></url>
-	<url><loc>https://gamelisp.rs/std/call-meth</loc></url>
+	<url><loc>https://gamelisp.rs/std/call-met</loc></url>
 	<url><loc>https://gamelisp.rs/std/callable-p</loc></url>
 	<url><loc>https://gamelisp.rs/std/cbrt</loc></url>
 	<url><loc>https://gamelisp.rs/std/ceil</loc></url>
 	<url><loc>https://gamelisp.rs/std/chain</loc></url>
-	<url><loc>https://gamelisp.rs/std/chance</loc></url>
+	<url><loc>https://gamelisp.rs/std/chance-p</loc></url>
 	<url><loc>https://gamelisp.rs/std/char-p</loc></url>
 	<url><loc>https://gamelisp.rs/std/char</loc></url>
 	<url><loc>https://gamelisp.rs/std/chunks-exact</loc></url>
@@ -109,7 +111,6 @@
 	<url><loc>https://gamelisp.rs/std/clear-mut</loc></url>
 	<url><loc>https://gamelisp.rs/std/clone</loc></url>
 	<url><loc>https://gamelisp.rs/std/cloned</loc></url>
-	<url><loc>https://gamelisp.rs/std/coin-flip</loc></url>
 	<url><loc>https://gamelisp.rs/std/collections</loc></url>
 	<url><loc>https://gamelisp.rs/std/cond-eq-p</loc></url>
 	<url><loc>https://gamelisp.rs/std/cond-num-eq</loc></url>
@@ -195,7 +196,6 @@
 	<url><loc>https://gamelisp.rs/std/forn</loc></url>
 	<url><loc>https://gamelisp.rs/std/forni</loc></url>
 	<url><loc>https://gamelisp.rs/std/fract</loc></url>
-	<url><loc>https://gamelisp.rs/std/free-mut</loc></url>
 	<url><loc>https://gamelisp.rs/std/freed-p</loc></url>
 	<url><loc>https://gamelisp.rs/std/freeze-global-mut</loc></url>
 	<url><loc>https://gamelisp.rs/std/freeze-mut</loc></url>
@@ -209,7 +209,7 @@
 	<url><loc>https://gamelisp.rs/std/gte</loc></url>
 	<url><loc>https://gamelisp.rs/std/has-global-p</loc></url>
 	<url><loc>https://gamelisp.rs/std/has-macro-p</loc></url>
-	<url><loc>https://gamelisp.rs/std/has-meth-p</loc></url>
+	<url><loc>https://gamelisp.rs/std/has-met-p</loc></url>
 	<url><loc>https://gamelisp.rs/std/has-p</loc></url>
 	<url><loc>https://gamelisp.rs/std/has-state-p</loc></url>
 	<url><loc>https://gamelisp.rs/std/identity</loc></url>
@@ -244,6 +244,7 @@
 	<url><loc>https://gamelisp.rs/std/let-mixin</loc></url>
 	<url><loc>https://gamelisp.rs/std/let</loc></url>
 	<url><loc>https://gamelisp.rs/std/lines</loc></url>
+	<url><loc>https://gamelisp.rs/std/load-str</loc></url>
 	<url><loc>https://gamelisp.rs/std/load</loc></url>
 	<url><loc>https://gamelisp.rs/std/log</loc></url>
 	<url><loc>https://gamelisp.rs/std/loop</loc></url>
@@ -260,9 +261,9 @@
 	<url><loc>https://gamelisp.rs/std/matches-p</loc></url>
 	<url><loc>https://gamelisp.rs/std/max-args</loc></url>
 	<url><loc>https://gamelisp.rs/std/max</loc></url>
-	<url><loc>https://gamelisp.rs/std/meth-clause</loc></url>
-	<url><loc>https://gamelisp.rs/std/meth-name-abbrv</loc></url>
-	<url><loc>https://gamelisp.rs/std/meth-name</loc></url>
+	<url><loc>https://gamelisp.rs/std/met-clause</loc></url>
+	<url><loc>https://gamelisp.rs/std/met-name-abbrv</loc></url>
+	<url><loc>https://gamelisp.rs/std/met-name</loc></url>
 	<url><loc>https://gamelisp.rs/std/min-args</loc></url>
 	<url><loc>https://gamelisp.rs/std/min</loc></url>
 	<url><loc>https://gamelisp.rs/std/miscellaneous</loc></url>
@@ -316,8 +317,8 @@
 	<url><loc>https://gamelisp.rs/std/push-start-mut</loc></url>
 	<url><loc>https://gamelisp.rs/std/quote-abbrv</loc></url>
 	<url><loc>https://gamelisp.rs/std/quote</loc></url>
+	<url><loc>https://gamelisp.rs/std/rand-pick</loc></url>
 	<url><loc>https://gamelisp.rs/std/rand-reseed</loc></url>
-	<url><loc>https://gamelisp.rs/std/rand-select</loc></url>
 	<url><loc>https://gamelisp.rs/std/rand-weighted</loc></url>
 	<url><loc>https://gamelisp.rs/std/rand</loc></url>
 	<url><loc>https://gamelisp.rs/std/rchunks-exact</loc></url>
@@ -331,6 +332,7 @@
 	<url><loc>https://gamelisp.rs/std/repeat-with</loc></url>
 	<url><loc>https://gamelisp.rs/std/repeat</loc></url>
 	<url><loc>https://gamelisp.rs/std/replace</loc></url>
+	<url><loc>https://gamelisp.rs/std/representable-sym-str-p</loc></url>
 	<url><loc>https://gamelisp.rs/std/require</loc></url>
 	<url><loc>https://gamelisp.rs/std/restart-block</loc></url>
 	<url><loc>https://gamelisp.rs/std/retain-mut</loc></url>
